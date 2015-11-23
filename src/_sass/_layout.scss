@@ -2,26 +2,25 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
-
+    min-width: 100%;
+    top: 0;
+    background-color: white;
+    
     // Positioning context for the mobile navigation icon
-    position: relative;
+    position: fixed;
 }
 
-.site-title {
-    font-size: 26px;
-    font-weight: 300;
-    line-height: 56px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
+.site-logo {
+    background-image: url("/test-repo/img/test-cafe-logo.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: block;
     float: left;
-
-    &,
-    &:visited {
-        color: $grey-color-dark;
-    }
+    height: 50px;
+    width: 250px;
+    margin: 10px 0 10px 0;
 }
 
 .site-nav {
@@ -35,6 +34,8 @@
     .page-link {
         color: $text-color;
         line-height: $base-line-height;
+        padding-top: 29px;
+        display: inline-block;
 
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {
