@@ -8,4 +8,4 @@ description: >
   across browsers, operating systems and devices.
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
