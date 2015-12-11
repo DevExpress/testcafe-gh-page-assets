@@ -13,7 +13,7 @@
 }
 
 .site-logo {
-    background-image: url("/test-repo/img/test-cafe-logo.png");
+    background-image: url($baseUrl + "/img/test-cafe-logo.png");
     background-repeat: no-repeat;
     background-color: transparent;
     display: block;
