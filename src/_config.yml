@@ -9,3 +9,4 @@ description: >
 
 # Build settings
 markdown: redcarpet
+highlighter: null
