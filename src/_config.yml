@@ -1,7 +1,6 @@
 # Site settings
 title: "TestCafe: Web Testing Framework"
-baseurl: "/test-repo"
-# baseurl: "/testcafe" 
+baseurl: "/testcafe" 
 # url: "http://devexpress.github.io" 
 description: >
   TestCafe is the easiest way to automate QA processes and test your websites and apps
