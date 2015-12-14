@@ -11,6 +11,9 @@
           <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
           {% endif %}
         {% endfor %}
+        {% for menuItem in site.data.topMenuItems %}
+          <a class="page-link" href="{{ menuItem.url }}">{{ menuItem.text }}</a>
+        {% endfor %}
       </div>
     </nav>
 
