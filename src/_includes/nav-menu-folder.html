@@ -1,0 +1,23 @@
+<ul class="nav-menu-list">
+{% for navitem in include.toc %}
+	{% if navitem.folder %}
+		<li>
+			{% include nav-menu-item.html url=navitem.url name=navitem.folder %}
+		</li>
+		{% if navitem.content %}
+			<li>
+				{% include nav-menu-folder.html toc=navitem.content %}
+			</li>
+		{% endif %}
+	{% elsif navitem.url %}
+		<li>
+			{% capture itemName %}{% if navitem.item %}{{ navitem.item }}{% else %}{{ navitem.url }}{% endif %}{% endcapture %}
+			{% include nav-menu-item.html url=navitem.url name=itemName %}
+		</li>
+	{% else %}
+		<li>
+			Unknown navitem: {{ navitem }}
+		</li>
+	{% endif %}
+{% endfor %}
+</ul>
