@@ -12,3 +12,5 @@ copyrightNote: >
 # Build settings
 markdown: redcarpet
 highlighter: null
+redcarpet:
+  extensions: ["tables"]
