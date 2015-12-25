@@ -40,7 +40,7 @@ html {
  */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
-ul, ol, dl, figure,
+ul, ol, dl, figure, table,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
@@ -141,6 +141,7 @@ code {
     border: 1px solid $grey-color-light;
     border-radius: 3px;
     background-color: rgba(0, 0, 0, 0);
+    color:#f5871f;
 }
 
 code {
@@ -212,3 +213,26 @@ pre {
         }
     }
 }
+
+/**
+ * Tables
+ */
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	border-bottom: 1px solid;
+	text-align: left;
+}
+
+table > tbody > tr > th,
+table > tbody > tr > td, 
+table > thead > tr > th,
+table > thead > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+} 
