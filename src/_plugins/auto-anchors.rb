@@ -3,8 +3,7 @@ require 'sanitize'
 require 'htmlentities'
 
 class Redcarpet::Render::HTML
-    HYPHENS_IN_COMMAND_LINE_FLAGS_RE = /(?<=\s|^)-+/
-    CHARS_FORBIDDEN_IN_ANCHOR_ID_RE = /[^A-Za-z0-9\-_.\s]/
+    CHARS_FORBIDDEN_IN_ANCHOR_ID_RE = /[^A-Za-z0-9\-_\s]/
     WHITESPACE_RE = /\s+/
 
     def header(title, level)
@@ -19,10 +18,9 @@ class Redcarpet::Render::HTML
         coder = HTMLEntities.new
         anchor = coder.decode(anchor)
 
-        # Remove hyphens in command line flags and non-permitted symbols,
+        # Remove non-permitted symbols,
         # then replace whitespaces with hyphens.
-        anchor.gsub!(HYPHENS_IN_COMMAND_LINE_FLAGS_RE, "")
-        anchor.gsub!(CHARS_FORBIDDEN_IN_ANCHOR_ID_RE, " ")
+        anchor.gsub!(CHARS_FORBIDDEN_IN_ANCHOR_ID_RE, "")
         anchor.strip!
         anchor.gsub!(WHITESPACE_RE, "-")
 
