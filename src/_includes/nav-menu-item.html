@@ -1,1 +1,2 @@
-<a href="{{ include.url }}">{{ include.name }}</a>
+{% capture fullPageUrl %}{{ page.url | prepend: site.baseurl }}{% endcapture %}
+<a href="{{ include.url }}" {% if fullPageUrl == include.url %}class="active"{% endif %} >{{ include.name }}</a>

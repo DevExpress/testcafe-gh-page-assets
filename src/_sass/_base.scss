@@ -9,6 +9,15 @@ dl, dd, ol, ul, figure {
 }
 
 
+/**
+ * Horizontal line
+ */
+hr {
+    margin-top: 41px;
+    margin-bottom: 9px;
+    border-top: 1px solid $border-color;
+}
+
 
 /**
  * Basic styling
@@ -17,13 +26,6 @@ body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
     background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    padding-top: 70px;
 }
 
 
@@ -123,7 +125,7 @@ a {
  */
 blockquote {
     color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    border-left: 4px solid $blockquote-border-color;
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
@@ -141,11 +143,10 @@ blockquote {
  */
 pre,
 code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid $blockquote-border-color;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0);
-    color:#f5871f;
+    background-color: #f8f8ff;
+    color:#219161;
 }
 
 code {
@@ -166,23 +167,18 @@ pre {
 
 
 /**
- * Wrapper
+ * Page content
  */
-.wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+.container {
+//  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+//  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width: $content-width;
+    max-width: $content-width;
     margin-right: auto;
     margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
+//  padding-right: $spacing-unit;
+//  padding-left: $spacing-unit;
     @extend %clearfix;
-
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
 }
 
 
@@ -239,4 +235,5 @@ table > thead > tr > td {
 
 table > tbody > tr + tr > td {
 	border-top: 1px solid;
-} 
+}
+
