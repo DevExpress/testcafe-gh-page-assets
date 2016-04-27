@@ -1,6 +1,6 @@
 <header class="site-header">
 
-  <div class="wrapper">
+  <div class="container">
 
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
 
@@ -8,11 +8,13 @@
       <div class="trigger">
         {% for my_page in site.pages %}
           {% if my_page.title and my_page.inMainMenu %}
-          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          <a class="page-link {% if page.url contains my_page.url %}active{% endif %}" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          <span class="page-link-separator">|</span>
           {% endif %}
         {% endfor %}
         {% for menuItem in site.data.top-menu-items %}
           <a class="page-link" href="{{ menuItem.url }}">{{ menuItem.text }}</a>
+          <span class="page-link-separator">|</span>
         {% endfor %}
       </div>
     </nav>

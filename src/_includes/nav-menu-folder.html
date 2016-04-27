@@ -3,12 +3,11 @@
 	{% if navitem.folder %}
 		<li>
 			{% include nav-menu-item.html url=navitem.url name=navitem.folder %}
+     
+	 		{% if navitem.content %}
+        		{% include nav-menu-folder.html toc=navitem.content %}
+		    {% endif %}
 		</li>
-		{% if navitem.content %}
-			<li>
-				{% include nav-menu-folder.html toc=navitem.content %}
-			</li>
-		{% endif %}
 	{% elsif navitem.url %}
 		<li>
 			{% capture itemName %}{% if navitem.item %}{{ navitem.item }}{% else %}{{ navitem.url }}{% endif %}{% endcapture %}

@@ -2,9 +2,6 @@
 title: "TestCafe: Web Testing Framework"
 baseurl: "/testcafe" 
 # url: "http://devexpress.github.io" 
-description: >
-  TestCafe is the easiest way to automate QA processes and test your websites and apps
-  across browsers, operating systems and devices.
   
 # Build settings
 markdown: redcarpet
