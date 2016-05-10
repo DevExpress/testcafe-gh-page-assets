@@ -125,15 +125,27 @@ a {
  */
 blockquote {
     color: $grey-color;
-    border-left: 4px solid $blockquote-border-color;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
+    border-top: 1px solid $border-color;
+    padding-left: 48px;
+    padding-top: 8px;
     font-style: italic;
+    background-image: url($baseUrl + "/img/icon-note.png");
+    background-repeat: no-repeat;
+    background-position: 0px 10px;
+
+    &.important {
+        background-image: url($baseUrl + "/img/icon-warning.png");
+        color: #815f3a;
+    }
 
     > :last-child {
         margin-bottom: 0;
     }
+}
+
+.blockquote-content {
+    border-bottom: 1px solid $border-color;
+    min-height: 48px;    
 }
 
 
@@ -147,6 +159,7 @@ code {
     border-radius: 3px;
     background-color: #f8f8ff;
     color:#219161;
+    font-style: normal; 
 }
 
 code {
