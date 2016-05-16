@@ -4,9 +4,9 @@
 .site-header {
     border-bottom: 2px solid $border-color;
     min-height: $header-height;
-    min-width: 100%;
     top: 0;
     background-color: white;
+    min-width: $content-area-width;
 }
 
 .site-logo {
@@ -80,6 +80,7 @@ html, body {
     padding-top: 15px;
     font-size: 13px;
     line-height: 1.3;
+    min-width: $content-area-width;
 }
 
 .footer-col-1 {
