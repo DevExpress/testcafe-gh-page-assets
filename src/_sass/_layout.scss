@@ -39,18 +39,18 @@
         &:not(:last-of-type) {
             margin-right: 5px;
         }
-        
+
         &.active {
             color: $brand-color;
             font-weight: bold;
         }
     }
-    
+
     .page-link-separator {
         margin-right: 5px;
         font-size: 16px;
         color: #c9c9c9;
-                
+
         &:last-of-type {
             display: none;
         }
@@ -102,11 +102,11 @@ html, body {
     width: $doc-nav-width;
     font-size: 13px;
     margin-top: 27px;
-    
+
     ul {
         list-style-type: none;
         margin-left: 0px;
-        
+
         li {
             text-transform: uppercase;
             font-weight: bold;
@@ -114,23 +114,23 @@ html, body {
             padding-bottom: 6px;
             padding-top: 6px;
             border-bottom: 1px solid $border-color;
-            
+
             ul {
                 margin-left: 0px;
-                
+
                 li {
                     font-weight: normal;
                     text-transform: none;
                     border-bottom: none;
                     padding-bottom: 0px;
                     padding-top: 3px;
-                    
+
                     ul {
                         margin-left: 14px;
-                        
+
                         li > ul {
                             margin-left: 28px;
-                            
+
                             li > ul {
                                 margin-left: 42px;
                             }
@@ -144,7 +144,7 @@ html, body {
     a, a:visited {
         color: $text-color;
     }
-    
+
     a.active {
         color: $brand-color;
     }
@@ -160,16 +160,16 @@ html, body {
     margin-bottom: $spacing-unit;
 
     h1 {
-        font-size: 36px;
+        font-size: 38px;
+        color: $brand-color;
     }
 
     h2 {
-        font-size: 30px;
+        font-size: 32px;
     }
 
     h3 {
         font-size: 24px;
-        font-weight: lighter;
     }
 
     h4 {
