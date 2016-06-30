@@ -1,0 +1,119 @@
+---
+---
+
+.main-content {
+    display: block;
+    width: 770px;
+    padding: 60px 0 0;
+    margin: 0 auto;
+}
+
+.banner {
+    width: 100%;
+    max-width: 100%;
+    background-image: url(../img/background.jpg);
+    padding: 150px 0 15px;
+    text-align: center;
+}
+
+.header {
+    font: lighter 72px 'Segoe UI';
+    color: #ffffff;
+}
+
+.slogan {
+    font: 36px 'Segoe UI';
+    color: #404142;
+}
+
+.feature {
+    display: inline-block;
+    padding: 0 0 60px;
+    max-width: 770px;
+    width: 770px;
+}
+
+.name {
+    font: 35px 'Segoe UI';
+    padding: 12px 0 0;
+}
+
+.description {
+    font-size: 14px 'Segoe UI';
+    padding: 12px 0 0;
+}
+
+.command {
+    margin: 0 0 15px 0;
+    padding: 15px 15px 15px 25px;
+    background: #2d2d2d;
+    border: 5px #2d2d2d solid;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    font-family: 'Segoe UI';
+    color: #ffffff;
+    letter-spacing: 1.1px;
+}
+
+.code-block {
+    margin: 0 0 auto 0;
+}
+
+pre {
+    padding: 4px 10px 4px;
+    margin: 0 0 15px 0;
+}
+
+.center{
+    text-align: center;
+};
+
+.blue-button-container {
+    display: block;
+    a:hover {
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #36b6e5;
+    }
+}
+
+.blue-button {
+    display: block;
+    width: 310px;
+    margin: 0px auto 50px;
+    padding: 15px;
+    border: 2px #36b6e5 solid;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    font: 24px 'Segoe UI';
+    color: #36b6e5;
+    text-align: center;
+}
+
+.white-button-container {
+    display: block;
+    a:hover {
+        text-decoration: none;
+        color: #7ba5b5;
+        background-color: #ffffff;
+    }
+}
+
+.white-button {
+    display: block;
+    width: 310px;
+    margin: 50px auto 50px;
+    padding: 15px;
+    border: 2px #ffffff solid;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    font: 24px 'Segoe UI';
+    color: #ffffff;
+    text-align: center;
+}

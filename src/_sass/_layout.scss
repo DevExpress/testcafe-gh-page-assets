@@ -9,6 +9,7 @@
     height: $header-height;
     min-width: $content-area-width;
     width: 100%;
+    z-index: 1;
 
     transition: height 0.3s;
     -moz-transition: height 0.3s;
