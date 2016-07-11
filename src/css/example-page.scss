@@ -3,8 +3,7 @@
 
 .slider-values {
     position: relative;
-    margin-top: 5px;
-    margin-bottom: 30px;
+    margin: 5px 0 30px;
     color: #D5D5D5;
     width: 99.6%;
 
@@ -80,12 +79,8 @@ label[for="tried-test-cafe"] {
 
 .main-content {
     width: 850px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 30px;
-    padding-top: 39px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 0 auto 30px;
+    padding: 39px 30px 0;
 }
 
 .column {
@@ -127,10 +122,7 @@ label[for="tried-test-cafe"] {
 }
 
 .slider-container {
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 12px;
 }
 
 #comments {
@@ -161,8 +153,7 @@ input[type='radio'] {
 }
 
 .result-content {
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
     position: relative;
     top: 40%;
     text-align: center;
