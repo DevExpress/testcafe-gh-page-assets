@@ -126,8 +126,7 @@ a {
 blockquote {
     color: $grey-color;
     border-top: 1px solid $border-color;
-    padding-left: 48px;
-    padding-top: 8px;
+    padding: 8px 0 0 48px;
     font-style: italic;
     background-image: url($baseUrl + "/img/icon-note.png");
     background-repeat: no-repeat;
@@ -172,8 +171,7 @@ pre {
 
     > code {
         border: 0;
-        padding-right: 0;
-        padding-left: 0;
+        padding: 0;
     }
 }
 
@@ -183,14 +181,11 @@ pre {
  * Page content
  */
 .container {
-//  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-//  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
     max-width: $content-width;
-    max-width: $content-width;
-    margin-right: auto;
-    margin-left: auto;
-//  padding-right: $spacing-unit;
-//  padding-left: $spacing-unit;
+    min-width: $content-width;
+    margin: 0 auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
     @extend %clearfix;
 }
 
