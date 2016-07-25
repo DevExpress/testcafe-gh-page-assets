@@ -2,27 +2,45 @@
  * Site header
  */
 .site-header {
-    border-bottom: 2px solid $border-color;
-    min-height: $header-height;
-    top: 0;
     background-color: white;
+    border-bottom: 2px solid $border-color;
+    position: fixed;
+    top: 0;
+    height: $header-height;
     min-width: $content-area-width;
+    width: 100%;
+}
+
+@media (max-width: 980px) {
+    .site-header {
+        position: static;
+    }
+    .container {
+    	padding-top: 0;
+    }
+}
+
+.site-header-content {
+    max-width: $content-width;
+    padding: 0 $spacing-unit;
+    margin: 0 auto;
 }
 
 .site-logo {
     background-image: url($baseUrl + "/img/test-cafe-logo.png");
     background-repeat: no-repeat;
     background-color: transparent;
+    background-size: contain;
     display: block;
     float: left;
-    height: 50px;
+    height: 30px;
     width: 250px;
-    margin: 23px 0 10px 0;
+    margin: 10px 0;
 }
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: 50px;
 
     .menu-icon {
         display: none;
@@ -32,7 +50,6 @@
         font-size: 16px;
         color: $text-color;
         line-height: $base-line-height;
-        padding-top: 49px;
         display: inline-block;
 
         // Gaps between nav items, but not on the last one
@@ -75,12 +92,12 @@ html, body {
 /**
  * Site footer
  */
-.site-footer-container {
-    border-top: 2px solid $border-color;
+.site-footer-content {
     padding-top: 15px;
     font-size: 13px;
     line-height: 1.3;
-    min-width: $content-area-width;
+    max-width: $content-width;
+    margin: 0 auto;
 }
 
 .footer-col-1 {
@@ -91,7 +108,13 @@ html, body {
     float: right;
 }
 
-.site-footer, .push {
+.site-footer {
+    height: $footer-height;
+    border-top: 2px solid $border-color;
+    min-width: $content-area-width;
+}
+
+.push {
     height: $footer-height;
 }
 
@@ -102,7 +125,7 @@ html, body {
     float: left;
     width: $doc-nav-width;
     font-size: 13px;
-    margin-top: 27px;
+    margin-top: 17px;
 
     ul {
         list-style-type: none;
@@ -155,7 +178,7 @@ html, body {
 }
 
 .post-content {
-    margin: 23px 0 $spacing-unit;
+    margin: 13px 0 $spacing-unit;
 
     h1 {
         font-size: 38px;
