@@ -118,7 +118,12 @@ a {
     }
 }
 
-
+.anchor {
+    display: block;
+    position: relative;
+    top: calc(-#{$header-height} - 13px);
+    visibility: hidden;
+}
 
 /**
  * Blockquotes
@@ -175,20 +180,15 @@ pre {
     }
 }
 
-
-
 /**
  * Page content
  */
 .container {
-    max-width: $content-width;
-    min-width: $content-width;
+    width: $content-width;
     margin: 0 auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
+    padding: calc(#{$header-height} + 2px) $spacing-unit 0;
     @extend %clearfix;
 }
-
 
 
 /**
@@ -202,7 +202,6 @@ pre {
         clear: both;
     }
 }
-
 
 
 /**
