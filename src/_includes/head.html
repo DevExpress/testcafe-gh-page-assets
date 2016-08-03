@@ -13,4 +13,24 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+      window.addEventListener('scroll', function(e) {
+          var body       = document.getElementsByTagName('body')[0];
+          var siteHeader = body.querySelector('.site-header');
+
+          if (!siteHeader)
+              return;
+
+          if (window.pageYOffset === 0 || body.clientWidth <= 980)
+              siteHeader.className = siteHeader.className.replace(/\sminimized\b/,'');
+          else if(siteHeader.className.indexOf('minimized') === -1)
+              siteHeader.className += ' minimized';
+      });
+  </script>
+  <script>
+      if (document.images) {
+          img1 = new Image();
+          img1.src = "/testcafe/img/test-cafe-logo.png";
+      }
+  </script>
 </head>
