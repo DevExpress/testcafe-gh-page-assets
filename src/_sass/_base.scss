@@ -121,7 +121,7 @@ a {
 .anchor {
     display: block;
     position: relative;
-    top: calc(-#{$header-height} - 13px);
+    top: calc(-#{$header-height-min} - 10px);
     visibility: hidden;
 }
 

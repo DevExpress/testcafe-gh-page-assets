@@ -1,11 +1,7 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
 
-
-
-// Our variables
 $base-font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
 $base-font-size:   14px;
 $base-font-weight: normal;
@@ -22,40 +18,29 @@ $grey-color:       #828282;
 $grey-color-dark:  darken($grey-color, 25%);
 
 $blockquote-border-color: #e8e8e8;
-$border-color: #e6e6e6;
+$border-color:            #e6e6e6;
 
 $content-width:      920px;
 $content-area-width: calc(#{$content-width} + (#{$spacing-unit} * 2));
 
-$on-palm:          600px;
-$on-laptop:        800px;
+$on-palm:            600px;
+$on-laptop:          800px;
 
-$doc-nav-width:    200px;
-$doc-content-width:680px;     
+$doc-nav-width:      200px;
+$doc-content-width:  680px;     
 
-$baseUrl:          "/testcafe";
+$baseUrl:            "/testcafe";
 
-$header-height:    50px;
-$footer-height:    81px;
+$header-height-min: 50px;
+$header-height:     100px;
+$footer-height:     81px;
 
-
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
     }
 }
 
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
         "layout"
