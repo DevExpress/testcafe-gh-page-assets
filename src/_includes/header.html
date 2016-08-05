@@ -4,10 +4,11 @@
 
     <nav class="site-nav">
       <div class="trigger">
-        {% for my_page in site.pages %}
-          {% if my_page.title and my_page.inMainMenu %}
-          <a class="page-link {% if page.url contains my_page.url %}active{% endif %}" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-          <span class="page-link-separator">|</span>
+        {% for sitePage in site.pages %}
+          {% if sitePage.siteNavItemName %}
+            {% capture highlightUrl %}{% if sitePage.siteNavItemHighlightUrl %}{{ sitePage.siteNavItemHighlightUrl }}{% else %}{{ sitePage.url }}{% endif %}{% endcapture %}
+            <a class="page-link {% if page.url contains highlightUrl %}active{% endif %}" href="{{ sitePage.url | prepend: site.baseurl }}">{{ sitePage.siteNavItemName }}</a>
+            <span class="page-link-separator">|</span>
           {% endif %}
         {% endfor %}
         {% for menuItem in site.data.top-menu-items %}
