@@ -41,13 +41,19 @@ html {
  * Set `margin-bottom` to maintain vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure, table,
+p, ul, ol, dl, pre,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
 
+blockquote,
+figure, table {
+    margin: $spacing-unit 0;
+}
 
+h2, h3, h4, h5, h6 {
+    margin-top: $spacing-unit;
+}
 
 /**
  * Images
@@ -121,7 +127,7 @@ a {
 .anchor {
     display: block;
     position: relative;
-    top: calc(-#{$header-height-min} - 10px);
+    top: calc(-#{$header-height-min} - 8px);
     visibility: hidden;
 }
 
@@ -142,7 +148,7 @@ blockquote {
         color: #815f3a;
     }
 
-    > :last-child {
+    :last-child {
         margin-bottom: 0;
     }
 }
@@ -163,11 +169,12 @@ code {
     border-radius: 3px;
     background-color: #f8f8ff;
     color:#219161;
-    font-style: normal; 
+    font-style: normal;
 }
 
 code {
     padding: 1px 5px;
+    white-space: pre; 
 }
 
 pre {
@@ -184,41 +191,7 @@ pre {
  * Page content
  */
 .container {
-    width: $content-width;
-    margin: 0 auto;
-    padding: calc(#{$header-height} + 2px) $spacing-unit 0;
-    @extend %clearfix;
-}
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
+    padding-top: $header-height-min;
 }
 
 /**
@@ -229,7 +202,7 @@ table {
 }
 
 table > thead > tr > th {
-	border-bottom: 1px solid;
+	border-bottom: 1px solid #cfcfcf;
 	text-align: left;
 }
 
@@ -240,7 +213,7 @@ table > thead > tr > td {
 	padding: 5px 10px;
 }
 
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
+table > tbody > tr > td {
+	border-bottom: 1px solid $border-color;
 }
 
