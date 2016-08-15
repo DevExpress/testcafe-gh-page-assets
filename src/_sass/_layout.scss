@@ -43,7 +43,7 @@
         height: $header-height-min;
 
         .site-logo {
-            background-image: url($baseUrl + "/img/test-cafe-logo.png");
+            background-image: url($baseUrl + "/images/test-cafe-logo.png");
             height: 29px;
             width: 147px;
             margin: 10px 0;
@@ -64,7 +64,7 @@
 }
 
 .site-logo {
-    background-image: url($baseUrl + "/img/test-cafe-logo-large.png");
+    background-image: url($baseUrl + "/images/test-cafe-logo-large.png");
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: contain;
@@ -156,7 +156,6 @@ html, body {
     top: $header-height-min;
     bottom: 0;
     width: $doc-nav-width;
-    display: inline-block;
     vertical-align: top;
     font-size: 13px;
     background-color: $background-color;
@@ -218,16 +217,17 @@ html, body {
     }
 }
 
-.doc-content {
-    vertical-align: top;
+.doc {
     max-width: 1100px;
-    margin: -11px 0 0 calc(#{$doc-nav-width} + #{$spacing-unit});
+    margin: 12px 0 $spacing-unit calc(#{$doc-nav-width} + #{$spacing-unit});
     padding-right: $spacing-unit;
 }
 
-.post-content {
-    margin: 23px 0 $spacing-unit;
+.bottom {
+    bottom: 63px;
+}
 
+.post-content {
     h1 {
         font-size: 38px;
         color: $brand-color;
@@ -252,6 +252,81 @@ html, body {
     }
 }
 
-.bottom {
-    bottom: 63px;
+.post {
+    min-width: 550px;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 25px 0 70px;
+
+    h1 {
+        font-weight: bold;
+        color: #404142;
+        margin: -8px 0 30px;
+    }
+}
+
+.blog-title {
+    font-size: 38px;
+    margin-top: -12px;
+}
+
+.post-list {
+    padding-top: 16px;
+}
+
+.post-preview {
+    padding-top: 35px;
+
+    a {
+        color: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.post-title {
+    color: #404142;
+    font-size: 24px;
+    font-weight: bold;
+    margin: -4px 0 10px;
+}
+
+.post-extract {
+    border-top: 1px solid $border-color;
+    padding: 4px 0 10px 20px; 
+
+    p, ul, ol, dl, pre {
+        margin-bottom: 4px;
+    }
+}
+
+.post-date {
+    font-weight: bold;
+    color: #a7a7a7;
+}
+
+.read-more {
+    color: $brand-color;
+    font-weight: bold;
+    margin-top: 5px;
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+#back-to-posts-link {
+    padding-top: 15px;
+    p {
+        padding-top: 4px;
+        border-top: 1px solid $border-color;
+        display: inline-block;
+    }
+}
+
+#disqus_thread {
+    margin: 60px auto 0;
+    max-width: 710px;
 }

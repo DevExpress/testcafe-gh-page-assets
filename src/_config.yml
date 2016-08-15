@@ -10,3 +10,6 @@ redcarpet:
   extensions: ["tables"]
 gems:
   - jekyll-sitemap
+
+# Blog
+excerpt_separator: "<!--more-->"
