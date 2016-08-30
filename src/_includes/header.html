@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header{% if page.url contains '/documentation/' %} minimized{% else %} animated{% endif %}">
   <div class="site-header-content">
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
 
