@@ -1,10 +1,12 @@
 # Site settings
-title: "TestCafe: Automated Browser Testing"
+title: "TestCafe"
 baseurl: "/testcafe" 
-# url: "http://devexpress.github.io" 
+url: "http://devexpress.github.io" 
   
 # Build settings
 markdown: redcarpet
 highlighter: null
 redcarpet:
   extensions: ["tables"]
+gems:
+  - jekyll-sitemap
