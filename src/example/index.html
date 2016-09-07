@@ -29,38 +29,9 @@
             }
 
             $("#slider").slider({ min: 1, max: 10, disabled: true, value: $("#testcafe-rank").val() });
-            $("#preferred-interface").selectmenu();
 
             refreshFeedbackFormState();
             refreshSubmitButtonState();
-
-            $("#preferred-interface-button").hover(
-                   function () {
-                       $(this).addClass('hover');
-                       $("#preferred-interface").selectmenu("open");
-                   },
-                   function () {
-                       $(this).removeClass('hover');
-                       setTimeout( function () {
-                           if (!$("#preferred-interface-menu").hasClass("hover"))
-                               $("#preferred-interface").selectmenu("close");
-                       }, 200);
-                   }
-               );
-
-            $("#preferred-interface-menu").hover(
-                   function () { 
-                       $(this).addClass('hover');
-                   },
-                   function () {
-                       $(this).removeClass('hover');
-                       setTimeout( function () {
-                           if (!$("#preferred-interface-button").hasClass("hover"))
-                               $("#preferred-interface").selectmenu("close");
-                       }, 200);
-                   }
-               );
-
 
             $("#populate").on("click", function () {
                 if (confirm("Reset information before proceeding?")) {
