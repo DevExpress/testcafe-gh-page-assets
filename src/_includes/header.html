@@ -1,18 +1,12 @@
-<header class="site-header{% if page.url contains '/documentation/' %} minimized{% else %} animated{% endif %}">
+<header class="site-header {% if page.permalink == '/' %}animated{% else %}minimized{% endif %}">
   <div class="site-header-content">
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
 
     <nav class="site-nav">
       <div class="trigger">
-        {% for sitePage in site.pages %}
-          {% if sitePage.siteNavItemName %}
-            {% capture highlightUrl %}{% if sitePage.siteNavItemHighlightUrl %}{{ sitePage.siteNavItemHighlightUrl }}{% else %}{{ sitePage.url }}{% endif %}{% endcapture %}
-            <a class="page-link {% if page.url contains highlightUrl %}active{% endif %}" href="{{ sitePage.url | prepend: site.baseurl }}">{{ sitePage.siteNavItemName }}</a>
-            <span class="page-link-separator">|</span>
-          {% endif %}
-        {% endfor %}
         {% for menuItem in site.data.top-menu-items %}
-          <a class="page-link" href="{{ menuItem.url }}">{{ menuItem.text }}</a>
+          {% capture highlightUrl %}{% if menuItem.highlightUrl %}{{ menuItem.highlightUrl }}{% else %}{{ menuItem.url }}{% endif %}{% endcapture %}
+          <a class="page-link {% if page.url contains highlightUrl %}active{% endif %}" href="{% if menuItem.external %}{{ menuItem.url}}{% else %}{{ menuItem.url | prepend: site.baseurl }}{% endif %}">{{ menuItem.text }}</a>
           <span class="page-link-separator">|</span>
         {% endfor %}
       </div>
