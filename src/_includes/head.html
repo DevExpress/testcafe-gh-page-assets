@@ -1,7 +1,6 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
@@ -54,57 +53,82 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/css/perfect-scrollbar.min.css">
     <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.min.js"></script>
     <script>
-        function initNav(nav) {
-            var MIN_BODY_WIDTH = 900;
-            var FOOTER_HEIGHT  = 63;
-            var HEADER_HEIGHT  = 52;
+        var MIN_BODY_WIDTH = 900;
+        var FOOTER_HEIGHT  = 63;
+        var HEADER_HEIGHT  = 52;
 
-            function updatePosition() {
-                var footerVisibleHeight = FOOTER_HEIGHT - document.body.scrollHeight + window.pageYOffset + document.body.clientHeight;
+        var nav            = null;
+        var isMobileDevice = window.screen.width < 800 || window.screen.height < 800;
 
+        function setNavTopPosition () {
+            var isMobileZoomed = isMobileDevice && window.innerWidth !== document.body.scrollWidth;
+
+            if (document.body.clientWidth > MIN_BODY_WIDTH) {
+                if (nav.style.top !== HEADER_HEIGHT + 'px') {
+                    nav.style.top = HEADER_HEIGHT + 'px';
+                    Ps.update(nav);
+                }
+            }
+            else if(!isMobileZoomed) {
+                var top = window.pageYOffset <= HEADER_HEIGHT ? (HEADER_HEIGHT - window.pageYOffset) + 'px' : '0';
+
+                if (nav.style.top !== top) {
+                    nav.style.top = top;
+                    Ps.update(nav);
+                }
+            }
+        }
+
+        function setNavBottomPosition () {
+            var footerVisibleHeight = FOOTER_HEIGHT - document.body.scrollHeight + window.pageYOffset +
+                                      document.body.clientHeight;
+
+            if (footerVisibleHeight > 0) {
+                if (nav.style.bottom !== footerVisibleHeight + 'px') {
+                    nav.style.bottom = footerVisibleHeight + 'px';
+                    Ps.update(nav);
+                }
+            }
+            else if (nav.style.bottom !== '0') {
+                nav.style.bottom = '0';
+                Ps.update(nav);
+            }
+        }
+
+        function updatePosition () {
+            if (isMobileDevice)
+                changeBodyHeight();
+            else
                 nav.style.marginLeft = '-' + window.pageXOffset + 'px';
+
+            setNavBottomPosition();
+            setNavTopPosition();
+        }
+        
+        function changeBodyHeight () {
+            var bodyHeight = parseInt(document.body.style.height.replace('px', ''));
+
+            if (bodyHeight !== window.innerHeight)
+                document.body.style.height = window.innerHeight + 'px';
+        }
+        
+        function initScrollBar() {
+            Ps.initialize(nav);
             
-                if (footerVisibleHeight > 0) {
-                    if(nav.style.bottom !== footerVisibleHeight + 'px') {
-                        nav.style.bottom = footerVisibleHeight + 'px';
-                        Ps.update(nav);
-                    }
-                }
-                else if(nav.style.bottom !== '0') {
-                    nav.style.bottom = '0';
-                    Ps.update(nav);
-                }
+            window.addEventListener('resize', function () {
+                Ps.update(nav);
+            });
+        }
 
-                if (document.body.clientWidth > MIN_BODY_WIDTH) {
-                    if (nav.style.top !== HEADER_HEIGHT + 'px') {
-                        nav.style.top = HEADER_HEIGHT + 'px';
-                        Ps.update(nav);
-                    }
-                }
-                else {
-                    var top = window.pageYOffset <= HEADER_HEIGHT ? (HEADER_HEIGHT - window.pageYOffset) + 'px' : '0';
-
-                    if(nav.style.top !== top) {
-                        nav.style.top = top;
-                        Ps.update(nav);
-                    }
-                }
-            }
-            function initScrollBar() {
-                Ps.initialize(nav);
-                
-                window.addEventListener('resize', function () {
-                    Ps.update(nav);
-                });
-            }
-
+        function initNav() {
             initScrollBar();
             updatePosition();
             window.addEventListener('scroll', updatePosition);
             window.addEventListener('resize', updatePosition);
         }
+
         document.addEventListener('DOMContentLoaded', function (e) {
-            var nav = document.querySelector('.doc-nav');
+            nav = document.querySelector('.doc-nav');
 
             if(nav)
                 initNav(nav);
