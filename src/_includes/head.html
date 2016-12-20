@@ -70,7 +70,7 @@
                 }
             }
             else if(!isMobileZoomed) {
-                var top = window.pageYOffset <= HEADER_HEIGHT ? (HEADER_HEIGHT - window.pageYOffset) + 'px' : '0';
+                var top = window.pageYOffset <= HEADER_HEIGHT ? HEADER_HEIGHT - window.pageYOffset + 'px' : '0';
 
                 if (nav.style.top !== top) {
                     nav.style.top = top;
@@ -106,9 +106,7 @@
         }
         
         function changeBodyHeight () {
-            var bodyHeight = parseInt(document.body.style.height.replace('px', ''));
-
-            if (bodyHeight !== window.innerHeight)
+            if (document.body.style.height !== window.innerHeight + 'px')
                 document.body.style.height = window.innerHeight + 'px';
         }
         
