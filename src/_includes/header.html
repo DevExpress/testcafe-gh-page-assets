@@ -11,5 +11,17 @@
         {% endfor %}
       </div>
     </nav>
+
   </div>
 </header>
+
+{% if page.url contains '/documentation/' %}
+  <div class="doc-top-nav">
+    <div class="doc-top-nav-content">
+    {% for menuItem in site.data.docs-top-menu %}
+      <a class="{% if page.url contains menuItem.url %}active{% endif %}" href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>
+      <span class="page-link-separator level-2">|</span>
+    {% endfor %}
+    </div>
+  </div>
+{% endif %}
