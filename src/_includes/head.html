@@ -63,7 +63,7 @@
     <script>
         var MIN_BODY_WIDTH = 900;
         var FOOTER_HEIGHT  = 63;
-        var HEADER_HEIGHT  = 52;
+        var HEADER_HEIGHT  = 102;
 
         var nav            = null;
         var isMobileDevice = window.screen.width < 800 || window.screen.height < 800;
@@ -149,7 +149,7 @@
     </script>
   {% endif %}
     <script>
-        function initHeader(siteHeader, contentWrapper) {
+        function initHeader(siteHeader, contentWrapper, docTopMenu) {
             var MIN_BODY_WIDTH = 900;
 
             function updateHeader() {
@@ -166,6 +166,9 @@
 
                 siteHeader.style.position = bodyMinimized ? 'static' : '';
 
+                if(docTopMenu)
+                    docTopMenu.style.position = bodyMinimized ? 'static' : '';
+
                 if(contentWrapper)
                     contentWrapper.style.paddingTop = bodyMinimized ? {% if isLandingPage %}'48px'{% else %}'0'{% endif %} : '';
             }
@@ -177,9 +180,10 @@
         document.addEventListener('DOMContentLoaded', function (e) {
             var contentWrapper = document.querySelector({% if isLandingPage %}'.banner'{% else %}'.container'{% endif %});
             var siteHeader     = document.querySelector('.site-header');
+            var docTopMenu     = document.querySelector('.doc-top-nav');
 
             if(siteHeader) 
-                initHeader(siteHeader, contentWrapper);
+                initHeader(siteHeader, contentWrapper, docTopMenu);
         });
     </script>
 </head>
