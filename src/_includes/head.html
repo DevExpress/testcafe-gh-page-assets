@@ -177,7 +177,7 @@
     </script>
   {% endif %}
     <script>
-        function initHeader(siteHeader, contentWrapper, docTopMenu) {
+        function initHeader(siteHeader, contentWrapper, docTopMenu, article) {
             var MIN_BODY_WIDTH = 1000;
 
             function updateHeader() {
@@ -199,6 +199,9 @@
 
                 if(contentWrapper)
                     contentWrapper.style.paddingTop = bodyMinimized ? {% if isLandingPage %}'48px'{% else %}'0'{% endif %} : '';
+
+                if(article)
+                    article.style.marginTop = bodyMinimized ? '21px' : '72px';
             }
 
             updateHeader();
@@ -209,9 +212,10 @@
             var contentWrapper = document.querySelector({% if isLandingPage %}'.banner'{% else %}'.container'{% endif %});
             var siteHeader     = document.querySelector('.site-header');
             var docTopMenu     = document.querySelector('.doc-top-nav');
+            var article        = document.querySelector('.doc');
 
-            if(siteHeader)
-                initHeader(siteHeader, contentWrapper, docTopMenu);
+            if(siteHeader) 
+                initHeader(siteHeader, contentWrapper, docTopMenu, article);
         });
     </script>
 </head>
