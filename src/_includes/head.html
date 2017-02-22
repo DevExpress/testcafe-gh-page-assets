@@ -8,7 +8,7 @@
 
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta name="viewport" content="width=device-width">
-  
+
   <meta property="og:image" content="https://raw.githubusercontent.com/DevExpress/testcafe-gh-page-assets/master/src/images/testcafe-ogp-icon.png">
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{% include canonical-link.html %}" />
@@ -66,10 +66,23 @@
         var HEADER_HEIGHT  = 102;
 
         var nav            = null;
+        var article        = null;
         var isMobileDevice = window.screen.width < 800 || window.screen.height < 800;
 
         function setNavTopPosition () {
             var isMobileZoomed = isMobileDevice && window.innerWidth !== document.body.scrollWidth;
+            var top = null;
+
+            if(isMobileDevice) {
+                top = window.pageYOffset >= HEADER_HEIGHT ? window.pageYOffset - HEADER_HEIGHT + 'px' : '0';
+
+                if (nav.style.paddingTop !== top) {
+                    nav.style.paddingTop = top;
+                    Ps.update(nav);
+                }
+
+                return;
+            }
 
             if (document.body.clientWidth > MIN_BODY_WIDTH) {
                 if (nav.style.top !== HEADER_HEIGHT + 'px') {
@@ -78,7 +91,7 @@
                 }
             }
             else if(!isMobileZoomed) {
-                var top = window.pageYOffset <= HEADER_HEIGHT ? HEADER_HEIGHT - window.pageYOffset + 'px' : '0';
+                top = window.pageYOffset <= HEADER_HEIGHT ? HEADER_HEIGHT - window.pageYOffset + 'px' : '0';
 
                 if (nav.style.top !== top) {
                     nav.style.top = top;
@@ -112,29 +125,43 @@
             setNavBottomPosition();
             setNavTopPosition();
         }
-        
+
         function changeBodyHeight () {
             if (document.body.style.height !== window.innerHeight + 'px')
                 document.body.style.height = window.innerHeight + 'px';
         }
-        
+
         function initScrollBar() {
             Ps.initialize(nav);
-            
+
             window.addEventListener('resize', function () {
                 Ps.update(nav);
             });
         }
 
         function initNav() {
+            if(isMobileDevice) {
+                nav.style.position = 'relative';
+                nav.style.float = 'left';
+                nav.style.top = '0px';
+
+                article.style.marginTop = '0px';
+                article.style.paddingTop = '22px';
+            }
+
             initScrollBar();
             updatePosition();
             window.addEventListener('scroll', updatePosition);
             window.addEventListener('resize', updatePosition);
+
+            if(isMobileDevice) {
+                nav.style.height = window.innerHeight + 'px';
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function (e) {
-            nav = document.querySelector('.doc-nav');
+            nav     = document.querySelector('.doc-nav');
+            article = document.querySelector('.doc');
 
             if(nav)
                 initNav(nav);
@@ -154,14 +181,14 @@
 
             function updateHeader() {
                 var bodyMinimized = document.body.clientWidth === MIN_BODY_WIDTH;
-                
+
                 {% if isLandingPage %}
 
                 if (window.pageYOffset === 0 || bodyMinimized)
                     siteHeader.className = siteHeader.className.replace(/\sminimized\b/,'');
                 else if(siteHeader.className.indexOf('minimized') === -1)
                     siteHeader.className += ' minimized';
-                
+
                 {% endif %}
 
                 siteHeader.style.position = bodyMinimized ? 'static' : '';
@@ -182,7 +209,7 @@
             var siteHeader     = document.querySelector('.site-header');
             var docTopMenu     = document.querySelector('.doc-top-nav');
 
-            if(siteHeader) 
+            if(siteHeader)
                 initHeader(siteHeader, contentWrapper, docTopMenu);
         });
     </script>
