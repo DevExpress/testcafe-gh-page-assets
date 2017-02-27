@@ -28,7 +28,7 @@ $header-height-min: 51px;
 $header-height:     102px;
 $footer-height:     63px;
 
-$body-min-width:    900px;
+$body-min-width:    1000px;
 
 @mixin media-query($device) {
     @media screen and (max-width: $device) {

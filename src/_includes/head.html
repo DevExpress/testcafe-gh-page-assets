@@ -62,7 +62,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/css/perfect-scrollbar.min.css">
     <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.min.js"></script>
     <script>
-        var MIN_BODY_WIDTH = 900;
+        var MIN_BODY_WIDTH = 1000;
         var FOOTER_HEIGHT  = 63;
         var HEADER_HEIGHT  = 102;
 
@@ -177,8 +177,8 @@
     </script>
   {% endif %}
     <script>
-        function initHeader(siteHeader, contentWrapper, docTopMenu) {
-            var MIN_BODY_WIDTH = 900;
+        function initHeader(siteHeader, contentWrapper, docTopMenu, article) {
+            var MIN_BODY_WIDTH = 1000;
 
             function updateHeader() {
                 var bodyMinimized = document.body.clientWidth === MIN_BODY_WIDTH;
@@ -199,6 +199,9 @@
 
                 if(contentWrapper)
                     contentWrapper.style.paddingTop = bodyMinimized ? {% if isLandingPage %}'48px'{% else %}'0'{% endif %} : '';
+
+                if(article)
+                    article.style.marginTop = bodyMinimized ? '21px' : '72px';
             }
 
             updateHeader();
@@ -209,9 +212,10 @@
             var contentWrapper = document.querySelector({% if isLandingPage %}'.banner'{% else %}'.container'{% endif %});
             var siteHeader     = document.querySelector('.site-header');
             var docTopMenu     = document.querySelector('.doc-top-nav');
+            var article        = document.querySelector('.doc');
 
-            if(siteHeader)
-                initHeader(siteHeader, contentWrapper, docTopMenu);
+            if(siteHeader) 
+                initHeader(siteHeader, contentWrapper, docTopMenu, article);
         });
     </script>
 </head>
