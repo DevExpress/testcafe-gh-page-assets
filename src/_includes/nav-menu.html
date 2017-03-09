@@ -1,5 +1,5 @@
 {% for menuItem in site.data.nav-menu %}
-	{% capture menuItemUrl %}{{ menuItem.url | remove: "index.md" | replace: ".md", ".html" }}{% endcapture %}
+	{% capture menuItemUrl %}{{ menuItem.url | remove: "README.md" | replace: ".md", ".html" }}{% endcapture %}
 	{% if page.url contains menuItemUrl and menuItem.content %}
 	<nav class="doc-nav">	
 		<div class="doc-nav-content">
