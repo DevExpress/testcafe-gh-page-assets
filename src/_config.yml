@@ -8,7 +8,7 @@ markdown: redcarpet
 highlighter: null
 redcarpet:
   extensions: ["tables"]
-gems:
+plugins:
   - jekyll-sitemap
 
 # Blog
