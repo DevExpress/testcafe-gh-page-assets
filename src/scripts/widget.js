@@ -12,7 +12,7 @@ $(function() {
     }
 
     function updateWidgetVisibility() {
-        if(window.needShowShareWidget()) {
+        if(window.localStorage.getItem(WIDGET_DISPLAYED_FLAG) || window.needShowShareWidget()) {
             $('.widget-container').removeClass('hidden');
             if(!window.localStorage.getItem(WIDGET_DISPLAYED_FLAG)) {
                 sendGaEvent('shareWidgetFirstDisplay');
