@@ -54,7 +54,7 @@ $(function() {
         $('.widget-container').removeClass('out');
     });
 
-    $(document).bind( "mouseup touchend", function(e) {
+    $(document).bind( "mousedown touchstart", function(e) {
         var widget = $('.widget-container');
 
         var clickOutsideWidget = !widget.is(e.target) && widget.has(e.target).length === 0;
