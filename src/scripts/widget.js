@@ -2,6 +2,7 @@
 ---
 $(function() {
     var WIDGET_DISPLAYED_FLAG = 'widget-displayed';
+    var WIDGET_OPENED_FLAG = 'widget-opened';
 
     function sendGaEvent(event) {
         {% if jekyll.environment == "production" %}
@@ -28,8 +29,17 @@ $(function() {
         sendGaEvent(event);
     }
 
-    $('#share-button').on('click', function () {
+    function openWidget() {
         $('.widget-container').addClass('out');
+        
+        if(!window.localStorage.getItem(WIDGET_OPENED_FLAG)) {
+            sendGaEvent('shareWidgetFirstOpen');
+            window.localStorage.setItem(WIDGET_OPENED_FLAG, true);
+        }
+    }
+
+    $('#share-button').on('click', function () {
+        openWidget();
     });
 
     $('#tweet').on('click', function () {
