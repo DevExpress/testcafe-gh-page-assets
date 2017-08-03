@@ -11,5 +11,32 @@ layout: default
 			{{ content }}
 
 		</div>
+		<div class="widget-container hidden">
+			<div id="share-button">
+				<div id="graph-icon">
+					<img src="{{ "/images/icon-share.svg" | prepend: site.baseurl }}"/>
+				</div>
+				<p>TELL<br/>YOUR<br/>FRIENDS</p>
+			</div>
+			<div class="widget-panel">
+				<div id="tweet">
+					<a href="https://twitter.com/intent/tweet?text=I+use+%23TestCafe+for+e2e+testing%2C+check+it+out+https%3A%2F%2Fdevexpress.github.io%2Ftestcafe%2F"
+					onclick="return !window.open(this.href, 'Twitter', 'width=690,height=450')"
+					target="_blank">
+						<img src="{{ "/images/icon-tweet.svg" | prepend: site.baseurl }}"/>
+					</a>
+				</div>
+				<div id="facebook">
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https://devexpress.github.io/testcafe/"
+					onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')"
+					target="_blank">
+						<image src="{{ "/images/icon-facebook.svg" | prepend: site.baseurl }}"/>
+					</a>
+				</div>
+				<div id="collapse">
+					<img src="{{ "/images/icon-close.svg" | prepend: site.baseurl }}"/>
+				</div>
+			</div>
+		</div>
 	</article>
 </main>
