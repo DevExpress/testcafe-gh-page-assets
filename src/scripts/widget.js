@@ -6,7 +6,7 @@ $(function() {
     function sendGaEvent(event) {
         {% if jekyll.environment == "production" %}
 
-        ga('send', 'event', 'widget', event);
+        ga('send', 'event', 'shareWidget', event);
 
         {% endif %}
     }
@@ -15,7 +15,7 @@ $(function() {
         if(window.needShowShareWidget()) {
             $('.widget-container').removeClass('hidden');
             if(!window.localStorage.getItem(WIDGET_DISPLAYED_FLAG)) {
-                sendGaEvent('display');
+                sendGaEvent('shareWidgetFirstDisplay');
                 window.localStorage.setItem(WIDGET_DISPLAYED_FLAG, true);
             }
         }
@@ -33,11 +33,11 @@ $(function() {
     });
 
     $('#tweet').on('click', function () {
-        handleWidgetAction('tweet');
+        handleWidgetAction('shareWidgetTwitter');
     });
 
     $('#facebook').on('click', function () {
-        handleWidgetAction('facebook');
+        handleWidgetAction('shareWidgetFacebook');
     });
     
     $('#collapse').on('click', function () {
