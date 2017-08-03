@@ -408,9 +408,16 @@ html, body {
     &.out {
         margin-right: 0;
 
-        #share-button:hover {
-            background: $brand-color;
-            cursor: default;
+        #share-button {
+            background: #0097cf;
+            
+            &:hover {
+                cursor: default;
+            }
+        }
+
+        .widget-panel {
+            background: #0097cf;
         }
     }
 
