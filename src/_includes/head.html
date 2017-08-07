@@ -118,7 +118,8 @@
     <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.min.js"></script>
     <script defer type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"></script>
     <script defer src="{{ "/scripts/widget.js" | prepend: site.baseurl }}" type="text/javascript"></script>
-  
+    <script src="{{ "/scripts/mobile-detect.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+
     <script>
         var MIN_BODY_WIDTH = 1000;
         var FOOTER_HEIGHT  = 63;
@@ -126,11 +127,12 @@
 
         var nav            = null;
         var article        = null;
-        var isMobileDevice = window.screen.width < 800 || window.screen.height < 800;
+        var md             = new MobileDetect(window.navigator.userAgent);
+        var isMobileDevice = !!md.mobile();
 
         function setNavTopPosition () {
             var isMobileZoomed = isMobileDevice && window.innerWidth !== document.body.scrollWidth;
-            var top = null;
+            var top            = null;
 
             if(isMobileDevice) {
                 top = window.pageYOffset >= HEADER_HEIGHT ? window.pageYOffset - HEADER_HEIGHT + 'px' : '0';
