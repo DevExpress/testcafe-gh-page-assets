@@ -474,3 +474,13 @@ html, body {
     left: 10px;
     float: left;
 }
+
+.faq {
+    max-width: 1100px;
+    margin: 32px 0 $spacing-unit calc(#{$doc-nav-width} + #{$spacing-unit});
+    padding-right: $spacing-unit;
+
+    .anchor {
+        top: -80px;
+    }
+}
