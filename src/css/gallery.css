@@ -1,22 +1,100 @@
-.gallery-container {
+.gallery-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    left: 880px;
+    background: -webkit-linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0.6), rgba(255,255,255,0.8), rgba(255,255,255,1)); 
+    background: -o-linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0.6), rgba(255,255,255,0.8), rgba(255,255,255,1)); 
+    background: -moz-linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0.6), rgba(255,255,255,0.8), rgba(255,255,255,1)); 
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0.6), rgba(255,255,255,0.8), rgba(255,255,255,1));
+    pointer-events: none;
+}
+
+/* gallery arrows */
+
+#main-gallery .dx-gallery-nav-button-prev:before, #main-gallery .dx-gallery-nav-button-next:before {
+    display: none;
+}
+
+#main-gallery .dx-gallery-nav-button-prev, #main-gallery .dx-gallery-nav-button-next {
+    height: 110px;
+    width: 35px;
+    top: 313px;
+}
+
+#main-gallery .dx-gallery-nav-button-prev {
+    background-image: url("/testcafe/images/landing-page/arrow-left-blue.png");
+    z-index: 3;
+}
+
+#main-gallery .dx-gallery-nav-button-prev.dx-state-hover, #main-gallery .dx-gallery-nav-button-prev.dx-state-active {
+    background-image: url("/testcafe/images/landing-page/arrow-left-yellow.png");
+}
+
+#main-gallery .dx-gallery-nav-button-next {
+    background-image: url("/testcafe/images/landing-page/arrow-right-blue.png");
+}
+
+#main-gallery .dx-gallery-nav-button-next.dx-state-hover, #main-gallery .dx-gallery-nav-button-next.dx-state-active {
+    background-image: url("/testcafe/images/landing-page/arrow-right-yellow.png");
+}
+
+.dx-gallery-wrapper {
+    overflow: visible;
+}
+
+/* gallery-item */
+
+#main-gallery .dx-gallery-item .gallery-item-top {
+    text-align: left;
+}
+
+#main-gallery .dx-gallery-item .gallery-item-number, #main-gallery .dx-gallery-item .gallery-item-text, #main-gallery .dx-gallery-item h3 {
+    max-width: 772px;
+}
+
+#main-gallery .dx-gallery-item .gallery-item-top-content {
     display: inline-block;
-    width: 882px;
-    height: 668px;
-    margin: 0 0 0 -55px;
+    width: 540px;
+    vertical-align: top;
 }
 
-#gallery {
-    margin: auto;
+#main-gallery .dx-gallery-item .gallery-item-number {
+    margin: 0 20px 0 80px;
+    width: 56px;
+    height: 56px;
+    background-color: #8ab2c2;
+    border-radius: 28px;
+    text-align: center;
+    line-height: 56px;
+    color: #fff;
+    font-size: 34px;
+    font-weight: bold;
+    display: inline-block;
 }
 
-.dx-widget {
-  color: #36b6e5;
+#main-gallery .dx-gallery-item h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 22px;
+    color: #8ab2c2;
+    font-weight: 100;
 }
 
-.dx-gallery-nav-button-prev, .dx-gallery-nav-button-next {
-    margin: -26px -3px 0;
+#main-gallery .dx-gallery-item .gallery-item-text {
+    font-size: 14px;
 }
 
-.dx-gallery-indicator {
-    margin: 0 0 -5px;
+#main-gallery img {
+    width: 700px;
+}
+
+@media (max-width: 1270px) {
+    #main-gallery .dx-gallery-nav-button-prev {
+        left: 15px;
+    }
+    #main-gallery .dx-gallery-nav-button-next {
+        right: 15px;
+    }
 }

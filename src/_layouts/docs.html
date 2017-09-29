@@ -5,7 +5,7 @@ layout: default
 {% include nav-menu.html %}
 
 <main>
-	<article class="doc">
+	<article {% if page.url contains 'getting-started'%}class="post gs"{% else %}class="doc"{% endif %}>
 		<div class="post-content">
 
 			{{ content }}
