@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="post">
+    <div class="blog-title">
+        Publications about TestCafe
+    </div>
+    <div class="post-list">
+    {% for pub in site.data.publications %}
+        <div class="post-preview">
+            <div class="post-date">
+                {{ pub.type }}
+            </div>
+            <div class="post-title"><a href="{{ pub.url }}">{{ pub.title }}</a></div>
+            <div class="post-extract">
+                <p>{{ pub.excerpt }}</p>
+            </div>
+            <div class="post-subheader">
+                <p>By {{ pub.author }} on {{ pub.date | date: "%e %B, %Y" }}, via {{ pub.publisher }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>    
