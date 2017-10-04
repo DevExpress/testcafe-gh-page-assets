@@ -208,11 +208,16 @@ $max-width: 1500px;
 }
 
 code {
-    background-color: #98c0d1;
-    color:#ffffff;
+    background-color: transparent;
     border: none;
-    border-radius: 0;
-    padding: 7px;
+
+    p {
+        background-color: #98c0d1;
+        color:#ffffff;
+        border: none;
+        border-radius: 0;
+        padding: 7px;
+    }
 }
 
 .features-section {
