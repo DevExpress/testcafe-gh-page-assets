@@ -66,9 +66,28 @@ $max-width: 1500px;
             }
         }
 
+        .get-started-button {
+            width: 423px;
+            height: 70px;
+            border: 2px solid #404142;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 65px;
+            color: #404142;
+            text-align: center;
+            margin-top: 20px;
+            display: inline-block;
+
+            &:hover {
+                color: #ffffff;
+                background-color: #404142;
+            }
+        }
+
         .banner-text {
             float: left;
-            margin: 20px 30px 0 0;
+            margin: -27px 30px 0 0;
         }
 
         .banner-image {
