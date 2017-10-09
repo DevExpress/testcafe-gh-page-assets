@@ -23,7 +23,7 @@ $(function() {
 
     $("#main-gallery").dxGallery({
         dataSource: galleryData,
-        width: 860,
+        width: 1030,
         showIndicator: false,
         showNavButtons: true,
         height: 720,
