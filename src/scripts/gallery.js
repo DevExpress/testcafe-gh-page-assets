@@ -23,7 +23,7 @@ $(function() {
         image: "/testcafe/images/landing-page/gallery-test-run-report.png"
     }];
 
-    var galleryEventSent = false;
+    var GALLERY_BROWSED_FLAG = "gallery-browsed";
 
     $("#main-gallery").dxGallery({
         dataSource: galleryData,
@@ -34,9 +34,9 @@ $(function() {
         onSelectionChanged: function (e) {
             {% if jekyll.environment == "production" %}
             
-                if(!galleryEventSent) {
+                if(!window.localStorage.getItem(GALLERY_BROWSED_FLAG)) {
                     ga('send', 'event', 'landingPage', 'galleryBrowsed');
-                    galleryEventSent = true;
+                    window.localStorage.setItem(GALLERY_BROWSED_FLAG, true);
                 }
             
             {% endif %}
