@@ -1,3 +1,5 @@
+---
+---
 $(function() {
     var galleryData = [{
         id: 1,
@@ -21,12 +23,24 @@ $(function() {
         image: "/testcafe/images/landing-page/gallery-test-run-report.png"
     }];
 
+    var galleryEventSent = false;
+
     $("#main-gallery").dxGallery({
         dataSource: galleryData,
         width: 1030,
         showIndicator: false,
         showNavButtons: true,
         height: 720,
+        onSelectionChanged: function (e) {
+            {% if jekyll.environment == "production" %}
+            
+                if(!galleryEventSent) {
+                    ga('send', 'event', 'landingPage', 'galleryBrowsed');
+                    galleryEventSent = true;
+                }
+            
+            {% endif %}
+        },
         itemTemplate: function (item, index) {
             var result = $("<div>"),
                 topBlock = $("<div>").addClass("gallery-item-top"),
