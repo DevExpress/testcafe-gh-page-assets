@@ -1,25 +1,69 @@
-<header class="site-header {% if page.permalink == '/' %}animated{% else %}minimized{% endif %}">
+<header class="site-header {% if page.permalink != '/' %}fixed{% endif %}">
   <div class="site-header-content">
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
     <nav class="site-nav">
         {% for menuItem in site.data.top-menu-items %}
           {% capture highlightUrl %}{% if menuItem.highlightUrl %}{{ menuItem.highlightUrl }}{% else %}{{ menuItem.url }}{% endif %}{% endcapture %}
-          <a class="page-link {% if page.url contains highlightUrl %}active{% endif %}" href="{% if menuItem.external %}{{ menuItem.url}}{% else %}{{ menuItem.url | prepend: site.baseurl }}{% endif %}">{{ menuItem.text }}</a>
-          <span class="page-link-separator">|</span>
+          <div class="site-nav-tab {% if page.url contains highlightUrl %}active{% endif %}">
+            <a class="page-link" href="{% if menuItem.external %}{{ menuItem.url}}{% else %}{{ menuItem.url | prepend: site.baseurl }}{% endif %}"{% if menuItem.external %} target="_blank"{% endif %}>{{ menuItem.text }}</a>
+          </div>
         {% endfor %}
-      <input type="text" placeholder="Search" id="search"/>
-    </nav>
-
+      <a id="twitter-button" href="https://twitter.com/dxtestcafe" target="_blank"></a>
+      <div id="search-icon"></div>
+      <div class="star-button">
+        <a class="github-button" href="https://github.com/DevExpress/testcafe" data-size="large" data-count-href="/DevExpress/testcafe/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star DevExpress/testcafe on GitHub"><span style="color:#ffffff">Star</span></a>
+      </div>
+      <div id="search-panel" class="hidden">
+          <input type="text" placeholder="Search query" id="search"/>
+          <div id="close-search"></div>
+      </div>
+      </nav>
   </div>
 </header>
+
+<script>
+  function has(parentEl, el)  {
+    var descendants = parentEl.getElementsByTagName('*');
+    
+    for(i = 0; i < descendants.length; i++) 
+        if(descendants[i] === el) return true;
+
+    return false;
+  }
+
+  function closeSearchBox(e) {
+      var clickOutsideSearchBox = searchPanel !== e.target && !has(searchPanel, e.target);
+
+      if(clickOutsideSearchBox && !searchPanel.className.includes('hidden')) 
+          searchPanel.className += ' hidden';
+  }
+
+  var searchButton      = document.querySelector('#search-icon');
+  var searchPanel       = document.querySelector('#search-panel');
+  var closeSearchButton = document.querySelector('#close-search');
+
+  searchButton.addEventListener('click', function () {
+      searchPanel.className = searchPanel.className.replace(/hidden/,'');
+  });
+  
+  closeSearchButton.addEventListener('click', function () {
+      searchPanel.className += ' hidden';
+  });
+
+  window.addEventListener('mousedown', closeSearchBox);        
+  window.addEventListener('touchstart', closeSearchBox);
+</script>
 
 {% if page.url contains '/documentation/' %}
   <div class="doc-top-nav">
     <div class="doc-top-nav-content">
-    {% for menuItem in site.data.docs-top-menu %}
-      <a class="{% if page.url contains menuItem.url %}active{% endif %}" href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>
-      <span class="page-link-separator level-2">|</span>
-    {% endfor %}
+      <div class="doc-top-nav-wrapper">
+        {% for menuItem in site.data.docs-top-menu %}
+          <div class="doc-top-nav-tab {% if page.url contains menuItem.url %}active{% endif %}" >
+            <a href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>      
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 {% endif %}

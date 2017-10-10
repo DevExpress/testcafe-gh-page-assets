@@ -10,9 +10,10 @@ $small-font-size:  $base-font-size * 0.875;
 
 $spacing-unit:     40px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2fa4cf;
+$text-color:               #111;
+$background-color:         #ffffff;
+$landing-background-color: #a4cada;
+$brand-color:              #2fa4cf;
 
 $grey-color:       #828282;
 $grey-color-dark:  darken($grey-color, 25%);
@@ -24,11 +25,12 @@ $doc-nav-width:      350px;
 
 $baseUrl:            "/testcafe";
 
-$header-height-min: 51px;
-$header-height:     102px;
-$footer-height:     63px;
+$header-height:     75px;
+$doc-header-height: 126px;
+$footer-height:     113px;
 
-$body-min-width:    1000px;
+$body-min-width: 1215px;
+$max-width:      1500px;
 
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
