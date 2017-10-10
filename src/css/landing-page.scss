@@ -69,19 +69,19 @@ $max-width: 1500px;
         .get-started-button {
             width: 423px;
             height: 70px;
-            border: 2px solid #404142;
+            color: #ffffff;
+            background-color: #404142;
             border-radius: 4px;
             font-weight: bold;
             font-size: 25px;
             line-height: 65px;
-            color: #404142;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
             display: inline-block;
 
             &:hover {
-                color: #ffffff;
-                background-color: #404142;
+                color: #404142;
+                background: #ffffff;
             }
         }
 
@@ -236,6 +236,7 @@ code {
         border: none;
         border-radius: 0;
         padding: 7px;
+        margin-bottom: -15px;
     }
 }
 
