@@ -208,6 +208,8 @@ html, body {
     background-color: white;
     position: relative;
     z-index: 1;
+    border-top: 1px solid $border-color;
+    box-sizing: border-box;
 }
 
 .push {
@@ -225,6 +227,7 @@ html, body {
     vertical-align: top;
     font-size: 13px;
     background-color: $background-color;
+    margin: 10px 0;
 
     ul {
         list-style-type: none;
@@ -282,7 +285,7 @@ html, body {
 }
 
 .doc-nav-content {
-    margin: 27px 0 7px 0;
+    margin-top: 17px;
     border-right: 1px solid #e6e6e6;
     padding-right: 20px;
 

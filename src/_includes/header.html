@@ -40,10 +40,12 @@
 
   var searchButton      = document.querySelector('#search-icon');
   var searchPanel       = document.querySelector('#search-panel');
+  var searchInput       = document.querySelector('#search');
   var closeSearchButton = document.querySelector('#close-search');
 
   searchButton.addEventListener('click', function () {
       searchPanel.className = searchPanel.className.replace(/hidden/,'');
+      searchInput.focus();      
   });
   
   closeSearchButton.addEventListener('click', function () {
