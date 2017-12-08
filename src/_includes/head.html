@@ -128,7 +128,7 @@
     <script src="{{ "/scripts/mobile-detect.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
 
     <script>
-        var MIN_BODY_WIDTH = 1215;
+        var MIN_BODY_WIDTH = 1230;
         var FOOTER_HEIGHT  = 113;
         var HEADER_HEIGHT  = 126;
 
@@ -245,7 +245,7 @@
   {% endif %}
     <script>
         function initHeader(siteHeader, contentWrapper, docTopMenu, article, gs) {
-            var MIN_BODY_WIDTH = 1215;
+            var MIN_BODY_WIDTH = 1230;
 
             function updateHeader() {
                 var bodyMinimized = document.body.clientWidth === MIN_BODY_WIDTH;
@@ -265,7 +265,7 @@
                     docTopMenu.style.position = bodyMinimized ? 'static' : '';
 
                 if(contentWrapper)
-                    contentWrapper.style.paddingTop = bodyMinimized ? {% if isLandingPage %}'48px'{% else %}'0'{% endif %} : '';
+                    contentWrapper.style.paddingTop = bodyMinimized ? '0' : '';
 
                 if(article)
                     article.style.marginTop = bodyMinimized ? '21px' : '72px';
@@ -279,7 +279,7 @@
             window.addEventListener('resize', updateHeader);
         }
         document.addEventListener('DOMContentLoaded', function (e) {
-            var contentWrapper = document.querySelector({% if isLandingPage %}'.banner'{% else %}'.container'{% endif %});
+            var contentWrapper = document.querySelector('.container');
             var siteHeader     = document.querySelector('.site-header');
             var docTopMenu     = document.querySelector('.doc-top-nav');
             var article        = document.querySelector('.doc');

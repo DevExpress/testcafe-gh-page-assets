@@ -1,7 +1,7 @@
 ---
 ---
 
-$body-min-width: 1150px;
+$body-min-width: 1230px;
 $max-width: 1500px;
 
 .site-header, body, html {
@@ -10,12 +10,6 @@ $max-width: 1500px;
 
 .page-object-example {
     @media (max-width: 1490px) {
-        display: none;
-    }    
-}
-
-.install-example {
-    @media (max-width: 1190px) {
         display: none;
     }    
 }
