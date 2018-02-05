@@ -1,13 +1,6 @@
 ---
 ---
 $(function(){
-    $("#page-object-popover").dxPopover({
-        target: "#page-object-link",
-        showEvent: "dxclick",
-        position: "top",
-        width: 300
-    });
-
     {% if jekyll.environment == "production" %}
     
     var GET_STARTED_CLICKED_FLAG = 'get-started-clicked';
