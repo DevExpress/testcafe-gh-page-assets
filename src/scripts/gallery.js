@@ -1,6 +1,10 @@
 ---
 ---
 $(function() {
+    function download(file) {
+        window.location = file;
+    }
+
     var galleryData = [{
         id: 1,
         title: "Install TestCafe",
@@ -10,7 +14,8 @@ $(function() {
         id: 2,
         title: "Write your first test",
         text: "You can use any text editor",
-        image: "/testcafe/images/landing-page/gallery-test-code.png"
+        image: "/testcafe/images/landing-page/gallery-test-code.png",
+        download: "/testcafe/downloads/sample-test.zip"
     }, {
         id: 3,
         title: "Run the test on your computer",
@@ -24,6 +29,7 @@ $(function() {
     }];
 
     var GALLERY_BROWSED_FLAG = "gallery-browsed";
+    var TEST_SAMPLE_DOWNLOADED = "test-sample-downloaded";
 
     $("#main-gallery").dxGallery({
         dataSource: galleryData,
@@ -45,12 +51,42 @@ $(function() {
             var result = $("<div>"),
                 topBlock = $("<div>").addClass("gallery-item-top"),
                 topContentBlock = $("<div>").addClass("gallery-item-top-content");
-            $("<div>").addClass("gallery-item-number").text(index + 1).appendTo(topBlock);
-            $("<h3>").text(item.title).appendTo(topContentBlock);
-            $("<div>").addClass("gallery-item-text").text(item.text).appendTo(topContentBlock);
+            $("<div>")
+                .addClass("gallery-item-number")
+                .text(index + 1)
+                .appendTo(topBlock);
+            $("<h3>")
+                .text(item.title)
+                .appendTo(topContentBlock);
+            $("<div>")
+                .addClass("gallery-item-text")
+                .text(item.text)
+                .appendTo(topContentBlock);
+            
             topContentBlock.appendTo(topBlock);
             topBlock.appendTo(result);
-            $("<img>").attr("src", item.image).appendTo(result);
+
+            $("<img>")
+                .attr("src", item.image)
+                .appendTo(result);
+            
+            if(item.download)
+                $("<div>")
+                    .addClass("download-button")    
+                    .text('Download Test')
+                    .click(function () {
+                        {% if jekyll.environment == "production" %}
+            
+                        if(!window.localStorage.getItem(TEST_SAMPLE_DOWNLOADED)) {
+                            ga('send', 'event', 'landingPage', 'testSampleDownloaded');
+                            window.localStorage.setItem(TEST_SAMPLE_DOWNLOADED, true);
+                        }
+                    
+                        {% endif %}
+
+                        download(item.download);
+                    })
+                    .appendTo(result);
 
             return result;
         }
