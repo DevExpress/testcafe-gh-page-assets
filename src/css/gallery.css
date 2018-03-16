@@ -100,7 +100,7 @@ body {
     background-image: url("/testcafe/images/landing-page/arrow-right-yellow.png");
 }
 
-.dx-gallery-wrapper {
+#main-gallery .dx-gallery-wrapper {
     overflow: visible;
 }
 

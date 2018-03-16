@@ -383,6 +383,38 @@ code {
                 color: #8ab2c2;
             }
         }
+
+        #tweet-gallery {
+            margin: auto;
+
+            .dx-gallery-nav-button-prev {
+                background-image: url("/testcafe/images/landing-page/arrow-left-blue-tweets.png");
+                height: 300px;
+                width: 35px;
+                top: 0px;
+                margin: 0;
+            }
+            
+            .dx-gallery-nav-button-prev.dx-state-hover, .dx-gallery-nav-button-prev.dx-state-active {
+                background-image: url("/testcafe/images/landing-page/arrow-left-yellow-tweets.png");
+            }
+            
+            .dx-gallery-nav-button-next {
+                background-image: url("/testcafe/images/landing-page/arrow-right-blue-tweets.png");
+                height: 300px;
+                width: 35px;
+                top: 0px;
+                margin: 0;
+            }
+            
+            .dx-gallery-nav-button-next.dx-state-hover, .dx-gallery-nav-button-next.dx-state-active {
+                background-image: url("/testcafe/images/landing-page/arrow-right-yellow-tweets.png");
+            }
+
+            .dx-gallery-nav-button-prev:before, .dx-gallery-nav-button-next:before {
+                content: "" 
+            } 
+        }
     }
 }
 
