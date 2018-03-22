@@ -15,10 +15,10 @@ $(function() {
     $('#tweet-gallery').dxGallery({
         dataSource: tweets,
         width: "100%",
-        height: 300,
+        height: 321,
         showIndicator: false,
         showNavButtons: showNav,
-        initialItemWidth: 400,
+        initialItemWidth: 376,
         loop: true,
         itemTemplate: function (item, index) {
             var result = $("<div>");
