@@ -8,6 +8,27 @@ $max-width: 1500px;
     min-width: $body-min-width;
 }
 
+.veil-on {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    min-height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+
+    .player {
+        position: fixed;
+        overflow: visible;
+        left: 50%;
+        top: 50%;
+        margin: -240px 0 0 -426px;
+    }
+}
+
+.veil-off {
+    display: none;
+}
+
 .page-object-example {
     @media (max-width: 1490px) {
         display: none;
@@ -227,7 +248,7 @@ code {
     p {
         background-color: #98c0d1;
         color:#ffffff;
-        border: none;
+        border: 1px solid #c8dfe8;
         border-radius: 0;
         padding: 7px;
         margin-bottom: -15px;
@@ -278,7 +299,8 @@ code {
             .row-2 {
                 .feature-container {
                     border-right: 1px solid #c8dfe8;
-                    padding: 28px 41px 0px 47px;
+                    border-bottom: 1px solid #c8dfe8;
+                    padding: 28px 41px 20px 47px;
         
                     &:last-child {
                         border-right: none;
@@ -352,6 +374,104 @@ code {
                     cursor: pointer;
                     border-bottom: 1px dashed #404142;
                     text-decoration: none;
+                }
+            }
+        }
+
+        .testcafe-live-promo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+
+            .promo-block {
+                display: flex;
+                justify-content: space-between;
+
+                .image {
+                    background-image: url("/testcafe/images/landing-page/rapid-dev-icon.svg");
+                    background-repeat: no-repeat;
+                    background-position-y: 9px;
+                    width: 83px;
+                    min-width: 83px;
+                    height: 84px;
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .description {
+                    display: inline-block;
+                    max-width: 400px;
+                    margin-left: 35px;
+
+                    .header {
+                        font-size: 24px;
+                        color: #ffffff;
+                    }
+                    .text {
+                        font-size: 14px;
+                        color: rgba(64, 65, 66, 255);
+                        margin-top: 9px;
+                    }
+                    .textcafe-live-install { 
+                        p {
+                            margin-top: -13px;
+                            max-width: 220px;
+                        }
+                    }
+                }
+            }
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                
+                .video-button {
+                    @media (max-width: 1480px) {
+                        width: 286px;
+                    }
+                    width: 326px;
+                    height: 61px;
+                    text-align: center;
+                    padding-left: 10px;
+                    line-height: 63px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #404142;
+                    background-image: url('/testcafe/images/landing-page/rapid-dev-play-video.svg');
+                    background-repeat: no-repeat;
+                    background-position: 15px 15px;
+                    background-color: #ffffff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    margin-left: 40px;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+                .repo-button {
+                    @media (max-width: 1480px) {
+                        width: 280px;
+                    }
+                    width: 320px;
+                    height: 60px;
+                    text-align: center;
+                    padding-left: 10px;
+                    line-height: 56px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #404142;
+                    background-image: url('/testcafe/images/landing-page/rapid-dev-github-icon.svg');
+                    background-repeat: no-repeat;
+                    background-position: 15px 13px;
+                    border: 2px solid #ffffff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    margin-left: 40px;
+                    box-sizing: border-box;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
                 }
             }
         }
