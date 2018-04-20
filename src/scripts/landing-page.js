@@ -21,6 +21,8 @@ $(function(){
             var iframe    = document.querySelector('#yt-iframe')
             var iframeSrc = iframe.src;
     
+            // NOTE: Reassigning iframe's src is a quick way to stop the video
+            // without sending postMessage.
             iframe.src = iframeSrc;
             veil.className = 'veil-off';
         }
