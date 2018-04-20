@@ -29,12 +29,6 @@ $max-width: 1500px;
     display: none;
 }
 
-.page-object-example {
-    @media (max-width: 1490px) {
-        display: none;
-    }    
-}
-
 .banner {
     padding: 96px 100px 51px;
     background: #a4cada;
@@ -616,6 +610,11 @@ code {
 
 .feature-5-code {
     display: inline-block;
+
+    @media (max-width: 1490px) {
+        display: none;
+    }    
+    
     background-color: #98c0d1;
     color: #ffffff;
     border: 1px solid #c8dfe8;
