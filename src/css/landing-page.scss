@@ -483,8 +483,7 @@ code {
         justify-content: space-between;
 
         .testcafe-studio-promo-description {
-            margin-top: 23px;
-            margin-right: 20px;
+            margin: 23px 20px 0 0;
 
             .testcafe-studio-promo-header {
                 font-weight: bold;
@@ -493,7 +492,7 @@ code {
             }
             .testcafe-studio-promo-subheader {
                 font-size: 14px;
-                color: #ffffff;
+                color: #fff;
                 margin-top: 5px;
             }
             .check-it-out-button {
@@ -503,7 +502,7 @@ code {
                 display: block;
                 background-color: #006a90;
                 border-radius: 5px;
-                color: #ffffff;
+                color: #fff;
                 font-size: 18px;
                 font-weight: bold;
                 text-align: center;
@@ -519,14 +518,12 @@ code {
         }
 
         .testcafe-studio-promo-screenshot {
-            background-image: url('/testcafe/images/landing-page/studio-promo.png');
-            background-repeat: no-repeat;
+            background: url('/testcafe/images/landing-page/studio-promo.png') no-repeat 0 0;
             width: 732px;
             min-width: 732px;
             height: 240px;
-            margin-right: -16px;
+            margin: 15px -16px 0 0;
             align-self: flex-end;
-            margin-top: 15px;
         }
     }
 }
