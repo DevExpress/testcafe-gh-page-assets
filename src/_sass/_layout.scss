@@ -51,8 +51,8 @@
 
     #search-panel {
         position: relative;
-        top: -47px;
-        right: 0px;
+        top: -40px;
+        right: -8px;
         background-color: #a4cada;
         opacity: 1;
         
@@ -95,7 +95,7 @@
     outline: none;
     
     height: 40px;
-    width: 840px;
+    width: 825px;
 
     @media (max-width: 1310px) {
         width: 770px;
