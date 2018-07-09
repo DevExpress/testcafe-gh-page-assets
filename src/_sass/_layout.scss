@@ -21,7 +21,7 @@
     .star-button {
         display: inline-block;
         height: 28px;
-        width: 112px;
+        width: 113px;
         margin: 0 0 2px 26px;
         vertical-align: text-bottom;
     }
@@ -52,7 +52,6 @@
     #search-panel {
         position: relative;
         top: -40px;
-        right: -8px;
         background-color: #a4cada;
         opacity: 1;
         
@@ -69,7 +68,7 @@
             height: 17px;
             width: 17px;
             float: right;
-            margin-top: 12px;
+            margin: 12px 0 0 15px;
             cursor: pointer;
         }
     }
