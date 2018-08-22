@@ -1,0 +1,80 @@
+---
+---
+
+html {
+    min-width: 0;
+
+    body {
+        min-width: 0;
+
+        .page-content-wrapper {
+            overflow-x: hidden;
+
+            .site-header {
+                min-width: 0;
+
+                &.fixed {
+                    position: static;
+                }
+
+                .site-header-content {
+                    min-width: 0;
+                    padding: 0 0 0 30px;
+                    position: relative;
+
+                    .hamburger-button {
+                        display: block;
+                        float: right;
+                        padding: 27px 25px 28px 26px;
+    
+                        .hamburger-icon {
+                            height: 20px;
+                            width: 24px;
+                            background-image: url('/testcafe/images/hamburger-menu.png');
+                            cursor: pointer;
+                        }
+    
+                        &.active {
+                            background-color: #fff;
+    
+                            .hamburger-icon {
+                                background-image: url('/testcafe/images/hamburger-menu-active.png');
+                            }
+                        }
+                    }
+
+                    .site-nav {
+                        height: inherit;
+                        width: 150px;
+                        position: absolute;
+                        background: #fff;
+                        top: 75px;
+                        right: -150px;
+                        transition: right .2s;
+                        box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+                        
+                        .site-nav-tab {
+                            display: block;
+                        }
+        
+                        #search-panel, .star-button, #search-icon, #twitter-button {
+                            display: none;
+                        }
+        
+                        .hamburger-button {
+                            display: block;
+                        }
+        
+                        &.active {
+                            right: 0px;
+                        }
+                    }
+                }
+            }
+            .container {
+                padding-left: 0;
+                padding-top: 20px;
+            }
+        }
+    }
+}

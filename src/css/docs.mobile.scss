@@ -1,0 +1,29 @@
+---
+---
+
+html {
+    body {
+        .page-content-wrapper {
+            .doc-top-nav {
+                display: none;
+            }
+
+            .container {
+                .doc-nav {
+                    display: none;
+                }
+
+                main {
+                    .post {
+                        padding: 0 30px;
+                        min-width: 0;
+                    }
+
+                    .doc {
+                        margin-left: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

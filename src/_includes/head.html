@@ -27,6 +27,10 @@
   <script defer type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"></script>
   <script src="{{ "/scripts/mobile-detect.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
   <script>
+     var md             = new MobileDetect(window.navigator.userAgent);
+     var isMobileDevice = !!md.mobile();
+  </script>
+  <script>
       document.addEventListener('DOMContentLoaded', function (e) {
           hljs.initHighlightingOnLoad();
       });
@@ -48,6 +52,59 @@
   {% if page.permalink == '/' %}{% assign isLandingPage = true %}{% else %}{% assign isLandingPage = false %}{% endif %}
   {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
   {% if page.url contains '/getting-started/' %}{% assign isGettingStarted = true %}{% else %}{% assign isGettingStarted = false %}{% endif %}
+
+  <script>
+    function linkCss (href) {
+        function hideHtml () {
+            var html = document.querySelector('html');
+
+            window.addEventListener('load', function (e) {
+                html.style.display = 'block';
+            });
+
+            html.style.display = 'none';
+        }
+
+        var head  = document.getElementsByTagName('head')[0];
+        var link  = document.createElement('link');
+
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.href = href;
+        link.media = 'all';
+
+        head.appendChild(link);
+        hideHtml();
+    }
+  </script>
+
+    {% capture mobileCss %}{{ "/css/mobile.css" | prepend: site.baseurl }}{% endcapture %}
+    <script>
+        if (isMobileDevice) {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                var siteNav     = document.querySelector('.site-nav');
+                // var pageWrapper = document.querySelector('.page-content-wrapper');
+                // var docTopNav   = document.querySelector('.doc-top-nav');
+
+                // pageWrapper.insertBefore(siteNav, docTopNav);
+
+                var hamburgerButton = document.querySelector('.hamburger-button');
+
+                hamburgerButton.addEventListener('click', function (e) {
+                    if (hamburgerButton.className.indexOf('active') !== -1) {
+                        hamburgerButton.className = hamburgerButton.className.replace(' active', '');
+                        siteNav.className = siteNav.className.replace(' active', '');
+                    }
+                    else {
+                        hamburgerButton.className += ' active';
+                        siteNav.className += ' active';
+                    }
+                });
+            });
+
+            linkCss('{{ mobileCss }}');           
+        }
+    </script>
 
   {% if isLandingPage %}
     <script defer type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
@@ -79,8 +136,6 @@
 
         var nav            = null;
         var article        = null;
-        var md             = new MobileDetect(window.navigator.userAgent);
-        var isMobileDevice = !!md.mobile();
 
         function setNavTopPosition () {
             var isMobileZoomed = isMobileDevice && window.innerWidth !== document.body.scrollWidth;
@@ -159,7 +214,7 @@
                 nav.style.top = '0px';
 
                 article.style.marginTop = '0px';
-                article.style.paddingTop = '22px';
+                //article.style.paddingTop = '22px';
             }
 
             initScrollBar();
@@ -180,11 +235,18 @@
                 initNav(nav);
         });
     </script>
+    {% capture docsMobileCss %}{{ "/css/docs.mobile.css" | prepend: site.baseurl }}{% endcapture %}
+    <script>
+        if (isMobileDevice) {
+            linkCss('{{ docsMobileCss }}');           
+        }
+    </script>
   {% else %}
+    {% capture testCafeLogo %}{{ "/images/test-cafe-logo.png" | prepend: site.baseurl }}{% endcapture %}
     <script>
         if (document.images) {
             img1 = new Image();
-            img1.src = '/testcafe/images/test-cafe-logo.png';
+            img1.src = '{{ testCafeLogo }}';
         }
     </script>
   {% endif %}
@@ -212,10 +274,10 @@
                 if(contentWrapper)
                     contentWrapper.style.paddingTop = bodyMinimized ? '0' : '';
 
-                if(article)
+                if(article && !isMobileDevice)
                     article.style.marginTop = bodyMinimized ? '21px' : '72px';
  
-                if(gs)
+                if(gs && !isMobileDevice)
                     gs.style.paddingTop = bodyMinimized ? '21px' : '72px';
             }
 
