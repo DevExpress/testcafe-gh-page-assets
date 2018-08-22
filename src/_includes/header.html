@@ -38,10 +38,10 @@
           searchPanel.className += ' hidden';
   }
 
-  var searchButton      = document.querySelector('#search-icon');
-  var searchPanel       = document.querySelector('#search-panel');
-  var searchInput       = document.querySelector('#search');
-  var closeSearchButton = document.querySelector('#close-search');
+  var searchButton      = document.getElementById('search-icon');
+  var searchPanel       = document.getElementById('search-panel');
+  var searchInput       = document.getElementById('search');
+  var closeSearchButton = document.getElementById('close-search');
 
   searchButton.addEventListener('click', function () {
       searchPanel.className = searchPanel.className.replace(/hidden/,'');
@@ -57,7 +57,7 @@
 </script>
 {% if jekyll.environment == "production" %}
 <script>
-  var studioLink = document.querySelector('#studio-link');
+  var studioLink = document.getElementById('studio-link');
 
   studioLink.addEventListener('click', function () {
       ga('send', 'event', 'topMenu', 'studioLinkClicked');
