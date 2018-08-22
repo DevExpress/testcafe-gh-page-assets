@@ -80,13 +80,13 @@
 
           if(docNav) {
               function closeDocNav(e) {
-                  if(clickOutsideBox(e, docNav) && clickOutsideBox(e, toggleNavButton) && docNav.className.indexOf('active') !== -1) {
+                  if(clickOutsideBox(e, docNav) && clickOutsideBox(e, docNavPanel) && docNav.className.indexOf('active') !== -1) {
                       docNav.className = docNav.className.replace(' active', '');
                       document.documentElement.style.overflowY = 'scroll';
                   }
               }
 
-              var toggleNavButton = document.querySelector('.toggle-nav-button');
+              var docNavPanel = document.querySelector('.doc-nav-panel');
 
               window.addEventListener('mousedown', closeDocNav);        
               window.addEventListener('touchstart', closeDocNav);

@@ -17,7 +17,8 @@ $(function() {
         width: "100%",
         height: 321,
         showIndicator: false,
-        showNavButtons: showNav,
+        // showNavButtons: showNav,
+        showNavButtons: true,
         initialItemWidth: 376,
         loop: true,
         itemTemplate: function (item, index) {

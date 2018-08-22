@@ -3,6 +3,16 @@
 	{% if page.url contains menuItemUrl and menuItem.content %}
 	<div class="doc-nav-panel">
 		<div class="toggle-nav-button"></div>
+		<div class="doc-nav-panel-header">
+			<div class="doc-nav-panel-heading">Documentation</div>
+			<div class="doc-nav-panel-title">
+				{% for menuItem in site.data.docs-top-menu %}
+					{% if page.url contains menuItem.url %}
+						{{ menuItem.text }}
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 	<nav class="doc-nav">	
 		<div class="doc-nav-content">

@@ -27,7 +27,7 @@
     }
 
     .site-logo {
-        background-image: url($baseUrl + "/images/landing-page/testcafe-logo.png");
+        background-image: url($baseUrl + "/images/site-header-logo.svg");
         background-repeat: no-repeat;
         background-color: transparent;
         background-size: contain;
@@ -39,7 +39,7 @@
     }
 
     #twitter-button {
-        background-image: url($baseUrl + "/images/landing-page/twitter-icon.png");
+        background-image: url($baseUrl + "/images/twitter.svg");
         background-repeat: no-repeat;
         background-color: transparent;
         background-size: contain;
@@ -75,7 +75,7 @@
 }
 
 #search-icon {
-    background-image: url($baseUrl + "/images/landing-page/find-icon.png");
+    background-image: url($baseUrl + "/images/search.svg");
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: contain;
@@ -307,7 +307,7 @@ html, body {
 .cookie-notice {
     display: none;
     position: fixed;
-    background-color: #81daff;
+    background-color: #fff;
     right: 10px;
     bottom: 10px;
     left: 10px;
@@ -319,19 +319,15 @@ html, body {
     }
 
     .close-icon {
-        font: 12px/100% arial,sans-serif;
-        color: white;
+        background-image: url($baseUrl + "/images/landing-page/close-cookie-notice.svg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 36px;
+        width: 36px;
         position: absolute;
-        right: 7px;
-        text-decoration: none;
-        top: 7px;
+        right: 0px;
+        top: 0px;
         cursor: pointer;
-
-        &:after {
-            box-sizing: border-box;
-            position: relative;
-            content: '\2716';
-        }
     }
 
     .cookie-notice-content {
@@ -347,7 +343,7 @@ html, body {
             max-width: 90%;
 
             .cookie-notice-header {
-                color: white;
+                color: #000;
                 font-weight: bold;
                 font-size: 18px;
             }
@@ -364,13 +360,13 @@ html, body {
         }
         .cookie-notice-button {
             min-width: 96px;
-            color: white;
+            color: #000;
             padding: 5px 20px;
             font-size: 16px;
             font-weight: bold;
             border-radius: 50px;
-            border: 2px solid white;
-            background-color: #81daff;
+            border: 2px solid #000;
+            background-color: #fff;
             cursor: pointer;
         }
     }

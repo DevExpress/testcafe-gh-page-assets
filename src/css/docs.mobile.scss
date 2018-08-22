@@ -18,7 +18,24 @@ html {
                         width: 35px;
                         height: 35px;                        
                         float: left;
-                        margin: 10px 30px 0px;
+                        margin: 12px 17px 0px 30px;
+                    }
+
+                    .doc-nav-panel-header {
+                        float: left;
+                        display: flex;
+                        flex-direction: column;
+                        color: #fff;
+                        margin-top: 13px;
+
+                        .doc-nav-panel-heading {
+                            font-size: 16px;
+                            font-weight: bold;
+                            line-height: 0.5;
+                        }
+                        .doc-nav-panel-title {
+                            font-size: 22px;
+                        }
                     }
                 }
 
@@ -86,11 +103,40 @@ html {
                             table {
                                 width: 100%;
                                 min-width: 500px;
-                                margin: 0;
+                                margin: 0 0 3px 0;
                             }
                         }
                         pre > code {
                             font-size: 14px;
+                            padding-left: 0;
+                            padding-right: 0;
+                        }
+                        .table-wrapper, pre > code {
+                            &::-webkit-scrollbar {
+                                -webkit-appearance: none;
+                            }
+                            
+                            &::-webkit-scrollbar:vertical {
+                                width: 0;
+                            }
+                            
+                            &::-webkit-scrollbar:horizontal {
+                                height: 4px;
+                            }
+                            
+                            &::-webkit-scrollbar-thumb {
+                                background-color: #A4C9DA;
+                                border: 1px solid #92B7C8;
+                                box-sizing: border-box;
+                                border-radius: 2px;
+                            }
+                            
+                            &::-webkit-scrollbar-track {
+                                background-color: #E8E8E8;
+                                border: 1px solid #E0E0E0;
+                                box-sizing: border-box;
+                                border-radius: 2px;
+                            }
                         }
                     }
                 }

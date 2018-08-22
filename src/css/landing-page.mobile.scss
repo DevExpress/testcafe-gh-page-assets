@@ -1,0 +1,402 @@
+---
+---
+
+html {
+    body {
+        .page-content-wrapper {
+            main {
+                #main-form {
+                    .banner {
+                        padding: 44px 30px 10px;
+                        
+                        .banner-content {
+                            .banner-text {
+                                float: none;
+                                margin: 0;
+
+                                .title {
+                                    font-weight: bold;
+                                    line-height: 39px;
+                                    font-size: 33px;
+                                    text-align: center;
+                                    color: #fff;
+                                    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+                                }
+                                .slogan {
+                                    font-weight: bold;
+                                    line-height: 21px;
+                                    font-size: 18px;
+                                    text-align: center;
+                                    color: #404142;
+                                    padding-top: 25px;
+                                }
+                                .get-started-button {
+                                    width: 100%;
+                                    height: 55px;
+                                    font-weight: bold;
+                                    line-height: 55px;
+                                    font-size: 18px;
+                                    text-align: center;
+                                    margin-top: 25px;
+                                    vertical-align: middle;
+                                }
+                            }
+                            .values {
+                                padding-top: 65px;
+                                display: block;
+                                
+                                .value-container {
+                                    border: none;
+                                    width: 100%;
+                                    display: block;
+                                    padding: 0 0 20px 0;
+
+                                    .value {
+                                        padding-left: 0;
+
+                                        & > p {
+                                            padding-top: 66px;
+                                            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+                                        }
+
+                                        .description {
+                                            margin-top: -7px;
+
+                                            .install-example {
+                                                display: block;
+                                                margin-bottom: 17px;
+
+                                                code {
+                                                    display: inline-block;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .how-it-works-section {
+                        padding: 0 30px 42px;
+                        min-width: 0;
+                        height: auto;
+
+                        .how-it-works-wrapper {
+                            .how-it-works-content {
+                                padding-left: 0;
+                                margin-left: 0;
+                                
+                                h1 {
+                                    margin: 32px 0 24px;
+                                    font-weight: bold;
+                                    line-height: normal;
+                                    font-size: 33px;
+                                    color: #000;
+                                }
+                                &:before {
+                                    display: none;
+                                }
+                                .gallery-wrapper {
+                                    display: none;
+                                }
+                                .gallery-alt-text {
+                                    display: block;
+
+                                    .gallery-alt-step {
+                                        margin-bottom: 25px;
+
+                                        .gallery-alt-step-content {
+                                            display: flex;
+                                            
+                                            .gallery-alt-step-number {
+                                                font-weight: 600;
+                                                line-height: 28px;
+                                                font-size: 24px;
+                                                color: #92B1C0;
+                                                width: 30px;
+                                            }
+                                            .gallery-alt-step-text {
+                                                .gallery-alt-step-header {
+                                                    h2 {
+                                                        font-weight: 600;
+                                                        line-height: 28px;
+                                                        font-size: 24px;
+                                                        color: #92B1C0;
+                                                        margin: 0 auto 10px;
+                                                    }
+                                                }
+                                                .gallery-alt-step-description {
+                                                    line-height: 22px;
+                                                    font-size: 14px;
+                                                    color: #404142;
+
+                                                    p {
+                                                        margin-bottom: 5px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .gallery-alt-step-illustration {
+                                            code {
+                                                display: block;
+                                                font-family: Courier;
+                                                line-height: 15px;
+                                                font-size: 14px;
+                                                color: #516d7b;
+                                                overflow-x: scroll;
+                                                margin-bottom: 0;
+                                            }
+                                            pre {
+                                                border: 1px solid #c8dfe8;
+                                            }
+                                            pre > code {
+                                                padding: 0;
+                                            }
+                                            pre, code {
+                                                background: #ebf8ff;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .features-section {
+                        padding: 32px 0 36px;
+
+                        .features-content {
+                            .features-header {
+                                font-weight: bold;
+                                line-height: normal;
+                                font-size: 33px;
+                                padding: 0 30px;
+                            }
+                            .features-subheader {
+                                font-weight: bold;
+                                line-height: 21px;
+                                font-size: 18px;
+                                color: #404142;
+                                padding: 0 30px;
+                            }
+                            .features {
+                                display: block;
+                                padding: 55px 30px 21px;
+
+                                .row {
+                                    display: block;
+
+                                    .feature-container {
+                                        display: block;
+                                        width: 100%;
+                                        padding: 0;
+                                        border: none;
+
+                                        .feature {
+                                            padding-bottom: 20px;
+                                            padding-top: 61px;
+                                            font-weight: 600;
+                                            line-height: 28px;
+                                            font-size: 24px;
+                                            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+
+                                            p {
+                                                margin-bottom: 15px;
+                                            }
+
+                                            .description {
+                                                margin-top: 0;
+                                                font-weight: normal;
+                                                line-height: 22px;
+                                                font-size: 14px;
+                                                text-shadow: none;
+
+                                                .feature-5-code-mobile {
+                                                    display: block;
+                                                    overflow-x: scroll;
+                                                    margin-bottom: 20px;
+                                                    text-align: left;
+                                                }
+                                                .feature-5-code {
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .testcafe-live-promo {
+                                display: block;
+                                margin-top: 0;
+                                padding: 30px 30px 0;
+                                border-top: 2px solid #fff;
+                                
+                                .promo-block {
+                                    display: block;
+                                    margin-bottom: 30px;
+
+                                    .image {
+                                        background-image: url("/testcafe/images/landing-page/rapid-dev-icon-small.svg");
+                                        display: block;
+                                        margin: 0 0 15px;
+                                        background-position-y: 0px;
+                                        width: 50px;
+                                        min-width: 0;
+                                        height: 44px;
+                                    }
+                                    .description {
+                                        display: block;
+                                        margin-left: 0;
+                                        max-width: inherit;
+
+                                        .header {
+                                            font-weight: 600;
+                                            line-height: 28px;
+                                            font-size: 24px;
+                                            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+                                        }
+                                        
+                                        .textcafe-live-install {
+                                            display: block;
+                                            margin-bottom: 0;
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                                .buttons {
+                                    display: block;
+                                    
+                                    .video-button, .repo-button {
+                                        width: 100%;
+                                        display: block;
+                                        height: 55px;
+                                        background-image: none;
+                                        color: #fff;
+                                        background-color: #404142;
+                                        border-radius: 4px; 
+                                        line-height: 55px;
+                                        margin-bottom: 10px;
+                                        border: none;
+                                        margin-left: 0;
+                                        padding-left: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .testcafe-studio-promo-gradient {
+                        display: none;
+                    }
+                    .testcafe-studio-promo {
+                        .testcafe-studio-promo-content {
+                            display: block;
+                            padding: 10px 30px 0;
+
+                            .testcafe-studio-promo-description {
+                                margin-right: 0;
+
+                                .testcafe-studio-promo-header {
+                                    font-weight: bold;
+                                    line-height: normal;
+                                    font-size: 33px;
+                                }
+                                .testcafe-studio-promo-subheader {
+                                    font-weight: 600;
+                                    line-height: 22px;
+                                    font-size: 14px;
+                                    margin-top: 20px;
+                                }
+                                .check-it-out-button {
+                                    width: 100%;
+                                    display: block;
+                                    height: 55px;
+                                    color: #fff;
+                                    background-color: #404142;
+                                    border-radius: 4px; 
+                                    line-height: 55px;
+                                    margin-top: 29px;
+                                }
+                            }
+                            .testcafe-studio-promo-screenshot {
+                                width: calc(100% + 60px);
+                                min-width: 0;
+                                height: auto;
+                                background-size: contain;
+                                margin-left: -30px;
+                                margin-right: -30px;
+                            }
+                        }
+                    }
+                    .follow-section {
+                        padding: 50px 30px 40px;
+
+                        .follow-content {
+                            .twitter {
+                                background-position-x: left;
+                                background-position-y: 10px;
+                                padding: 0 0 0 70px;
+                                text-align: left;
+
+                                .header {
+                                    font-size: 18px;
+                                }
+                                .subheader {
+                                    margin-top: -17px;
+                                }
+                            }
+                            .separator {
+                                display: none;
+                            }
+                            .github {
+                                display: none;
+                            }
+                            .github-mobile {
+                                background-repeat: no-repeat;
+                                background-color: transparent;
+                                background-image: url('/testcafe/images/landing-page/follow-on-github.svg');
+                                background-position-x: left;
+                                background-position-y: 29px;
+                                display: inline-block;
+                                vertical-align: top;
+                                padding: 20px 0 0 70px;
+                                text-align: left;
+                                font-size: 18px;
+                                color: #404142;
+
+                                .header {
+                                    font-size: 18px;
+                                    color: #8ab2c2;
+                                    
+                                    a {
+                                        text-decoration: underline;
+                                        color: #8ab2c2;                
+                                    }    
+                                }
+                                .subheader {
+                                    font-size: 14px;
+                                    color: #404142;
+                                    margin-top: -17px;
+
+                                    a {
+                                        text-decoration: underline;
+                                        color: #404142;                
+                                    }  
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .veil-on {
+                .player {
+                    margin: 0;
+                    transform: translate(-50%, -50%);
+
+                    #yt-iframe {
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
