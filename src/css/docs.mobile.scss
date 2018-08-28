@@ -4,13 +4,33 @@
 html {
     body {
         .page-content-wrapper {
-            // .doc-top-nav {
-            //     display: none;
-            // }
-
             .container {
+                .doc-nav-panel {
+                    background-color: #2e688a;
+                    height: 60px;
+                    display: block;
+                    padding-top: 75px;
+
+                    .toggle-nav-button {
+                        background-image: url('/testcafe/images/toggle-nav-button.png');
+                        background-repeat: no-repeat;
+                        width: 35px;
+                        height: 35px;
+                        float: left;
+                    }
+                }
+
                 .doc-nav {
-                    display: none;
+                    position: absolute;
+                    top: 135px;
+                    width: 100%;
+                    height: calc(100vh - 135px);
+                    left: -100%;
+                    transition: left .2s;
+
+                    &.active {
+                        left: 0px;
+                    }
                 }
 
                 main {

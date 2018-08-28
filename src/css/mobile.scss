@@ -14,7 +14,7 @@ html {
                 min-width: 0;
 
                 &.fixed {
-                    position: static;
+                    position: fixed;
                 }
 
                 .site-header-content {
@@ -44,12 +44,12 @@ html {
                     }
 
                     .site-nav {
-                        height: inherit;
-                        width: 150px;
+                        height: calc(100vh - 75px);
+                        width: 100%;
                         position: absolute;
                         background: #fff;
                         top: 75px;
-                        right: -150px;
+                        right: -100%;
                         transition: right .2s;
                         box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
                         
@@ -105,7 +105,7 @@ html {
 
                             &.expanded {
                                 display: block;
-                                height: 100%;
+                                height: auto;
                             }
                         }
 
@@ -126,6 +126,10 @@ html {
             .container {
                 padding-left: 0;
                 padding-top: 20px;
+
+                main {
+                    padding-top: 75px;
+                }
             }
         }
     }

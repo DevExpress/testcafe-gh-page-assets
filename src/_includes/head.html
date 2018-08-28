@@ -162,19 +162,19 @@
         var article        = null;
 
         function setNavTopPosition () {
-            var isMobileZoomed = isMobileDevice && window.innerWidth !== document.body.scrollWidth;
+            // var isMobileZoomed = isMobileDevice && window.innerWidth !== document.body.scrollWidth;
             var top            = null;
 
-            if(isMobileDevice) {
-                top = window.pageYOffset >= HEADER_HEIGHT ? window.pageYOffset - HEADER_HEIGHT + 'px' : '0';
+            // if(isMobileDevice) {
+            //     top = window.pageYOffset >= HEADER_HEIGHT ? window.pageYOffset - HEADER_HEIGHT + 'px' : '0';
 
-                if (nav.style.paddingTop !== top) {
-                    nav.style.paddingTop = top;
-                    Ps.update(nav);
-                }
+            //     if (nav.style.paddingTop !== top) {
+            //         nav.style.paddingTop = top;
+            //         Ps.update(nav);
+            //     }
 
-                return;
-            }
+            //     return;
+            // }
 
             if (document.body.clientWidth > MIN_BODY_WIDTH) {
                 if (nav.style.top !== HEADER_HEIGHT + 'px') {
@@ -182,7 +182,8 @@
                     Ps.update(nav);
                 }
             }
-            else if(!isMobileZoomed) {
+            //else if(!isMobileZoomed) {
+            else {
                 top = window.pageYOffset <= HEADER_HEIGHT ? HEADER_HEIGHT - window.pageYOffset + 'px' : '0';
 
                 if (nav.style.top !== top) {
@@ -209,9 +210,9 @@
         }
 
         function updatePosition () {
-            if (isMobileDevice)
-                changeBodyHeight();
-            else
+            // if (isMobileDevice)
+            //     changeBodyHeight();
+            // else
                 nav.style.marginLeft = '-' + window.pageXOffset + 'px';
 
             setNavBottomPosition();
@@ -232,26 +233,28 @@
         }
 
         function initNav() {
-            if(isMobileDevice) {
-                nav.style.position = 'relative';
-                nav.style.float = 'left';
-                nav.style.top = '0px';
+            // if(isMobileDevice) {
+            //     nav.style.position = 'relative';
+            //     nav.style.float = 'left';
+            //     nav.style.top = '0px';
 
-                article.style.marginTop = '0px';
-                //article.style.paddingTop = '22px';
-            }
+            //     article.style.marginTop = '0px';
+            //     //article.style.paddingTop = '22px';
+            // }
 
             initScrollBar();
             updatePosition();
             window.addEventListener('scroll', updatePosition);
             window.addEventListener('resize', updatePosition);
 
-            if(isMobileDevice) {
-                nav.style.height = window.innerHeight + 'px';
-            }
+            // if(isMobileDevice) {
+            //     nav.style.height = window.innerHeight + 'px';
+            // }
         }
 
         document.addEventListener('DOMContentLoaded', function (e) {
+            if(isMobileDevice) return;
+
             nav     = document.querySelector('.doc-nav');
             article = document.querySelector('.doc');
 
@@ -262,6 +265,20 @@
     {% capture docsMobileCss %}{{ "/css/docs.mobile.css" | prepend: site.baseurl }}{% endcapture %}
     <script>
         if (isMobileDevice) {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                var toggleNavButton = document.querySelector('.toggle-nav-button');
+                var docNav          = document.querySelector('.doc-nav');
+
+                toggleNavButton.addEventListener('click', function (e) {
+                    if (docNav.className.indexOf('active') !== -1) {
+                        docNav.className = docNav.className.replace(' active', '');
+                    }
+                    else {
+                        docNav.className += ' active';
+                    }
+                });
+            });
+
             linkCss('{{ docsMobileCss }}');           
         }
     </script>
