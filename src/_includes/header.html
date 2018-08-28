@@ -5,7 +5,7 @@
         {% for menuItem in site.data.top-menu-items %}
           {% capture highlightUrl %}{% if menuItem.highlightUrl %}{{ menuItem.highlightUrl }}{% else %}{{ menuItem.url }}{% endif %}{% endcapture %}
           <div class="site-nav-tab {% if page.url contains highlightUrl %}active{% endif %}">
-            <a class="page-link" href="{% if menuItem.external %}{{ menuItem.url}}{% else %}{{ menuItem.url | prepend: site.baseurl }}{% endif %}"{% if menuItem.external %} target="_blank"{% endif %}>{{ menuItem.text }}</a>
+            <a class="page-link" {% if menuItem.id %}id="{{ menuItem.id }}" {% endif %}href="{% if menuItem.external %}{{ menuItem.url}}{% else %}{{ menuItem.url | prepend: site.baseurl }}{% endif %}"{% if menuItem.external %} target="_blank"{% endif %}>{{ menuItem.text }}</a>
           </div>
         {% endfor %}
       <a id="twitter-button" href="https://twitter.com/dxtestcafe" target="_blank"></a>
@@ -38,10 +38,10 @@
           searchPanel.className += ' hidden';
   }
 
-  var searchButton      = document.querySelector('#search-icon');
-  var searchPanel       = document.querySelector('#search-panel');
-  var searchInput       = document.querySelector('#search');
-  var closeSearchButton = document.querySelector('#close-search');
+  var searchButton      = document.getElementById('search-icon');
+  var searchPanel       = document.getElementById('search-panel');
+  var searchInput       = document.getElementById('search');
+  var closeSearchButton = document.getElementById('close-search');
 
   searchButton.addEventListener('click', function () {
       searchPanel.className = searchPanel.className.replace(/hidden/,'');
@@ -55,6 +55,15 @@
   window.addEventListener('mousedown', closeSearchBox);        
   window.addEventListener('touchstart', closeSearchBox);
 </script>
+{% if jekyll.environment == "production" %}
+<script>
+  var studioLink = document.getElementById('studio-link');
+
+  studioLink.addEventListener('click', function () {
+      ga('send', 'event', 'topMenu', 'studioLinkClicked');
+  });
+</script>
+{% endif %}
 
 {% if page.url contains '/documentation/' %}
   <div class="doc-top-nav">
