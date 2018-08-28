@@ -49,60 +49,6 @@
   {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
   {% if page.url contains '/getting-started/' %}{% assign isGettingStarted = true %}{% else %}{% assign isGettingStarted = false %}{% endif %}
 
-  <script>
-    (function () {
-        var VISIT_DAY = {
-            first: 1,
-            second: 2,
-            more: 3
-        };
-
-        var isLandingPage = {{ isLandingPage }};
-        var isGettingStarted = {{ isGettingStarted }};
-        var isDocumentation = {{ isDocumentation }};
-
-        function updateVisitDay () {
-            var FIRST_VISIT_DAY_ITEM_NAME = 'first-visit-day';
-            var SECOND_VISIT_DAY_ITEM_NAME = 'second-visit-day';
-            var DIFFERENT_VISITS_DELAY = 12 * 60 * 60 * 1000; 
-            
-            // TODO: ignore old visits
-            var now = Date.now();
-            var firstVisit = window.localStorage.getItem(FIRST_VISIT_DAY_ITEM_NAME);
-            var secondVisit = window.localStorage.getItem(SECOND_VISIT_DAY_ITEM_NAME);
-
-            if(!firstVisit) {
-                window.localStorage.setItem(FIRST_VISIT_DAY_ITEM_NAME, now);
-                return VISIT_DAY.first;
-            }
-
-            firstVisit = parseInt(firstVisit);
-
-            if(!secondVisit) {
-                if(!isLandingPage && now - firstVisit >=DIFFERENT_VISITS_DELAY) {
-                    window.localStorage.setItem(SECOND_VISIT_DAY_ITEM_NAME, now);
-                    return VISIT_DAY.second;
-                }
-
-                return VISIT_DAY.first;
-            }
-            
-            secondVisit = parseInt(secondVisit);
-
-            return now - secondVisit >= DIFFERENT_VISITS_DELAY ? VISIT_DAY.more : VISIT_DAY.second;
-        }
-
-        window.needShowShareWidget = function () {
-            if(!isDocumentation || isGettingStarted)
-                return false;
-
-            var visitDay = updateVisitDay();
-
-            return visitDay === VISIT_DAY.more;
-        };
-    })();
-  </script>
-
   {% if isLandingPage %}
     <script defer type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
     <script defer type="text/javascript" src="https://cdn3.devexpress.com/jslib/17.1.4/js/dx.all.js"></script>
@@ -125,7 +71,6 @@
     </style>
     <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.min.js"></script>
     <script defer type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"></script>
-    <script defer src="{{ "/scripts/widget.js" | prepend: site.baseurl }}" type="text/javascript"></script>
 
     <script>
         var MIN_BODY_WIDTH = 1230;
