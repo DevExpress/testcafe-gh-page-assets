@@ -82,12 +82,7 @@
     <script>
         if (isMobileDevice) {
             document.addEventListener('DOMContentLoaded', function (e) {
-                var siteNav     = document.querySelector('.site-nav');
-                // var pageWrapper = document.querySelector('.page-content-wrapper');
-                // var docTopNav   = document.querySelector('.doc-top-nav');
-
-                // pageWrapper.insertBefore(siteNav, docTopNav);
-
+                var siteNav         = document.querySelector('.site-nav');
                 var hamburgerButton = document.querySelector('.hamburger-button');
 
                 hamburgerButton.addEventListener('click', function (e) {
@@ -99,6 +94,34 @@
                         hamburgerButton.className += ' active';
                         siteNav.className += ' active';
                     }
+                });
+                
+                var docTopNav          = document.querySelector('.doc-top-nav');
+                var siteNav            = document.querySelector('.site-nav');
+                var docMenuItem        = document.querySelector('.site-nav-tab');
+                var mainMenuSecondItem = document.querySelector('.site-nav-tab:nth-child(2)');
+
+                siteNav.insertBefore(docTopNav, mainMenuSecondItem);
+
+                var docMenuItemIcon = document.createElement('div');
+                docMenuItemIcon.className = 'doc-menu-item-icon';
+                docMenuItem.appendChild(docMenuItemIcon);
+
+                {% if isDocumentation %}
+                    docMenuItem.className += ' expanded';
+                    docTopNav.className += ' expanded';
+                {% endif %}
+                
+                docMenuItem.addEventListener('click', function (e) {
+                    if (docTopNav.className.indexOf('expanded') !== -1) {
+                        docMenuItem.className = docMenuItem.className.replace(' expanded', '');
+                        docTopNav.className = docTopNav.className.replace(' expanded', '');
+                    }
+                    else {
+                        docMenuItem.className += ' expanded';
+                        docTopNav.className += ' expanded';
+                    }
+                    e.preventDefault();
                 });
             });
 
@@ -120,6 +143,7 @@
 
   {% if isDocumentation %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="{{ "/css/docs.css" | prepend: site.baseurl }}">
     <style>
         .ps-container > .ps-scrollbar-x-rail,
         .ps-container > .ps-scrollbar-y-rail {

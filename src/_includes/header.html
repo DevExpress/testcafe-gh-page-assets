@@ -43,13 +43,6 @@
           searchPanel.className += ' hidden';
   }
 
-  function closeHamburgerMenuBox(e) {
-      if(clickOutsideBox(e, hamburgerMenu) && clickOutsideBox(e, hamburgerButton) && hamburgerMenu.className.indexOf('active') !== -1) {
-          hamburgerMenu.className = hamburgerMenu.className.replace(' active', '');
-          hamburgerButton.className = hamburgerButton.className.replace(' active', '');
-      }
-  }
-
   var searchButton      = document.getElementById('search-icon');
   var searchPanel       = document.getElementById('search-panel');
   var searchInput       = document.getElementById('search');
@@ -67,11 +60,20 @@
   window.addEventListener('mousedown', closeSearchBox);        
   window.addEventListener('touchstart', closeSearchBox);
 
-  var hamburgerMenu = document.querySelector('.site-nav');
-  var hamburgerButton = document.querySelector('.hamburger-button');
+  if (window.isMobileDevice) {
+      function closeHamburgerMenuBox(e) {
+          if(clickOutsideBox(e, hamburgerMenu) && clickOutsideBox(e, hamburgerButton) && hamburgerMenu.className.indexOf('active') !== -1) {
+              hamburgerMenu.className = hamburgerMenu.className.replace(' active', '');
+              hamburgerButton.className = hamburgerButton.className.replace(' active', '');
+          }
+      }
 
-  window.addEventListener('mousedown', closeHamburgerMenuBox);        
-  window.addEventListener('touchstart', closeHamburgerMenuBox);
+      var hamburgerMenu = document.querySelector('.site-nav');
+      var hamburgerButton = document.querySelector('.hamburger-button');
+
+      window.addEventListener('mousedown', closeHamburgerMenuBox);        
+      window.addEventListener('touchstart', closeHamburgerMenuBox);
+  }
 </script>
 {% if jekyll.environment == "production" %}
 <script>
@@ -82,17 +84,14 @@
   });
 </script>
 {% endif %}
-
-{% if page.url contains '/documentation/' %}
-  <div class="doc-top-nav">
-    <div class="doc-top-nav-content">
-      <div class="doc-top-nav-wrapper">
-        {% for menuItem in site.data.docs-top-menu %}
-          <div class="doc-top-nav-tab {% if page.url contains menuItem.url %}active{% endif %}" >
-            <a href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>      
-          </div>
-        {% endfor %}
-      </div>
+<div class="doc-top-nav">
+  <div class="doc-top-nav-content">
+    <div class="doc-top-nav-wrapper">
+      {% for menuItem in site.data.docs-top-menu %}
+        <div class="doc-top-nav-tab {% if page.url contains menuItem.url %}active{% endif %}" >
+          <a href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>      
+        </div>
+      {% endfor %}
     </div>
   </div>
-{% endif %}
+</div>

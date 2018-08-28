@@ -55,8 +55,60 @@ html {
                         
                         .site-nav-tab {
                             display: block;
+
+                            .doc-menu-item-icon {
+                                display: inline-block;
+                                height: 6px;
+                                width: 10px;
+                                background-image: url("/testcafe/images/accordion-arrow-down.png");
+                            }
+
+                            &.expanded .doc-menu-item-icon {
+                                background-image: url("/testcafe/images/accordion-arrow-up.png");
+                            }
+
+                            &.active {
+                                background-color: #fff;
+                                border-radius: 0;
+                            }
                         }
         
+                        .doc-top-nav {
+                            display: none;
+                            position: relative;
+                            height: 0;
+                            top: 0;
+                            background-color: #fff;
+                            border: none;
+                            padding: 0 0 15px 0;
+
+                            .doc-top-nav-content {
+                                min-width: 0;
+                                max-width: 100%;
+                                padding: 0;
+
+                                .doc-top-nav-wrapper {
+                                    margin-left: 0;
+
+                                    .doc-top-nav-tab {
+                                        display: block;
+                                        margin: 0;
+                                        padding: 5px 0 0 25px;
+
+                                        &.active {
+                                            background-color: #fff;
+                                            border-radius: 0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.expanded {
+                                display: block;
+                                height: 100%;
+                            }
+                        }
+
                         #search-panel, .star-button, #search-icon, #twitter-button {
                             display: none;
                         }
