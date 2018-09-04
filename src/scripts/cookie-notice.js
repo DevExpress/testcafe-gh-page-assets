@@ -13,15 +13,15 @@ $(function(){
             window.localStorage.setItem('test', 1);
             window.localStorage.removeItem('test');
             return true;
-        } catch {
+        } catch(err) {
             return false;
         }
     }
 
-    if(!window.localStorage.getItem(COOKIE_CONSENT_FLAG)) {
-        if(isLocalStorageAvailable())
-            $('.cookie-notice').addClass('visible');
-    }
+    var wasCookieNoticeShown = window.localStorage.getItem(COOKIE_CONSENT_FLAG);
+
+    if(isLocalStorageAvailable() && !wasCookieNoticeShown)
+        $('.cookie-notice').addClass('visible');
 
     $('.close-icon').on('click', closeNotice);
     $('.cookie-notice-button').on('click', closeNotice);
