@@ -55,11 +55,13 @@ html {
                         
                         .site-nav-tab {
                             display: block;
+                            padding-left: 30px;
 
                             .doc-menu-item-icon {
                                 display: inline-block;
                                 height: 6px;
                                 width: 10px;
+                                margin: 0 0 2px 5px;
                                 background-image: url("/testcafe/images/accordion-arrow-down.png");
                             }
 
@@ -71,6 +73,10 @@ html {
                                 background-color: #fff;
                                 border-radius: 0;
                             }
+
+                            &:nth-child(1) {
+                                padding-top: 15px;
+                            }
                         }
         
                         .doc-top-nav {
@@ -80,7 +86,7 @@ html {
                             top: 0;
                             background-color: #fff;
                             border: none;
-                            padding: 0 0 15px 0;
+                            padding: 0 0 15px 30px;
 
                             .doc-top-nav-content {
                                 min-width: 0;
@@ -93,11 +99,17 @@ html {
                                     .doc-top-nav-tab {
                                         display: block;
                                         margin: 0;
-                                        padding: 5px 0 0 25px;
+                                        padding: 5px 0 5px 25px;
 
                                         &.active {
                                             background-color: #fff;
                                             border-radius: 0;
+                                        }
+
+                                        a {
+                                            font-size: 15px;
+                                            font-weight: bold;
+                                            color: #404142;            
                                         }
                                     }
                                 }
@@ -125,12 +137,29 @@ html {
             }
             .container {
                 padding-left: 0;
-                padding-top: 20px;
+                padding-top: 0;
 
+                .post {
+                    padding: 85px 30px 0px;
+                    min-width: 0;
+
+                    .blog-title {
+                        margin-top: 0; 
+                    }
+                }
+                
                 main {
-                    padding-top: 75px;
+                    .faq {
+                        min-width: 0;
+                        margin: 0;
+                        padding: 85px 30px 0;
+                    }
                 }
             }
+        }
+        .site-footer {
+            height: 153px;
+            z-index: -1;
         }
     }
 }

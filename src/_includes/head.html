@@ -77,7 +77,7 @@
         hideHtml();
     }
   </script>
-
+    {% if isLandingPage != true %}
     {% capture mobileCss %}{{ "/css/mobile.css" | prepend: site.baseurl }}{% endcapture %}
     <script>
         if (isMobileDevice) {
@@ -89,10 +89,12 @@
                     if (hamburgerButton.className.indexOf('active') !== -1) {
                         hamburgerButton.className = hamburgerButton.className.replace(' active', '');
                         siteNav.className = siteNav.className.replace(' active', '');
+                        document.documentElement.style.overflowY = 'scroll';
                     }
                     else {
                         hamburgerButton.className += ' active';
                         siteNav.className += ' active';
+                        document.documentElement.style.overflowY = 'hidden';
                     }
                 });
                 
@@ -128,6 +130,7 @@
             linkCss('{{ mobileCss }}');           
         }
     </script>
+    {% endif %}
 
   {% if isLandingPage %}
     <script defer type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
@@ -264,7 +267,7 @@
     </script>
     {% capture docsMobileCss %}{{ "/css/docs.mobile.css" | prepend: site.baseurl }}{% endcapture %}
     <script>
-        if (isMobileDevice) {
+        if (isMobileDevice && {{ isGettingStarted }} == false) {
             document.addEventListener('DOMContentLoaded', function (e) {
                 var toggleNavButton = document.querySelector('.toggle-nav-button');
                 var docNav          = document.querySelector('.doc-nav');
@@ -272,9 +275,11 @@
                 toggleNavButton.addEventListener('click', function (e) {
                     if (docNav.className.indexOf('active') !== -1) {
                         docNav.className = docNav.className.replace(' active', '');
+                        document.documentElement.style.overflowY = 'scroll';
                     }
                     else {
                         docNav.className += ' active';
+                        document.documentElement.style.overflowY = 'hidden';
                     }
                 });
             });

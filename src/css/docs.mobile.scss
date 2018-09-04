@@ -9,14 +9,16 @@ html {
                     background-color: #2e688a;
                     height: 60px;
                     display: block;
-                    padding-top: 75px;
+                    margin-top: 75px;
 
                     .toggle-nav-button {
                         background-image: url('/testcafe/images/toggle-nav-button.png');
                         background-repeat: no-repeat;
+                        background-size: 100%;
                         width: 35px;
-                        height: 35px;
+                        height: 35px;                        
                         float: left;
+                        margin: 10px 30px 0px;
                     }
                 }
 
@@ -27,6 +29,13 @@ html {
                     height: calc(100vh - 135px);
                     left: -100%;
                     transition: left .2s;
+                    overflow-y: auto;
+                    margin-top: 0px;
+
+                    .doc-nav-content {
+                        margin-top: 0px;
+                        padding: 0 30px;
+                    }
 
                     &.active {
                         left: 0px;
@@ -34,13 +43,26 @@ html {
                 }
 
                 main {
-                    .post {
-                        padding: 0 30px;
-                        min-width: 0;
+                    .doc {
+                        margin: 0px 30px;
+                        padding-right: 0px;
+
+                        .anchor {
+                            top: -85px;
+                        }
                     }
 
-                    .doc {
-                        margin-left: 30px;
+                    .post-content {
+                        .table-wrapper {
+                            overflow: scroll;
+                            margin: 40px 0;
+
+                            table {
+                                width: 100%;
+                                min-width: 500px;
+                                margin: 0;
+                            }
+                        }
                     }
                 }
             }
