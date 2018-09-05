@@ -12,6 +12,7 @@ html {
 
             .site-header {
                 min-width: 0;
+                height: 60px;
 
                 &.fixed {
                     position: fixed;
@@ -22,10 +23,14 @@ html {
                     padding: 0 0 0 30px;
                     position: relative;
 
+                    .site-logo {
+                        margin: 15px 0;
+                    }
+
                     .hamburger-button {
                         display: block;
                         float: right;
-                        padding: 27px 25px 28px 26px;
+                        padding: 21px 25px 20px 26px;
     
                         .hamburger-icon {
                             height: 20px;
@@ -44,11 +49,11 @@ html {
                     }
 
                     .site-nav {
-                        height: calc(100vh - 75px);
+                        height: calc(100vh - 60px);
                         width: 100%;
                         position: absolute;
                         background: #fff;
-                        top: 75px;
+                        top: 60px;
                         right: -100%;
                         transition: right .2s;
                         box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
@@ -140,7 +145,7 @@ html {
                 padding-top: 0;
 
                 .post {
-                    padding: 85px 30px 0px;
+                    padding: 70px 30px 0px;
                     min-width: 0;
 
                     .blog-title {
@@ -152,7 +157,7 @@ html {
                     .faq {
                         min-width: 0;
                         margin: 0;
-                        padding: 85px 30px 0;
+                        padding: 70px 30px 0;
                     }
                 }
             }

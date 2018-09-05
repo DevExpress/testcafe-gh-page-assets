@@ -9,7 +9,7 @@ html {
                     background-color: #2e688a;
                     height: 60px;
                     display: block;
-                    margin-top: 75px;
+                    margin-top: 60px;
 
                     .toggle-nav-button {
                         background-image: url('/testcafe/images/toggle-nav-button.png');
@@ -24,9 +24,9 @@ html {
 
                 .doc-nav {
                     position: absolute;
-                    top: 135px;
+                    top: 120px;
                     width: 100%;
-                    height: calc(100vh - 135px);
+                    height: calc(100vh - 120px);
                     left: -100%;
                     transition: left .2s;
                     overflow-y: auto;
