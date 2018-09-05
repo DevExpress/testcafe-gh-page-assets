@@ -161,5 +161,14 @@ html {
             height: 153px;
             z-index: -1;
         }
+        .cookie-notice {
+            .cookie-notice-content {
+                flex-direction: column;
+
+                .cookie-notice-message {
+                    margin-bottom: 20px;
+                }
+            }
+        }
     }
 }
