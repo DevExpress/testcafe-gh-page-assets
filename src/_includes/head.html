@@ -9,7 +9,7 @@
 
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta name="viewport" content="width=device-width">
-  
+
   <meta property="og:image" content="https://raw.githubusercontent.com/DevExpress/testcafe-gh-page-assets/master/src/images/testcafe-ogp-icon.png">
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{% include canonical-link.html %}" />
@@ -55,18 +55,9 @@
 
   <script>
     function linkCss (href) {
-        function hideHtml () {
-            var html = document.querySelector('html');
-
-            window.addEventListener('load', function (e) {
-                html.style.display = 'block';
-            });
-
-            html.style.display = 'none';
-        }
-
-        var head  = document.getElementsByTagName('head')[0];
         var link  = document.createElement('link');
+        var html  = document.querySelector('html');
+        var head  = document.head;
 
         link.rel  = 'stylesheet';
         link.type = 'text/css';
@@ -74,7 +65,12 @@
         link.media = 'all';
 
         head.appendChild(link);
-        hideHtml();
+
+        window.addEventListener('load', function () {
+            html.style.display = 'block';
+        });
+
+        html.style.display = 'none';
     }
   </script>
     {% if isLandingPage != true %}
@@ -97,7 +93,7 @@
                         document.documentElement.style.overflowY = 'hidden';
                     }
                 });
-                
+
                 var docTopNav          = document.querySelector('.doc-top-nav');
                 var siteNav            = document.querySelector('.site-nav');
                 var docMenuItem        = document.querySelector('.site-nav-tab');
@@ -106,6 +102,7 @@
                 siteNav.insertBefore(docTopNav, mainMenuSecondItem);
 
                 var docMenuItemIcon = document.createElement('div');
+
                 docMenuItemIcon.className = 'doc-menu-item-icon';
                 docMenuItem.appendChild(docMenuItemIcon);
 
@@ -113,7 +110,7 @@
                     docMenuItem.className += ' expanded';
                     docTopNav.className += ' expanded';
                 {% endif %}
-                
+
                 docMenuItem.addEventListener('click', function (e) {
                     if (docTopNav.className.indexOf('expanded') !== -1) {
                         docMenuItem.className = docMenuItem.className.replace(' expanded', '');
@@ -127,7 +124,7 @@
                 });
             });
 
-            linkCss('{{ mobileCss }}');           
+            linkCss('{{ mobileCss }}');
         }
     </script>
     {% endif %}
@@ -165,19 +162,7 @@
         var article        = null;
 
         function setNavTopPosition () {
-            // var isMobileZoomed = isMobileDevice && window.innerWidth !== document.body.scrollWidth;
-            var top            = null;
-
-            // if(isMobileDevice) {
-            //     top = window.pageYOffset >= HEADER_HEIGHT ? window.pageYOffset - HEADER_HEIGHT + 'px' : '0';
-
-            //     if (nav.style.paddingTop !== top) {
-            //         nav.style.paddingTop = top;
-            //         Ps.update(nav);
-            //     }
-
-            //     return;
-            // }
+            var top = null;
 
             if (document.body.clientWidth > MIN_BODY_WIDTH) {
                 if (nav.style.top !== HEADER_HEIGHT + 'px') {
@@ -185,7 +170,6 @@
                     Ps.update(nav);
                 }
             }
-            //else if(!isMobileZoomed) {
             else {
                 top = window.pageYOffset <= HEADER_HEIGHT ? HEADER_HEIGHT - window.pageYOffset + 'px' : '0';
 
@@ -213,10 +197,7 @@
         }
 
         function updatePosition () {
-            // if (isMobileDevice)
-            //     changeBodyHeight();
-            // else
-                nav.style.marginLeft = '-' + window.pageXOffset + 'px';
+            nav.style.marginLeft = '-' + window.pageXOffset + 'px';
 
             setNavBottomPosition();
             setNavTopPosition();
@@ -236,32 +217,20 @@
         }
 
         function initNav() {
-            // if(isMobileDevice) {
-            //     nav.style.position = 'relative';
-            //     nav.style.float = 'left';
-            //     nav.style.top = '0px';
-
-            //     article.style.marginTop = '0px';
-            //     //article.style.paddingTop = '22px';
-            // }
-
             initScrollBar();
             updatePosition();
             window.addEventListener('scroll', updatePosition);
             window.addEventListener('resize', updatePosition);
-
-            // if(isMobileDevice) {
-            //     nav.style.height = window.innerHeight + 'px';
-            // }
         }
 
         document.addEventListener('DOMContentLoaded', function (e) {
-            if(isMobileDevice) return;
+            if (isMobileDevice)
+                return;
 
             nav     = document.querySelector('.doc-nav');
             article = document.querySelector('.doc');
 
-            if(nav)
+            if (nav)
                 initNav(nav);
         });
     </script>
@@ -284,7 +253,7 @@
                 });
             });
 
-            linkCss('{{ docsMobileCss }}');           
+            linkCss('{{ docsMobileCss }}');
         }
     </script>
   {% else %}
@@ -322,7 +291,7 @@
 
                 if(article && !isMobileDevice)
                     article.style.marginTop = bodyMinimized ? '21px' : '72px';
- 
+
                 if(gs && !isMobileDevice)
                     gs.style.paddingTop = bodyMinimized ? '21px' : '72px';
             }
@@ -338,7 +307,7 @@
             var article        = document.querySelector('.doc');
             var gs             = document.querySelector('.gs');
 
-            if(siteHeader) 
+            if(siteHeader)
                 initHeader(siteHeader, contentWrapper, docTopMenu, article, gs);
         });
     </script>
