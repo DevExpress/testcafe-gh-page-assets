@@ -1,6 +1,9 @@
 <header class="site-header {% if page.permalink != '/' %}fixed{% endif %}">
   <div class="site-header-content">
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
+    <div class="hamburger-button">
+        <div class="hamburger-icon"></div>
+    </div>
     <nav class="site-nav">
         {% for menuItem in site.data.top-menu-items %}
           {% capture highlightUrl %}{% if menuItem.highlightUrl %}{{ menuItem.highlightUrl }}{% else %}{{ menuItem.url }}{% endif %}{% endcapture %}
@@ -17,7 +20,7 @@
           <input type="text" placeholder="Search query" id="search"/>
           <div id="close-search"></div>
       </div>
-      </nav>
+    </nav>
   </div>
 </header>
 
@@ -31,10 +34,12 @@
     return false;
   }
 
-  function closeSearchBox(e) {
-      var clickOutsideSearchBox = searchPanel !== e.target && !has(searchPanel, e.target);
+  function clickOutsideBox(e, box) {
+      return box !== e.target && !has(box, e.target);
+  }  
 
-      if(clickOutsideSearchBox && searchPanel.className.indexOf('hidden') === -1) 
+  function closeSearchBox(e) {
+      if(clickOutsideBox(e, searchPanel) && searchPanel.className.indexOf('hidden') === -1) 
           searchPanel.className += ' hidden';
   }
 
@@ -54,6 +59,40 @@
 
   window.addEventListener('mousedown', closeSearchBox);        
   window.addEventListener('touchstart', closeSearchBox);
+
+  if (window.isMobileDevice) {
+      function closeHamburgerMenuBox(e) {
+          if(clickOutsideBox(e, hamburgerMenu) && clickOutsideBox(e, hamburgerButton) && hamburgerMenu.className.indexOf('active') !== -1) {
+              hamburgerMenu.className = hamburgerMenu.className.replace(' active', '');
+              hamburgerButton.className = hamburgerButton.className.replace(' active', '');
+              document.documentElement.style.overflowY = 'scroll';
+          }
+      }
+
+      var hamburgerMenu = document.querySelector('.site-nav');
+      var hamburgerButton = document.querySelector('.hamburger-button');
+
+      window.addEventListener('mousedown', closeHamburgerMenuBox);        
+      window.addEventListener('touchstart', closeHamburgerMenuBox);
+
+      window.addEventListener('DOMContentLoaded', function (e) {
+          var docNav = document.querySelector('.doc-nav');
+
+          if(docNav) {
+              function closeDocNav(e) {
+                  if(clickOutsideBox(e, docNav) && clickOutsideBox(e, toggleNavButton) && docNav.className.indexOf('active') !== -1) {
+                      docNav.className = docNav.className.replace(' active', '');
+                      document.documentElement.style.overflowY = 'scroll';
+                  }
+              }
+
+              var toggleNavButton = document.querySelector('.toggle-nav-button');
+
+              window.addEventListener('mousedown', closeDocNav);        
+              window.addEventListener('touchstart', closeDocNav);
+          }
+      });
+  }
 </script>
 {% if jekyll.environment == "production" %}
 <script>
@@ -64,17 +103,14 @@
   });
 </script>
 {% endif %}
-
-{% if page.url contains '/documentation/' %}
-  <div class="doc-top-nav">
-    <div class="doc-top-nav-content">
-      <div class="doc-top-nav-wrapper">
-        {% for menuItem in site.data.docs-top-menu %}
-          <div class="doc-top-nav-tab {% if page.url contains menuItem.url %}active{% endif %}" >
-            <a href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>      
-          </div>
-        {% endfor %}
-      </div>
+<div class="doc-top-nav">
+  <div class="doc-top-nav-content">
+    <div class="doc-top-nav-wrapper">
+      {% for menuItem in site.data.docs-top-menu %}
+        <div class="doc-top-nav-tab {% if page.url contains menuItem.url %}active{% endif %}" >
+          <a href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>      
+        </div>
+      {% endfor %}
     </div>
   </div>
-{% endif %}
+</div>
