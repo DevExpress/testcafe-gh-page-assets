@@ -10,6 +10,7 @@ redcarpet:
   extensions: ["tables"]
 plugins:
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 # Blog
 excerpt_separator: "<!--more-->"
