@@ -61,7 +61,7 @@
         }
 
         #close-search {
-            background-image: url($baseUrl + "/images/landing-page/close-icon.png");
+            background-image: url($baseUrl + "/images/landing-page/close.svg");
             background-repeat: no-repeat;
             background-color: transparent;
             background-size: contain;
@@ -86,18 +86,19 @@
 }
 
 #search {
-    background-image: url($baseUrl + "/images/landing-page/find-icon-black.png");
+    background-image: url($baseUrl + "/images/landing-page/find-icon-black.svg");
     background-repeat: no-repeat;
     background-position: 12px 10px;
+    font-size: 14px;
     padding-left: 42px;
     border: none;
     outline: none;
     
     height: 40px;
-    width: 825px;
-
+    width: 870px;
+    
     @media (max-width: 1310px) {
-        width: 770px;
+        width: 780px;
     }
 }
 
@@ -319,7 +320,7 @@ html, body {
     }
 
     .close-icon {
-        background-image: url($baseUrl + "/images/landing-page/close-cookie-notice.svg");
+        background-image: url($baseUrl + "/images/landing-page/close.svg");
         background-position: center center;
         background-repeat: no-repeat;
         height: 36px;

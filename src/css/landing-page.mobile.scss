@@ -6,6 +6,9 @@ html {
         .page-content-wrapper {
             main {
                 #main-form {
+                    code {
+                        font-size: 14px;
+                    }
                     .banner {
                         padding: 44px 30px 10px;
                         
@@ -49,7 +52,7 @@ html {
                                     border: none;
                                     width: 100%;
                                     display: block;
-                                    padding: 0 0 20px 0;
+                                    padding: 0 0 40px 0;
 
                                     .value {
                                         padding-left: 0;
@@ -61,6 +64,7 @@ html {
 
                                         .description {
                                             margin-top: -7px;
+                                            font-size: 16px;
 
                                             .install-example {
                                                 display: block;
@@ -127,7 +131,7 @@ html {
                                                 }
                                                 .gallery-alt-step-description {
                                                     line-height: 22px;
-                                                    font-size: 14px;
+                                                    font-size: 16px;
                                                     color: #404142;
 
                                                     p {
@@ -192,7 +196,7 @@ html {
                                         border: none;
 
                                         .feature {
-                                            padding-bottom: 20px;
+                                            padding-bottom: 40px;
                                             padding-top: 61px;
                                             font-weight: 600;
                                             line-height: 28px;
@@ -207,7 +211,7 @@ html {
                                                 margin-top: 0;
                                                 font-weight: normal;
                                                 line-height: 22px;
-                                                font-size: 14px;
+                                                font-size: 16px;
                                                 text-shadow: none;
 
                                                 .feature-5-code-mobile {
@@ -227,8 +231,7 @@ html {
                             .testcafe-live-promo {
                                 display: block;
                                 margin-top: 0;
-                                padding: 30px 30px 0;
-                                border-top: 2px solid #fff;
+                                padding: 0 30px;
                                 
                                 .promo-block {
                                     display: block;
@@ -254,7 +257,9 @@ html {
                                             font-size: 24px;
                                             text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
                                         }
-                                        
+                                        .text {
+                                            font-size: 16px;
+                                        }
                                         .textcafe-live-install {
                                             display: block;
                                             margin-bottom: 0;
@@ -302,7 +307,7 @@ html {
                                 .testcafe-studio-promo-subheader {
                                     font-weight: 600;
                                     line-height: 22px;
-                                    font-size: 14px;
+                                    font-size: 16px;
                                     margin-top: 20px;
                                 }
                                 .check-it-out-button {
@@ -326,8 +331,12 @@ html {
                             }
                         }
                     }
+                    .tweets-section {
+                        display: none;
+                    }
                     .follow-section {
                         padding: 50px 30px 40px;
+                        text-align: left;
 
                         .follow-content {
                             .twitter {
@@ -341,6 +350,7 @@ html {
                                 }
                                 .subheader {
                                     margin-top: -17px;
+                                    font-size: 16px;
                                 }
                             }
                             .separator {
@@ -372,7 +382,7 @@ html {
                                     }    
                                 }
                                 .subheader {
-                                    font-size: 14px;
+                                    font-size: 16px;
                                     color: #404142;
                                     margin-top: -17px;
 

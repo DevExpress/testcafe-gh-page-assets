@@ -102,6 +102,10 @@ $max-width: 1500px;
         .banner-image {
             float: right;
 
+            img {
+                width: 369px;
+            }
+
             @media (max-width: 1270px) {
                 display: none;
             }
@@ -171,7 +175,7 @@ $max-width: 1500px;
 
 .how-it-works-section {
     padding: 0 100px;
-    min-width: calc(#{$body-min-width} - 140px);
+    min-width: calc(#{$body-min-width} - 200px);
     height: 827px;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -525,13 +529,12 @@ code {
         .testcafe-studio-promo-screenshot {
             width: 732px;
             min-width: 732px;
-            height: 240px;
-            margin: 15px -16px 0 0;
+            margin: 15px -10px 0 0;
             align-self: flex-end;
 
             img {
                 vertical-align: top;
-                width: 100%;
+                width: 732px;
             }
         }
     }
