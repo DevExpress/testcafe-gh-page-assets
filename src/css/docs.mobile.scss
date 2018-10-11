@@ -40,14 +40,14 @@ html {
                 }
 
                 .doc-nav {
-                    position: absolute;
+                    position: fixed;
                     top: 120px;
+                    bottom: 0px;
                     width: 100%;
-                    height: calc(100vh - 120px);
                     left: -100%;
                     transition: left .2s;
                     overflow-y: auto;
-                    margin-top: 0px;
+                    margin: 0;
                     background-color: #2e688a;
                     color: #fff;
 

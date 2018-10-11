@@ -177,7 +177,7 @@ html {
                             }
                             .features {
                                 display: block;
-                                padding: 55px 30px 21px;
+                                padding: 55px 30px 0;
 
                                 .row {
                                     display: block;
@@ -334,8 +334,9 @@ html {
 
                         .follow-content {
                             .twitter {
+                                display: block;
                                 background-position-x: left;
-                                background-position-y: 10px;
+                                background-position-y: 5px;
                                 padding: 0 0 0 70px;
                                 text-align: left;
 
@@ -359,9 +360,8 @@ html {
                                 background-color: transparent;
                                 background-image: url('/testcafe/images/landing-page/follow-on-github.svg');
                                 background-position-x: left;
-                                background-position-y: 29px;
-                                display: inline-block;
-                                vertical-align: top;
+                                background-position-y: 26px;
+                                display: block;                                
                                 padding: 20px 0 0 70px;
                                 text-align: left;
                                 font-size: 18px;
