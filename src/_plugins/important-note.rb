@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 class Redcarpet::Render::HTML
     IMPORTANT_NOTE_SIGN = "Important! "
     IMPORTANT_NOTE_SIGN_RE = /\A((\s)*<[^>]*>(\s)*)*Important!\s/
