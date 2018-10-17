@@ -26,6 +26,6 @@ class Redcarpet::Render::HTML
 
         anchor = coder.encode(anchor)
 
-        return "<h#{level}><a class=\"anchor\" name=\"#{anchor}\"></a>#{title} <a class=\"permalink\" href=\"##{anchor}\">#</a></h#{level}>"
+        return "<h#{level}><a class=\"anchor\" id=\"#{anchor}\"></a>#{title} <a class=\"permalink\" href=\"##{anchor}\">#</a></h#{level}>"
   end
 end

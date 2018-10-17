@@ -9,15 +9,20 @@ $(function() {
         {% endfor %}
     ];
 
-    var md      = new MobileDetect(window.navigator.userAgent);
-    var showNav = !md.mobile();
+    var md = new MobileDetect(window.navigator.userAgent);
+
+    if (md.mobile())
+        return;
+
+    // var showNav = !md.mobile();
 
     $('#tweet-gallery').dxGallery({
         dataSource: tweets,
         width: "100%",
         height: 321,
         showIndicator: false,
-        showNavButtons: showNav,
+        // showNavButtons: showNav,
+        showNavButtons: true,
         initialItemWidth: 376,
         loop: true,
         itemTemplate: function (item, index) {

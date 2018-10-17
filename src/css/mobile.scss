@@ -31,7 +31,7 @@ html {
                     .hamburger-button {
                         display: block;
                         float: right;
-                        padding: 21px 25px 20px 26px;
+                        padding: 21px 30px 20px 30px;
     
                         .hamburger-icon {
                             height: 20px;
@@ -50,14 +50,18 @@ html {
                     }
 
                     .site-nav {
-                        height: calc(100vh - 60px);
+                        overflow-y: scroll;
                         width: 100%;
-                        position: absolute;
+                        height: auto;
+                        float: none;
+                        position: fixed;
                         background: #fff;
                         top: 60px;
+                        bottom: 0;
                         right: -100%;
                         transition: right .2s;
                         box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+                        z-index: 1;
                         
                         .site-nav-tab {
                             display: block;
@@ -65,7 +69,7 @@ html {
 
                             .page-link {
                                 display: block;
-                                padding: 5px 7px 7px 30px;
+                                padding: 9px 7px 9px 30px;
                                 font-size: 18px;
                             }
 
@@ -86,8 +90,8 @@ html {
                                 border-radius: 0;
                             }
 
-                            &:nth-child(1) {
-                                padding: 15px 0 5px;
+                            &:nth-child(2) {
+                                padding: 15px 0 8px;
 
                                 .page-link {
                                     display: inline;
@@ -98,6 +102,7 @@ html {
                         .doc-top-nav {
                             display: none;
                             position: relative;
+                            width: auto;
                             height: 0;
                             top: 0;
                             background-color: #fff;
@@ -139,8 +144,35 @@ html {
                             }
                         }
 
-                        #search-panel, .star-button, #search-icon, #twitter-button {
+                        .star-button, #search-icon, #twitter-button {
                             display: none;
+                        }
+
+                        #search-panel {
+                            display: block;
+                            opacity: 1;
+                            background-color: #fff;
+                            padding: 20px 30px 9px 30px;
+                            top: 0;
+
+                            .algolia-autocomplete {
+                                width: 100%;
+
+                                #search {
+                                    font-size: 16px;
+                                    width: calc(100% - 42px);
+                                    border: 1px solid rgba(0, 0, 0, 0.2);
+                                    border-radius: 4px;
+                                }
+
+                                .ds-dropdown-menu {
+                                    min-width: 0;
+                                }
+                            }
+
+                            #close-search {
+                                display:none;
+                            }
                         }
         
                         .hamburger-button {
@@ -176,8 +208,48 @@ html {
             }
         }
         .site-footer {
-            height: 153px;
+            height: auto;
             z-index: -1;
+
+            .site-footer-content {
+                padding: 22px 30px;
+                text-align: left;
+            }
+        }
+        .cookie-notice {
+            position: static;
+
+            .cookie-notice-content {
+                flex-direction: column;
+                padding: 17px 30px;
+
+                .cookie-notice-message {
+                    margin-bottom: 20px;
+                    width: 100%;
+                    max-width: initial;
+
+                    .cookie-notice-header {
+                        font-weight: bold;
+                        line-height: 21px;
+                        font-size: 14px;
+                    }
+                    .cookie-notice-text {
+                        padding-right: 0;
+                        font-size: 12px;
+                    }
+                }
+                .cookie-notice-button {
+                    width: 100%;
+                    padding: 0;
+                    font-weight: bold;
+                    line-height: 35px;
+                    font-size: 18px;
+                    text-align: center;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    height: 40px;
+                }
+            }
         }
         .cookie-notice {
             .cookie-notice-content {

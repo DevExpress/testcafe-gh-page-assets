@@ -17,7 +17,7 @@
         <a class="github-button" href="https://github.com/DevExpress/testcafe" data-size="large" data-count-href="/DevExpress/testcafe/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star DevExpress/testcafe on GitHub"><span style="color:#ffffff">Star</span></a>
       </div>
       <div id="search-panel" class="hidden">
-          <input type="text" placeholder="Search query" id="search"/>
+          <input type="text" placeholder="Search documentation" id="search"/>
           <div id="close-search"></div>
       </div>
     </nav>
@@ -66,6 +66,7 @@
               hamburgerMenu.className = hamburgerMenu.className.replace(' active', '');
               hamburgerButton.className = hamburgerButton.className.replace(' active', '');
               document.documentElement.style.overflowY = 'scroll';
+              document.body.style.overflowY = 'initial';
           }
       }
 
@@ -79,17 +80,27 @@
           var docNav = document.querySelector('.doc-nav');
 
           if(docNav) {
-              function closeDocNav(e) {
-                  if(clickOutsideBox(e, docNav) && clickOutsideBox(e, toggleNavButton) && docNav.className.indexOf('active') !== -1) {
-                      docNav.className = docNav.className.replace(' active', '');
-                      document.documentElement.style.overflowY = 'scroll';
-                  }
+              function closeDocNav() {
+                  docNav.className = docNav.className.replace(' active', '');
+                  document.documentElement.style.overflowY = 'scroll';
+                  document.body.style.overflowY = 'initial';
               }
 
-              var toggleNavButton = document.querySelector('.toggle-nav-button');
+              function clickWithDocNavInvoked(e) {
+                  if(clickOutsideBox(e, docNav) && clickOutsideBox(e, docNavPanel) && docNav.className.indexOf('active') !== -1) 
+                      closeDocNav();
+              }
 
-              window.addEventListener('mousedown', closeDocNav);        
-              window.addEventListener('touchstart', closeDocNav);
+              var docNavPanel = document.querySelector('.doc-nav-panel');
+
+              window.addEventListener('mousedown', clickWithDocNavInvoked);        
+              window.addEventListener('touchstart', clickWithDocNavInvoked);
+
+              var docNavLinks = document.querySelectorAll('.doc-nav a');
+
+              docNavLinks.forEach(function (link) {
+                  link.addEventListener('click', closeDocNav);
+              });
           }
       });
   }
