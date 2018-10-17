@@ -9,8 +9,12 @@ $(function() {
         {% endfor %}
     ];
 
-    var md      = new MobileDetect(window.navigator.userAgent);
-    var showNav = !md.mobile();
+    var md = new MobileDetect(window.navigator.userAgent);
+
+    if (md.mobile())
+        return;
+
+    // var showNav = !md.mobile();
 
     $('#tweet-gallery').dxGallery({
         dataSource: tweets,
