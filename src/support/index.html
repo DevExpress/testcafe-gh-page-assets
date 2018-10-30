@@ -1,0 +1,83 @@
+---
+layout: landing
+title: Support
+---
+<script>
+    var searchButton       = document.getElementById('search-icon');
+    var siteNav            = document.querySelector('.site-nav');
+    var clonedSearchButton = searchButton.cloneNode(true);
+
+    // NOTE: Replaces a search button with its clone to clear
+    // all event handlers.
+    siteNav.replaceChild(clonedSearchButton, searchButton);
+</script>
+<div class="support">
+    <div class="banner">
+        <div class="banner-header">
+            <h1>How can we help?</h1>
+        </div>
+        <div class="support-search">
+            <input type="text" placeholder="Search the docs" id="support-search-input"/>
+        </div>
+    </div>
+    <div class="tiles">
+        <div class="col-1">
+            <a href="/testcafe/documentation/">
+                <div class="tile small-tile docs-tile">
+                    <p>Documentation</p>
+                </div>
+            </a>
+            <a href="/testcafe/faq/">
+                <div class="tile small-tile faq-tile">
+                    <p>FAQ</p>
+                </div>
+            </a>
+            <a href="https://github.com/DevExpress/testcafe/issues/new?template=bug-report.md" target="_blank">
+                <div class="tile small-tile issue-tile">
+                    <p>Report an Issue</p>
+                </div>
+            </a>
+            <a href="https://github.com/DevExpress/testcafe/issues/new?template=feature_request.md" target="_blank">
+                <div class="tile small-tile feature-tile">
+                    <p>Suggest a Feature</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-2">
+            <a href="https://stackoverflow.com/questions/tagged/testcafe" target="_blank">
+                <div class="tile large-tile stack-overflow-tile">
+                    <p>Ask a Question<br/>on Stack Overflow</p>
+                </div>
+            </a>
+        </div>        
+    </div>
+</div>
+{% if jekyll.environment == "production" %}
+<script>
+  function sendGaEventFromSupportPage(eventName) {
+      ga('send', 'event', 'supportPage', eventName);
+  }
+
+  var docsTile    = document.querySelector('.docs-tile');
+  var faqTile     = document.querySelector('.faq-tile');
+  var issueTile   = document.querySelector('.issue-tile');
+  var featureTile = document.querySelector('.feature-tile');
+  var soTile      = document.querySelector('.stack-overflow-tile');
+
+  docsTile.addEventListener('click', function () {
+      sendGaEventFromSupportPage('docsTileClicked');
+  });
+  faqTile.addEventListener('click', function () {
+      sendGaEventFromSupportPage('faqTileClicked');
+  });
+  issueTile.addEventListener('click', function () {
+      sendGaEventFromSupportPage('issueTileClicked');
+  });
+  featureTile.addEventListener('click', function () {
+      sendGaEventFromSupportPage('featureTileClicked');
+  });
+  soTile.addEventListener('click', function () {
+      sendGaEventFromSupportPage('stackOverflowTileClicked');
+  });
+</script>
+{% endif %}
