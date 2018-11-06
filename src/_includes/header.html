@@ -1,4 +1,6 @@
-<header class="site-header {% if page.permalink != '/' %}fixed{% endif %}">
+{% if page.url contains '/support/' %}{% assign isSupportPage = true %}{% endif %}
+{% if page.permalink == '/' %}{% assign isLandingPage = true %}{% endif %}
+<header class="site-header {% if isLandingPage == false and isSupportPage == false %}fixed{% endif %}">
   <div class="site-header-content">
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
     <div class="hamburger-button">

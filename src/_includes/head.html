@@ -2,6 +2,7 @@
   {% if page.permalink == '/' %}{% assign isLandingPage = true %}{% else %}{% assign isLandingPage = false %}{% endif %}
   {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
   {% if page.url contains '/getting-started/' %}{% assign isGettingStarted = true %}{% else %}{% assign isGettingStarted = false %}{% endif %}
+  {% if page.url contains '/support/' %}{% assign isSupportPage = true %}{% else %}{% assign isSupportPage = false %}{% endif %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,6 +84,10 @@
   </style>
   {% endif %}
 
+  {% if isSupportPage %}
+  <link rel="stylesheet" href="{{ "/css/support-page.css" | prepend: site.baseurl }}">
+  {% endif %}
+
   <script>
     function linkCss (href) {
         var link  = document.createElement('link');
@@ -130,7 +135,7 @@
                 var mainMenuSecondItem = document.querySelector('.site-nav-tab:nth-child(2)');
 
                 siteNav.insertBefore(docTopNav, mainMenuSecondItem);
-
+                
                 var searchPanel = document.getElementById('search-panel');
                 
                 siteNav.insertBefore(searchPanel, docMenuItem);
@@ -174,6 +179,14 @@
             linkCss('{{ landingMobileCss }}');
     </script>
 
+  {% endif %}
+
+  {% if isSupportPage %}
+  {% capture supportMobileCss %}{{ "/css/support-page.mobile.css" | prepend: site.baseurl }}{% endcapture %}
+    <script>
+        if (isMobileDevice)
+            linkCss('{{ supportMobileCss }}');
+    </script>
   {% endif %}
 
   {% if isDocumentation %}
