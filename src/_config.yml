@@ -1,7 +1,7 @@
 # Site settings
 title: "TestCafe"
 baseurl: "/testcafe" 
-url: "http://devexpress.github.io" 
+url: "https://devexpress.github.io" 
   
 # Build settings
 markdown: redcarpet
