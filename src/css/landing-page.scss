@@ -378,7 +378,7 @@ code {
 
         .testcafe-live-promo {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-top: 30px;
 
@@ -416,6 +416,7 @@ code {
             .buttons {
                 display: flex;
                 justify-content: space-between;
+                margin-left: 60px;
                 
                 .video-button {
                     @media (max-width: 1480px) {
@@ -425,7 +426,7 @@ code {
                     height: 61px;
                     text-align: center;
                     padding-left: 10px;
-                    line-height: 63px;
+                    line-height: 61px;
                     font-size: 18px;
                     font-weight: bold;
                     color: #404142;
@@ -443,30 +444,26 @@ code {
                         background-color: #404142;
                     }
                 }
-                .repo-button {
+
+                .learn-more-button {
                     @media (max-width: 1480px) {
-                        width: 280px;
+                        width: 286px;
                     }
-                    width: 320px;
+                    width: 326px;
                     height: 61px;
                     text-align: center;
-                    padding-left: 10px;
-                    line-height: 56px;
+                    line-height: 61px;
                     font-size: 18px;
                     font-weight: bold;
                     color: #404142;
-                    background-image: url('/testcafe/images/landing-page/rapid-dev-github-icon.svg');
-                    background-repeat: no-repeat;
-                    background-position: 15px 13px;
-                    border: 2px solid #ffffff;
+                    background-color: #ffffff;
                     border-radius: 5px;
                     cursor: pointer;
-                    margin-left: 40px;
-                    box-sizing: border-box;
 
                     &:hover {
                         text-decoration: none;
-                        background-color: #ffffff;
+                        color: #ffffff;
+                        background-color: #404142;
                     }
                 }
             }
