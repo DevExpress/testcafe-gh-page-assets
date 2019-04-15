@@ -291,46 +291,45 @@ html {
                             }
                         }
                     }
-                    .testcafe-studio-promo-gradient {
-                        display: none;
-                    }
-                    .testcafe-studio-promo {
-                        .testcafe-studio-promo-content {
-                            display: block;
-                            padding: 10px 30px 0;
+                    .testcafe-studio-release-banner {
+                        display: block;
+                        height: auto;
 
-                            .testcafe-studio-promo-description {
-                                margin-right: 0;
+                        .testcafe-studio-image, .testcafe-studio-text {
+                            width: auto;
+                        }
 
-                                .testcafe-studio-promo-header {
-                                    font-weight: bold;
-                                    line-height: normal;
-                                    font-size: 33px;
+                        .testcafe-studio-image {
+                            .testcafe-studio-arrow {
+                                display: none;
+                            }
+
+                            .testcafe-studio-screenshot {
+                                text-align: center;
+                                height: auto;
+
+                                .testcafe-studio-konfetti {
+                                    right: auto;
                                 }
-                                .testcafe-studio-promo-subheader {
-                                    font-weight: 600;
-                                    line-height: 1.6;
-                                    font-size: 16px;
-                                    margin-top: 20px;
+
+                                .testcafe-studio-window {
+                                    position: relative;
                                 }
-                                .check-it-out-button {
-                                    width: 100%;
-                                    display: block;
-                                    height: 55px;
-                                    color: #fff;
-                                    background-color: #404142;
-                                    border-radius: 4px; 
-                                    line-height: 55px;
-                                    margin-top: 29px;
+
+                                img {
+                                  right: auto;
                                 }
                             }
-                            .testcafe-studio-promo-screenshot {
-                                width: calc(100% + 60px);
-                                min-width: 0;
-                                height: auto;
-                                background-size: contain;
-                                margin-left: -30px;
-                                margin-right: -30px;
+                        }
+
+                        .testcafe-studio-text {
+                            padding: 0 40px;
+
+                            .try-testcafe-studio-link {
+                                border-radius: 4px;
+                                display: block;
+                                text-align: center;
+                                white-space: normal;
                             }
                         }
                     }
