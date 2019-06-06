@@ -1,6 +1,50 @@
-{% if page.url contains '/support/' %}{% assign isSupportPage = true %}{% endif %}
-{% if page.permalink == '/' %}{% assign isLandingPage = true %}{% endif %}
-<header class="site-header {% if isLandingPage == false and isSupportPage == false %}fixed{% endif %}">
+{% if isDocumentation == true and isGettingStarted == false %}
+<div class="survey-banner hidden">
+  <div class="survey-banner-message">
+      <span>How do you like TestCafe? </span><span class="desktop-text">Please take 3 minutes to fill out our survey. </span><a href="https://dxpr.es/2WYA3X4" target="_blank"><span class="desktop-text">Take the survey</span><span class="mobile-text">Take a 3-minute survey.</span></a>
+  </div>
+  <div class="survey-banner-close-button"></div>
+</div>
+<script>
+  var SURVEY_BANNER_DISPLAY_SETBACK_DAYS = 7;
+
+  function getDaysBetween(fromTime, toTime) {
+      var dayDurationMs = 24*60*60*1000;
+
+      return Math.round(Math.abs((fromTime - toTime)/(dayDurationMs)));
+  }
+
+  var wasSurveyBannerDismissed = window.localStorage.getItem(SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG);
+  var wasSurveyCompleted       = window.localStorage.getItem(SUMMER_2019_SURVEY_COMPLETED_FLAG);
+  var surveyOpenDate           = window.localStorage.getItem(SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG);
+  var surveySetbackExpired     = !surveyOpenDate || (getDaysBetween(surveyOpenDate, Date.now()) > SURVEY_BANNER_DISPLAY_SETBACK_DAYS);
+
+  if(!wasSurveyBannerDismissed && !wasSurveyCompleted && surveySetbackExpired) {
+      var surveyBanner      = document.querySelector('.survey-banner');
+      var surveyLink        = document.querySelector('.survey-banner a');
+      var surveyBannerClose = document.querySelector('.survey-banner-close-button');
+
+      function hideSurveyBanner() {
+          surveyBanner.className = surveyBanner.className += ' hidden';
+
+          if (!isMobileDevice)
+              updateNavMenuPosition();
+      }
+
+      surveyBanner.className = surveyBanner.className.replace(/hidden/,'');
+
+      surveyBannerClose.addEventListener('click', function () {
+          hideSurveyBanner();
+          window.localStorage.setItem(SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG, true);
+      });
+
+      surveyLink.addEventListener('click', function () {
+          hideSurveyBanner();
+      });
+  }
+</script>
+{% endif %}
+<header class="site-header{% if isLandingPage == false and isSupportPage == false and isSurveyPage == false %} fixed{% endif %}">
   <div class="site-header-content">
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
     <div class="hamburger-button">

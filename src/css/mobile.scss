@@ -209,7 +209,7 @@ html {
         }
         .site-footer {
             height: auto;
-            z-index: -1;
+            z-index: 0;
 
             .site-footer-content {
                 padding: 22px 30px;
@@ -217,7 +217,8 @@ html {
             }
         }
         .cookie-notice {
-            position: static;
+            top: 10px;
+            bottom: auto;
 
             .cookie-notice-content {
                 flex-direction: column;
@@ -291,7 +292,6 @@ html {
         }
 
         &:after {
-            display: block;
             position: relative;
             left: calc(50% + 50px);
             content: 'Try our IDE\A for free';

@@ -166,10 +166,13 @@ html, body {
      min-width: $body-min-width;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 .page-content-wrapper {
-    min-height: 100%;
-    height: auto !important;
-    margin: 0 auto calc(-#{$footer-height});
+    flex: 1 0 auto;
 }
 
 /**
@@ -188,16 +191,12 @@ html, body {
 }
 
 .site-footer {
+    flex-shrink: 0;
     height: $footer-height;
     background-color: white;
-    position: relative;
     z-index: 1;
     border-top: 1px solid $border-color;
     box-sizing: border-box;
-}
-
-.push {
-    height: $footer-height;
 }
 
 .bottom {

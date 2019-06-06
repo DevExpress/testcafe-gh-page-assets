@@ -1,0 +1,118 @@
+---
+---
+.survey-container { 
+    padding-bottom: 50px;
+
+    #survey {
+        .sv_q {
+            .form-group {
+                display: block;
+
+                &.comment {
+                    margin-top: 0;
+
+                    & > div {
+                        margin: 5px 0 0 0;
+                    }
+                }
+            }
+            .sv_q_radiogroup.others, .sv_q_checkbox.others {
+                .form-group {
+                    margin-left: 30px;
+                }
+            }
+            .sv_q_rating {
+                .sv_q_rating_item {
+                    margin-right: 2px;
+                }
+            }
+        }
+        .sv_complete_btn { 
+            margin-top: 35px;
+        }
+    }
+}
+.survey-completed-container {
+    .survey-completed {
+        .completed-button {
+            padding: 10px 15px;
+            height: auto;
+            line-height: 25px;
+        }
+    }
+}
+@media screen and (max-width: 340px) {
+    .survey-header-container {
+        .survey-header {
+            h1 {
+                font-size: 32px;
+            }
+            .survey-subheader {
+                font-size: 16px;
+            }
+        }
+    }
+    .survey-container {
+        #survey {
+            .sv_q_title {
+                font-size: 14px;
+            }
+    
+            .sv_q {
+                font-size: 14px;
+    
+                textarea[type="text"] {
+                    font-size: 14px;
+    
+                    &::placeholder {
+                        font-size: 14px;
+                    }
+                }
+    
+                .sv_q_rating {
+                    .sv_q_rating_item {
+                        font-size: 12px;
+                    }
+                }
+    
+                .sv_q_erbox {
+                    font-size: 14px;
+                }
+            }
+            .sv_complete_btn {
+                font-size: 14px;
+            }
+        }
+    }
+    .survey-completed-container {
+        .survey-completed {
+            .completed-header {
+                font-size: 32px;
+            }
+    
+            .completed-text {
+                font-size: 16px;
+            }
+    
+            .completed-button {
+                font-size: 16px;
+            }
+        }   
+    }
+    .site-footer-content {
+        font-size: 12px;        
+    }
+}
+@media screen and (max-width: 315px) {
+    .survey-container { 
+        #survey {
+            .sv_q {
+                .sv_q_radiogroup.others, .sv_q_checkbox.others {
+                    .form-group {
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
