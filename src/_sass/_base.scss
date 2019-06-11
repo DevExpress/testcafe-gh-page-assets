@@ -161,15 +161,15 @@ blockquote {
         background-image: url($baseUrl + "/images/icon-warning.png");
         color: #815f3a;
     }
-
-    :last-child {
-        margin-bottom: 0;
-    }
 }
 
 .blockquote-content {
     border-bottom: 1px solid $border-color;
     min-height: 48px;    
+    
+    :last-child {
+        margin-bottom: 8px;
+    }
 }
 
 
