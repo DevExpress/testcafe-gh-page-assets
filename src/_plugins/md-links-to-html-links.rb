@@ -6,6 +6,7 @@ module ConvertMdLinksToHtml
 
         def generate(site)
             site.pages.each { |p| convert_links(site, p) }
+            site.posts.docs.each { |p| convert_links(site, p) }
         end
         def convert_links(site, page)
             page.content = page.content.gsub(LINK_TO_OTHER_DIR_INDEX_RE, '\1\3)')
