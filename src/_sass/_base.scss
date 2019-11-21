@@ -215,7 +215,11 @@ pre {
  * Tables
  */
 table {
-	border-collapse: collapse;
+    border-collapse: collapse;
+    
+    code {
+        white-space: pre-wrap;
+    }
 }
 
 table > thead > tr > th {
