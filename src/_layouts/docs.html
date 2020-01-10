@@ -5,11 +5,12 @@ layout: default
 {% include nav-menu.html %}
 
 <main>
-	<article {% if page.url contains 'getting-started'%}class="post gs"{% else %}class="doc"{% endif %}>
+	<article {% if page.url contains '/getting-started/' or page.url contains '/how-it-works/' %}class="post gs"{% else %}class="doc"{% endif %}>
 		<div class="post-content">
 
 			{{ content }}
 
 		</div>
 	</article>
+
 </main>
