@@ -1,0 +1,18 @@
+<div class="post-preview">
+    {% if include.showSubtitle == false %}
+        <div class="post-date">
+            {{ include.date }}
+        </div>
+    {% endif %}
+    <div class="post-title"><a href="{{ include.url | prepend: site.baseurl }}">{{ include.title }}</a></div>
+    {% if include.showSubtitle %}
+        <div class="post-subtitle">{{ include.type | capitalize }} by {{ include.author }} - {{ include.date }}</div>
+    {% endif %}
+    <div class="post-extract">
+        {% assign excerpt = include.excerpt | split: "</h1>" %}
+        <p>{{ excerpt.last }}</p>
+        <p class="read-more">
+            <a href="{{ include.url | prepend: site.baseurl }}">Read More</a>
+        </p>
+    </div>
+</div>

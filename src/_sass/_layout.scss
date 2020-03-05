@@ -179,7 +179,9 @@ body {
  * Site footer
  */
 .site-footer-content {
-    padding: 22px 30px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
     font-size: 14px;
     color: #7e8082;
     line-height: 1.6;
@@ -187,6 +189,46 @@ body {
 
     p, ul, ol, dl, pre {
         margin-bottom: 0;
+    }
+
+    .footer-links {
+        padding-top: 33px;
+        display: flex;
+        justify-content: center;
+
+        .link {
+            margin-right: 20px;
+            
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    color: #2fa4cf;
+                }
+            }
+        }
+    }
+
+    .footer-icons {
+        padding-top: 33px;
+        display: flex;
+        justify-content: center;
+
+        .icon {
+            margin-right: 30px;
+        }
+    }
+
+    .footer-legal {
+        padding-top: 33px;
+
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                color: #2fa4cf;
+            }
+        }
     }
 }
 
@@ -277,6 +319,10 @@ body {
     p, ul, ol, dl, pre {
         margin-bottom: 4px;
     }
+}
+
+.post-subtitle {
+    font-size: 14px;
 }
 
 .post-date {

@@ -1,0 +1,10 @@
+- name: Blog
+  content:
+  - name: Blog
+    url: /team-blog/
+  - name: Media
+    content:
+    - name: Courses
+      url: /courses/
+    - name: Community Blog
+      url: /community/

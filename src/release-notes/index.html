@@ -1,0 +1,19 @@
+---
+layout: default
+title: Release Notes
+redirect_from:
+  - /blog/
+---
+<div class="post">
+    <div class="blog-title">
+        TestCafe Release Notes
+    </div>
+    <div class="post-list">
+    {% for post in site.posts %}
+        {% if post.isTeamBlog == false or post.isTeamBlog == nil %}
+            {% assign dateStr = post.date | date: "%b %e, %Y" | upcase %}
+            {% include pub-preview.html url=post.url title=post.title excerpt=post.excerpt date=dateStr %}
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>    

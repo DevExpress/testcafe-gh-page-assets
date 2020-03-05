@@ -1,0 +1,51 @@
+---
+---
+
+.doc-top-nav {
+    display: none;
+}
+
+.doc {
+    margin-top: 21px;
+}
+
+.doc-nav {
+    top: 76px;
+}
+
+.post-subtitle {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 5px 0;
+    color: #333333;
+}
+
+.post-extract {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 5px 0 10px;
+    border: none;
+    color: #000000;
+
+    .read-more {
+        padding-top: 5px;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 20px;
+        text-decoration-line: underline;
+    }
+}
+
+.post-preview {
+    a {
+        color: #0099DE;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.post-title {
+    margin-bottom: 0;
+}

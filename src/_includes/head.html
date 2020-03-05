@@ -1,9 +1,17 @@
 <head>
+  {% assign communityUrls = "/team-blog/, /courses/, /community/" | split: ", " %}
+  {% assign isCommunitySection = false %}
+  {% for url in communityUrls %}
+    {% if page.url contains url %}
+        {% assign isCommunitySection = true %}
+    {% endif %}
+  {% endfor %}
+
   {% if page.permalink == '/' %}{% assign isLandingPage = true %}{% else %}{% assign isLandingPage = false %}{% endif %}
-  {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
   {% if page.url contains '/getting-started/' or page.url contains '/how-it-works/' %}{% assign isGettingStarted = true %}{% else %}{% assign isGettingStarted = false %}{% endif %}
   {% if page.url contains '/support/' %}{% assign isSupportPage = true %}{% else %}{% assign isSupportPage = false %}{% endif %}
   {% if page.url contains '/survey/' %}{% assign isSurveyPage = true %}{% else %}{% assign isSurveyPage = false %}{% endif %}
+  {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,9 +90,12 @@
   <link rel="stylesheet" href="css/landing-page.css">
   {% endif %}
 
-  {% if isDocumentation %}
+  {% if isDocumentation or isCommunitySection %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/css/perfect-scrollbar.min.css">
   <link rel="stylesheet" href="{{ "/css/docs.css" | prepend: site.baseurl }}">
+    {% if isCommunitySection %}
+    <link rel="stylesheet" href="{{ "/css/community.css" | prepend: site.baseurl }}">
+    {% endif %}
   <style>
       .ps-container > .ps-scrollbar-x-rail,
       .ps-container > .ps-scrollbar-y-rail {
@@ -210,19 +221,19 @@
     </script>
   {% endif %}  
 
-  {% if isDocumentation %}
+  {% if isDocumentation or isCommunitySection %}
     <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.min.js"></script>
     <script defer type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"></script>
 
     <script>
         var MIN_BODY_WIDTH = 1230;
-        var FOOTER_HEIGHT  = 113;
+        var FOOTER_HEIGHT  = 225;
 
         var nav     = null;
         var article = null;
 
         function getHeaderHeight () {
-            var DOCS_HEADER_HEIGHT   = 126;
+            var DOCS_HEADER_HEIGHT   = {% if isCommunitySection %}76{% else %}126{% endif %};
             var SURVEY_HEADER_HEIGHT = 32;
 
             var surveyBanner          = document.querySelector('.survey-banner');
@@ -346,6 +357,7 @@
 
             function updateHeader() {
                 var bodyMinimized = document.body.clientWidth === MIN_BODY_WIDTH;
+                var isCommunitySection = {% if isCommunitySection %}true{% else %}false{% endif %};
 
                 {% if isLandingPage %}
 
@@ -368,7 +380,7 @@
                     contentWrapper.style.paddingTop = bodyMinimized ? '0' : '';
 
                 if(article && !isMobileDevice)
-                    article.style.marginTop = bodyMinimized ? '21px' : '72px';
+                    article.style.marginTop = bodyMinimized || isCommunitySection ? '21px' : '72px';
                 if(gs && !isMobileDevice)
                     gs.style.paddingTop = bodyMinimized ? '21px' : '72px';
             }
