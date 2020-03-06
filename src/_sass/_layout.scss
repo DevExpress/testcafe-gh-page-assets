@@ -192,12 +192,14 @@ body {
     }
 
     .footer-links {
-        padding-top: 33px;
+        padding-top: 23px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
 
         .link {
             margin-right: 20px;
+            margin-top: 10px;
             
             a {
                 text-decoration: underline;

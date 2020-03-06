@@ -49,3 +49,23 @@
 .post-title {
     margin-bottom: 0;
 }
+
+html {
+    body {
+        .page-content-wrapper {
+            .container {
+                .doc-nav-panel {
+                    .doc-nav-panel-header {
+                        .doc-nav-panel-heading {
+                            display: none;
+                        }
+                        .doc-nav-panel-title {
+                            font-size: 32px;
+                            line-height: 32px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

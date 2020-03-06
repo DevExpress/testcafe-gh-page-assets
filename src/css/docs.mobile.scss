@@ -88,7 +88,7 @@ html {
                             list-style-type: none;
                             margin-left: -8px;
 
-                            a {
+                            a, span {
                                 display: block;
                                 margin-left: -15px;
                                 padding-top: 8px;
@@ -100,7 +100,7 @@ html {
                                 font-weight: normal;
                                 list-style-type: inherit;
 
-                                a {
+                                a, span {
                                     margin-left: 0;
                                 }
                             }
