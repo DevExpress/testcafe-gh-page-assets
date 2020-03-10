@@ -194,18 +194,23 @@ body {
     .footer-links {
         padding-top: 23px;
         display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        justify-content: center;
+        
+        .footer-link-content {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
 
-        .link {
-            margin-right: 20px;
-            margin-top: 10px;
-            
-            a {
-                text-decoration: underline;
-
-                &:hover {
-                    color: #2fa4cf;
+            .link {
+                margin-right: 20px;
+                margin-top: 10px;
+                
+                a {
+                    text-decoration: underline;
+    
+                    &:hover {
+                        color: #2fa4cf;
+                    }
                 }
             }
         }
