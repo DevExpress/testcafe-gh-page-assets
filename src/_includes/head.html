@@ -356,8 +356,15 @@
             var MIN_BODY_WIDTH = 1230;
 
             function updateHeader() {
-                var bodyMinimized = document.body.clientWidth === MIN_BODY_WIDTH;
+                var CONTENT_MARGIN_WITH_DOC_MENU     = '72px';
+                var CONTENT_MARGIN_WITHOUT_DOC_MENU  = '21px';
+                var CONTENT_MARGIN_COMMUNITY_SECTION = '27px';
+
+                var bodyMinimized      = document.body.clientWidth === MIN_BODY_WIDTH;
+                var docContentMargin   = bodyMinimized ? CONTENT_MARGIN_WITHOUT_DOC_MENU : CONTENT_MARGIN_WITH_DOC_MENU;
                 var isCommunitySection = {% if isCommunitySection %}true{% else %}false{% endif %};
+                var contentMargin      = isCommunitySection ? CONTENT_MARGIN_COMMUNITY_SECTION : docContentMargin;
+
 
                 {% if isLandingPage %}
 
@@ -380,9 +387,9 @@
                     contentWrapper.style.paddingTop = bodyMinimized ? '0' : '';
 
                 if(article && !isMobileDevice)
-                    article.style.marginTop = bodyMinimized || isCommunitySection ? '21px' : '72px';
+                    article.style.marginTop = contentMargin;
                 if(gs && !isMobileDevice)
-                    gs.style.paddingTop = bodyMinimized ? '21px' : '72px';
+                    gs.style.paddingTop = contentMargin;
             }
 
             updateHeader();

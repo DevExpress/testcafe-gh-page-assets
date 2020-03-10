@@ -6,9 +6,13 @@ nav: blog-nav
 <div class="blog-title">
     Community Blog
 </div>
+<div class="blog-subtitle">
+    This section contains articles from the community
+</div>
 <div class="post-list">
 {% for contentItem in site.data.community-content %}
     {% assign dateStr = contentItem.date | date: "%b %e, %Y" %}
-    {% include pub-preview.html url=contentItem.url title=contentItem.title excerpt=contentItem.excerpt date=dateStr showSubtitle=true type=contentItem.type author=contentItem.author %}
+    {% capture subtitle %}{{ contentItem.type | capitalize }} by {{ contentItem.author }} - {{ dateStr }}{% endcapture %}
+    {% include pub-preview.html url=contentItem.url title=contentItem.title excerpt=contentItem.excerpt date=dateStr subtitle=subtitle %}
 {% endfor %}
 </div>

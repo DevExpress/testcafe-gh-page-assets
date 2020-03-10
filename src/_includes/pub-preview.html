@@ -4,15 +4,17 @@
             {{ include.date }}
         </div>
     {% endif %}
-    <div class="post-title"><a href="{{ include.url | prepend: site.baseurl }}">{{ include.title }}</a></div>
-    {% if include.showSubtitle %}
-        <div class="post-subtitle">{{ include.type | capitalize }} by {{ include.author }} - {{ include.date }}</div>
+    <div class="post-title"><a href="{{ include.url }}">{{ include.title }}</a></div>
+    {% if include.subtitle %}
+        <div class="post-subtitle">{{ include.subtitle }}</div>
     {% endif %}
+    {% if include.excerpt %}
     <div class="post-extract">
         {% assign excerpt = include.excerpt | split: "</h1>" %}
         <p>{{ excerpt.last }}</p>
         <p class="read-more">
-            <a href="{{ include.url | prepend: site.baseurl }}">Read More</a>
+            <a href="{{ include.url }}">Read More</a>
         </p>
     </div>
+    {% endif %}
 </div>

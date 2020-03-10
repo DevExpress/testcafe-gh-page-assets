@@ -6,11 +6,15 @@ nav: blog-nav
 <div class="blog-title">
     TestCafe Team Blog
 </div>
+<div class="blog-subtitle">
+    This section contains articles from the TestCafe team
+</div>
 <div class="post-list">
 {% for post in site.posts %}
     {% if post.isTeamBlog %}
         {% assign dateStr = post.date | date: "%b %e, %Y" | upcase %}
-        {% include pub-preview.html url=post.url title=post.title excerpt=post.excerpt date=dateStr %}
+        {% assign url = post.url | prepend: site.baseUrl %}
+        {% include pub-preview.html url=url title=post.title excerpt=post.excerpt date=dateStr %}
     {% endif %}
 {% endfor %}
 </div>
