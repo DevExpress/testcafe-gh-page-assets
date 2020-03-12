@@ -1,5 +1,7 @@
 {% if page.nav %}
-    {% assign menu=site.data[page.nav] %}
+	{% assign menu=site.data[page.nav] %}
+{% elsif page.isTeamBlog %}
+    {% assign menu=site.data.blog-nav %}
 {% else %}
     {% assign menu=site.data.nav-menu %}
 {% endif %}
