@@ -358,13 +358,14 @@
             function updateHeader() {
                 var CONTENT_MARGIN_WITH_DOC_MENU     = '72px';
                 var CONTENT_MARGIN_WITHOUT_DOC_MENU  = '21px';
-                var CONTENT_MARGIN_COMMUNITY_SECTION = '27px';
+                var CONTENT_MARGIN_COMMUNITY_DESKTOP = '27px';
+                var CONTENT_MARGIN_COMMUNITY_MOBILE  = '48px';
 
-                var bodyMinimized      = document.body.clientWidth === MIN_BODY_WIDTH;
-                var docContentMargin   = bodyMinimized ? CONTENT_MARGIN_WITHOUT_DOC_MENU : CONTENT_MARGIN_WITH_DOC_MENU;
-                var isCommunitySection = {% if isCommunitySection %}true{% else %}false{% endif %};
-                var contentMargin      = isCommunitySection ? CONTENT_MARGIN_COMMUNITY_SECTION : docContentMargin;
-
+                var bodyMinimized          = document.body.clientWidth === MIN_BODY_WIDTH;
+                var docContentMargin       = bodyMinimized ? CONTENT_MARGIN_WITHOUT_DOC_MENU : CONTENT_MARGIN_WITH_DOC_MENU;
+                var isCommunitySection     = {% if isCommunitySection %}true{% else %}false{% endif %};
+                var contentMarginCommunity = isMobileDevice ? CONTENT_MARGIN_COMMUNITY_MOBILE : CONTENT_MARGIN_COMMUNITY_DESKTOP;
+                var contentMargin          = isCommunitySection ? contentMarginCommunity : docContentMargin;
 
                 {% if isLandingPage %}
 

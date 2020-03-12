@@ -14,7 +14,7 @@ nav: blog-nav
     {% if post.isTeamBlog %}
         {% assign dateStr = post.date | date: "%b %e, %Y" %}
         {% assign url = post.url | prepend: site.baseurl %}
-        {% capture subtitle %}Published by {{ post.author }} - {{ dateStr }}{% endcapture %}
+        {% capture subtitle %}Published by {{ post.author }} – {{ dateStr }}{% endcapture %}
         {% include pub-preview.html url=url title=post.title excerpt=post.excerpt date=dateStr subtitle=subtitle %}
     {% endif %}
 {% endfor %}

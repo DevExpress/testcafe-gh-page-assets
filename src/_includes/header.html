@@ -51,12 +51,14 @@
         <div class="hamburger-icon"></div>
     </div>
     <nav class="site-nav">
-        {% for menuItem in site.data.top-menu-items %}
-          {% capture highlightUrl %}{% if menuItem.highlightUrl %}{{ menuItem.highlightUrl }}{% else %}{{ menuItem.url }}{% endif %}{% endcapture %}
-          <div class="site-nav-tab{% if page.url contains highlightUrl %} active{% endif %}"{% if menuItem.id %} id="{{ menuItem.id }}-tab"{% endif %}>
-            <a class="page-link" {% if menuItem.id %}id="{{ menuItem.id }}" {% endif %}href="{% if menuItem.external %}{{ menuItem.url}}{% else %}{{ menuItem.url | prepend: site.baseurl }}{% endif %}"{% if menuItem.external %} target="_blank"{% endif %}><span>{{ menuItem.text }}</span></a>
-          </div>
-        {% endfor %}
+      {% for menuItem in site.data.top-menu-items %}
+        {% capture highlightUrl %}{% if menuItem.highlightUrl %}{{ menuItem.highlightUrl }}{% else %}{{ menuItem.url }}{% endif %}{% endcapture %}
+        <div class="site-nav-tab{% if page.url contains highlightUrl %} active{% endif %}"{% if menuItem.id %} id="{{ menuItem.id }}-tab"{% endif %}>
+          <a class="page-link" {% if menuItem.id %}id="{{ menuItem.id }}" {% endif %}href="{% if menuItem.external %}{{ menuItem.url}}{% else %}{{ menuItem.url | prepend: site.baseurl }}{% endif %}"{% if menuItem.external %} target="_blank"{% endif %}><span>{{ menuItem.text }}</span></a>
+        </div>
+      {% endfor %}
+    </nav>
+    <div class="site-header-buttons">
       <a id="twitter-button" href="https://twitter.com/dxtestcafe" target="_blank"></a>
       <div id="search-icon"></div>
       <div class="star-button">
@@ -66,7 +68,7 @@
           <input type="text" placeholder="Search documentation" id="search"/>
           <div id="close-search"></div>
       </div>
-    </nav>
+    </div>
   </div>
 </header>
 

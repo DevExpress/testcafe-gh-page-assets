@@ -1,10 +1,10 @@
 ---
 layout: docs
-title: Community Blog
+title: Community Blogs
 nav: blog-nav
 ---
 <div class="blog-title">
-    Community Blog
+    Community Blogs
 </div>
 <div class="blog-subtitle">
     This section contains articles from the community
@@ -12,7 +12,7 @@ nav: blog-nav
 <div class="post-list">
 {% for contentItem in site.data.community-content %}
     {% assign dateStr = contentItem.date | date: "%b %e, %Y" %}
-    {% capture subtitle %}Published on <a href="{{ contentItem.url }}">{{ contentItem.source }}</a> by {% if contentItem.profileUrl %}<a href="{{ contentItem.profileUrl }}">{{ contentItem.author }}</a>{% else %}{{ contentItem.author }}{% endif %} - {{ dateStr }}{% endcapture %}
+    {% capture subtitle %}Published on <a href="{{ contentItem.url }}">{{ contentItem.source }}</a> by {% if contentItem.profileUrl %}<a href="{{ contentItem.profileUrl }}">{{ contentItem.author }}</a>{% else %}{{ contentItem.author }}{% endif %} – {{ dateStr }}{% endcapture %}
     {% include pub-preview.html url=contentItem.url title=contentItem.title excerpt=contentItem.excerpt date=dateStr subtitle=subtitle %}
 {% endfor %}
 </div>

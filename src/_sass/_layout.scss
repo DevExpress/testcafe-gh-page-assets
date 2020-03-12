@@ -12,6 +12,8 @@
     .site-header-content {
         max-width: $max-width;
         margin: auto;
+        display: flex;
+        justify-content: space-between;
     }
 
     &.fixed {
@@ -21,7 +23,6 @@
     .star-button {
         display: inline-block;
         height: 28px;
-        width: 113px;
         margin: 0 0 2px 26px;
         vertical-align: text-bottom;
     }
@@ -38,38 +39,52 @@
         margin: 23px 0;
     }
 
-    #twitter-button {
-        background-image: url($baseUrl + "/images/twitter.svg");
-        background-repeat: no-repeat;
-        background-color: transparent;
-        background-size: contain;
-        display: inline-block;
-        height: 21px;
-        width: 25px;
-        margin: 31px 12px 0 10px;
-    }
+    .site-header-buttons {
+        display: flex;
+        align-items: center;
 
-    #search-panel {
-        position: relative;
-        top: -40px;
-        background-color: #a4cada;
-        opacity: 1;
-        
-        &.hidden {
-            display: none;            
-            opacity: 0;
-        }
-
-        #close-search {
-            background-image: url($baseUrl + "/images/landing-page/close.svg");
+        #twitter-button {
+            background-image: url($baseUrl + "/images/twitter.svg");
             background-repeat: no-repeat;
             background-color: transparent;
             background-size: contain;
-            height: 17px;
-            width: 17px;
-            float: right;
-            margin: 12px 0 0 15px;
-            cursor: pointer;
+            display: inline-block;
+            height: 21px;
+            width: 25px;
+            margin: 0 12px 0 10px;
+        }
+
+        #search-panel {
+            position: absolute;
+            top: 15px;
+            left: 30%;
+            right: 100px;
+            display: flex;
+            justify-content: center;
+            background-color: #a4cada;
+            opacity: 1;
+            
+            &.hidden {
+                display: none;            
+                opacity: 0;
+            }
+            
+            .algolia-autocomplete {
+                display: flex !important;
+                flex-grow: 1;
+            }
+
+            #close-search {
+                background-image: url($baseUrl + "/images/landing-page/close.svg");
+                background-repeat: no-repeat;
+                background-color: transparent;
+                background-size: contain;
+                height: 17px;
+                width: 17px;
+                float: right;
+                margin: 12px 0 0 15px;
+                cursor: pointer;
+            }
         }
     }
 }
@@ -95,7 +110,7 @@
     outline: none;
     
     height: 40px;
-    width: 870px;
+    flex-grow: 1;
     
     @media (max-width: 1310px) {
         width: 780px;
@@ -108,7 +123,8 @@
 }
 
 .site-nav {
-    float: right;
+    display: flex;
+    align-items: center;
     height: 70px;
 
     .hamburger-button {
@@ -332,6 +348,15 @@ body {
 
     p, ul, ol, dl, pre {
         margin-bottom: 4px;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
 

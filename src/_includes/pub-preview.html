@@ -11,7 +11,7 @@
     {% if include.excerpt %}
     <div class="post-extract">
         {% assign excerpt = include.excerpt | split: "</h1>" %}
-        <p>{{ excerpt.last }}</p>
+        <a href="{{ include.url }}"><p>{{ excerpt.last }}</p></a>
         <p class="read-more">
             <a href="{{ include.url }}">Read More</a>
         </p>
