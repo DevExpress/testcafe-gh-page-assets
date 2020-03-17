@@ -12,7 +12,7 @@ nav: blog-nav
 <div class="post-list">
 {% for contentItem in site.data.courses %}
     {% assign dateStr = contentItem.date | date: "%b %e, %Y" %}
-    {% capture subtitle %}Published on <a href="{{ contentItem.url }}">{{ contentItem.source }}</a> by {% if contentItem.profileUrl %}<a href="{{ contentItem.profileUrl }}">{{ contentItem.author }}</a>{% else %}{{ contentItem.author }}{% endif %} – {{ dateStr }}{% endcapture %}
-    {% include pub-preview.html url=contentItem.url title=contentItem.title date=dateStr subtitle=subtitle %}
+    {% capture subtitle %}Published{% if contentItem.source %} on <a href="{{ contentItem.url }}">{{ contentItem.source }}</a>{% endif %}{% if contentItem.author %} by {% if contentItem.profileUrl %}<a href="{{ contentItem.profileUrl }}">{{ contentItem.author }}</a>{% else %}{{ contentItem.author }}{% endif %}{% endif %}{% if contentItem.date %} – {{ dateStr }}{% endif %}{% endcapture %}
+    {% include pub-preview.html url=contentItem.url title=contentItem.title lang=contentItem.lang subtitle=subtitle %}
 {% endfor %}
 </div>

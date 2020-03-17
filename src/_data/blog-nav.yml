@@ -1,7 +1,5 @@
 - name: Blogs
   content:
-  - name: Blog
-    url: /team-blog/
   - name: Media
     content:
     - name: Courses

@@ -41,6 +41,16 @@
         color: #2fa4cf;
 
         &:hover {
+            color: #0086B7;
+        }
+    }
+}
+
+.post-subtitle, .read-more {
+    a {
+        text-decoration: underline;
+
+        &:hover {
             text-decoration: underline;
         }
     }
