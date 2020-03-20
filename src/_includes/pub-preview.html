@@ -1,0 +1,20 @@
+<div class="post-preview">
+    {% if include.subtitle == nil and include.dateStr %}
+        <div class="post-date">
+            {{ include.date }}
+        </div>
+    {% endif %}
+    <div class="post-title"><a href="{{ include.url }}">{{ include.title }}</a>{% if include.lang %} <span class="content-lang">({{ include.lang }})</span>{% endif %}</div>
+    {% if include.subtitle %}
+        <div class="post-subtitle">{{ include.subtitle }}</div>
+    {% endif %}
+    {% if include.excerpt %}
+    <div class="post-extract">
+        {% assign excerpt = include.excerpt | split: "</h1>" %}
+        <a href="{{ include.url }}"><p>{{ excerpt.last }}</p></a>
+        <p class="read-more">
+            <a href="{{ include.url }}">Read More</a>
+        </p>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,18 @@
+---
+layout: docs
+title: Online Courses
+nav: blog-nav
+---
+<div class="blog-title">
+    Online Courses
+</div>
+<div class="blog-subtitle">
+    This section lists online courses from the community that help you learn TestCafe
+</div>
+<div class="post-list">
+{% for contentItem in site.data.courses %}
+    {% assign dateStr = contentItem.date | date: "%b %e, %Y" %}
+    {% capture subtitle %}Published{% if contentItem.source %} on <a href="{{ contentItem.url }}">{{ contentItem.source }}</a>{% endif %}{% if contentItem.author %} by {% if contentItem.profileUrl %}<a href="{{ contentItem.profileUrl }}">{{ contentItem.author }}</a>{% else %}{{ contentItem.author }}{% endif %}{% endif %}{% if contentItem.date %} – {{ dateStr }}{% endif %}{% endcapture %}
+    {% include pub-preview.html url=contentItem.url title=contentItem.title lang=contentItem.lang subtitle=subtitle %}
+{% endfor %}
+</div>

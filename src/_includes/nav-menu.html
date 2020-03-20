@@ -1,17 +1,18 @@
-{% for menuItem in site.data.nav-menu %}
+{% if page.nav %}
+	{% assign menu=site.data[page.nav] %}
+{% elsif page.isTeamBlog %}
+    {% assign menu=site.data.blog-nav %}
+{% else %}
+    {% assign menu=site.data.nav-menu %}
+{% endif %}
+{% for menuItem in menu %}
 	{% capture menuItemUrl %}{{ menuItem.url | remove: "README.md" | replace: ".md", ".html" }}{% endcapture %}
-	{% if page.url contains menuItemUrl and menuItem.content %}
+	{% if (page.url contains menuItemUrl and menuItem.content) or (page.nav) %}
 	<div class="doc-nav-panel">
 		<div class="toggle-nav-button"></div>
 		<div class="doc-nav-panel-header">
 			<div class="doc-nav-panel-heading">Documentation</div>
-			<div class="doc-nav-panel-title">
-				{% for menuItem in site.data.docs-top-menu %}
-					{% if page.url contains menuItem.url %}
-						{{ menuItem.text }}
-					{% endif %}
-				{% endfor %}
-			</div>
+			<div class="doc-nav-panel-title">{{ menuItem.name }}</div>
 		</div>
 	</div>
 	<nav class="doc-nav">	

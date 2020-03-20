@@ -1,2 +1,6 @@
 {% capture url %}{{ include.url | remove: "README.md" | replace: ".md", ".html" }}{% endcapture %}
+{% if include.url %}
 <a href="{{ url | prepend: site.baseurl }}" {% if url == page.url %}class="active"{% endif %} >{{ include.name }}</a>
+{% else %}
+<span>{{ include.name }}</span>
+{% endif %}

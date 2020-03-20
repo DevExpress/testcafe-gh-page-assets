@@ -1,0 +1,18 @@
+---
+layout: docs
+title: Community Blogs
+nav: blog-nav
+---
+<div class="blog-title">
+    Community Blogs
+</div>
+<div class="blog-subtitle">
+    This section contains articles from the community
+</div>
+<div class="post-list">
+{% for contentItem in site.data.community-content %}
+    {% assign dateStr = contentItem.date | date: "%b %e, %Y" %}
+    {% capture subtitle %}Published{% if contentItem.source %} on <a href="{{ contentItem.url }}">{{ contentItem.source }}</a>{% endif %}{% if contentItem.author %} by {% if contentItem.profileUrl %}<a href="{{ contentItem.profileUrl }}">{{ contentItem.author }}</a>{% else %}{{ contentItem.author }}{% endif %}{% endif %}{% if contentItem.date %} – {{ dateStr }}{% endif %}{% endcapture %}
+    {% include pub-preview.html url=contentItem.url title=contentItem.title excerpt=contentItem.excerpt lang=contentItem.lang subtitle=subtitle %}
+{% endfor %}
+</div>

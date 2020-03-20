@@ -2,7 +2,7 @@
 ---
 @charset "utf-8";
 
-$base-font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+$base-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
 $base-font-size:   14px;
 $base-font-weight: normal;
 $base-line-height: 1.5;
@@ -27,7 +27,7 @@ $baseUrl:            "/testcafe";
 
 $header-height:     75px;
 $doc-header-height: 126px;
-$footer-height:     113px;
+$footer-height:     225px;
 
 $body-min-width: 1230px;
 $max-width:      1500px;

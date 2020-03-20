@@ -50,6 +50,8 @@ html {
                     }
 
                     .site-nav {
+                        flex-direction: column;
+                        align-items: end;
                         overflow-y: scroll;
                         width: 100%;
                         height: auto;
@@ -66,6 +68,7 @@ html {
                         .site-nav-tab {
                             display: block;
                             padding: 0;
+                            margin-right: 0;
 
                             .page-link {
                                 display: block;
@@ -143,44 +146,47 @@ html {
                                 height: auto;
                             }
                         }
-
-                        .star-button, #search-icon, #twitter-button {
-                            display: none;
-                        }
-
-                        #search-panel {
-                            display: block;
-                            opacity: 1;
-                            background-color: #fff;
-                            padding: 20px 30px 9px 30px;
-                            top: 0;
-
-                            .algolia-autocomplete {
-                                width: 100%;
-
-                                #search {
-                                    font-size: 16px;
-                                    width: calc(100% - 42px);
-                                    border: 1px solid rgba(0, 0, 0, 0.2);
-                                    border-radius: 4px;
-                                }
-
-                                .ds-dropdown-menu {
-                                    min-width: 0;
-                                }
-                            }
-
-                            #close-search {
-                                display:none;
-                            }
-                        }
-        
+       
                         .hamburger-button {
                             display: block;
                         }
         
                         &.active {
                             right: 0px;
+                        }
+                    }
+
+                    .site-header-buttons {
+                        display: none;
+                    }
+
+                    #search-panel {
+                        display: block;
+                        box-sizing: border-box;
+                        opacity: 1;
+                        background-color: #fff;
+                        padding: 20px 30px 9px 30px;
+                        top: 0;
+                        width: 100%;
+
+                        .algolia-autocomplete {
+                            width: 100%;
+
+                            #search {
+                                font-size: 16px;
+                                width: 100%;
+                                border: 1px solid rgba(0, 0, 0, 0.2);
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                            }
+
+                            .ds-dropdown-menu {
+                                min-width: 0;
+                            }
+                        }
+
+                        #close-search {
+                            display:none;
                         }
                     }
                 }
@@ -192,12 +198,12 @@ html {
                 .post {
                     padding: 70px 30px 0px;
                     min-width: 0;
-
-                    .blog-title {
-                        margin-top: 0; 
-                    }
                 }
-                
+
+                .blog-title {
+                    margin-top: 0; 
+                }
+
                 main {
                     .faq {
                         min-width: 0;
@@ -264,6 +270,8 @@ html {
     }
 }
 #studio-link-tab {
+    width: calc(100% - 40px);
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
