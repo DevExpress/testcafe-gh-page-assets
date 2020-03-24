@@ -4,7 +4,7 @@
             {{ include.date }}
         </div>
     {% endif %}
-    <div class="post-title"><a href="{{ include.url }}">{{ include.title }}</a>{% if include.lang %} <span class="content-lang">({{ include.lang }})</span>{% endif %}</div>
+    <div class="post-title"><a href="{{ include.url }}"{% if include.langCode %} lang="{{ include.langCode }}"{% endif %}>{{ include.title }}</a>{% if include.lang %} <span class="content-lang">({{ include.lang }})</span>{% endif %}</div>
     {% if include.subtitle %}
         <div class="post-subtitle">{{ include.subtitle }}</div>
     {% endif %}
