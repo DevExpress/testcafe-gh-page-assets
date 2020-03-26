@@ -23,4 +23,4 @@
     {% assign author = author | prepend: " by " %}
 {% endif %}
 {% capture subtitle %}Published{{ source }}{{ author }}{{ dateStr }}{% endcapture %}
-{% include pub-preview.html excerpt=item.excerpt url=item.url title=item.title lang=item.lang langCode=item.langCode subtitle=subtitle %}
+{% include pub-preview.html excerpt=item.excerpt url=item.url title=item.title lang=item.lang langCode=item.langCode showReadMore=include.showReadMore subtitle=subtitle %}
