@@ -7,12 +7,10 @@ nav: blog-nav
     Community Blogs
 </div>
 <div class="blog-subtitle">
-    This section contains articles from the community
+    This section contains articles written by TestCafe community members.
 </div>
 <div class="post-list">
 {% for contentItem in site.data.community-content %}
-    {% assign dateStr = contentItem.date | date: "%b %e, %Y" %}
-    {% capture subtitle %}Published{% if contentItem.source %} on <a href="{{ contentItem.url }}">{{ contentItem.source }}</a>{% endif %}{% if contentItem.author %} by {% if contentItem.profileUrl %}<a href="{{ contentItem.profileUrl }}">{{ contentItem.author }}</a>{% else %}{{ contentItem.author }}{% endif %}{% endif %}{% if contentItem.date %} – {{ dateStr }}{% endif %}{% endcapture %}
-    {% include pub-preview.html url=contentItem.url title=contentItem.title excerpt=contentItem.excerpt lang=contentItem.lang subtitle=subtitle %}
+    {% include community-content-item.html item=contentItem %}
 {% endfor %}
 </div>

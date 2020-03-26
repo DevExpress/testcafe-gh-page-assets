@@ -1,0 +1,26 @@
+{% assign linkCloseTag = "</a>" %}
+{% assign dateStr = "" %}
+{% assign source = "" %}
+{% assign author = "" %}
+{% assign item = include.item %}
+{% if item.date %}
+    {% assign dateStr = item.date | date: "%b %e, %Y" | prepend: " - " %}
+{% endif %}
+{% if item.source %}
+    {% assign source = item.source %}
+    {% if item.sourceHomePage %}
+        {% capture sourceLinkOpenTag %}<a href="{{ item.sourceHomePage }}">{% endcapture %}
+        {% assign source = source | prepend: sourceLinkOpenTag | append: linkCloseTag %}
+    {% endif %}
+    {% assign source = source | prepend: " on " %}
+{% endif %}
+{% if item.author %}
+    {% assign author = item.author %}
+    {% if item.profileUrl %}
+        {% capture profileLinkOpenTag %}<a href="{{ item.profileUrl }}">{% endcapture %}
+        {% assign author = author | prepend: profileLinkOpenTag | append: linkCloseTag %}
+    {% endif %}
+    {% assign author = author | prepend: " by " %}
+{% endif %}
+{% capture subtitle %}Published{{ source }}{{ author }}{{ dateStr }}{% endcapture %}
+{% include pub-preview.html excerpt=item.excerpt url=item.url title=item.title lang=item.lang langCode=item.langCode showReadMore=include.showReadMore subtitle=subtitle %}
