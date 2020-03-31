@@ -1,17 +1,10 @@
 <head>
-  {% assign communityUrls = "/team-blog/, /courses/, /community/" | split: ", " %}
-  {% assign isCommunitySection = false %}
-  {% for url in communityUrls %}
-    {% if page.url contains url %}
-        {% assign isCommunitySection = true %}
-    {% endif %}
-  {% endfor %}
-
   {% if page.permalink == '/' %}{% assign isLandingPage = true %}{% else %}{% assign isLandingPage = false %}{% endif %}
   {% if page.url contains '/getting-started/' or page.url contains '/how-it-works/' %}{% assign isGettingStarted = true %}{% else %}{% assign isGettingStarted = false %}{% endif %}
   {% if page.url contains '/support/' %}{% assign isSupportPage = true %}{% else %}{% assign isSupportPage = false %}{% endif %}
   {% if page.url contains '/survey/' %}{% assign isSurveyPage = true %}{% else %}{% assign isSurveyPage = false %}{% endif %}
   {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
+  {% if page.url contains '/media/' %}{% assign isCommunitySection = true %}{% else %}{% assign isCommunitySection = false %}{% endif %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

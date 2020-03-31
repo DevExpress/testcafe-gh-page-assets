@@ -3,6 +3,6 @@
   - name: Media
     content:
     - name: Courses
-      url: /courses/
+      url: /media/courses/
     - name: Community Blogs
-      url: /community/
+      url: /media/community/
