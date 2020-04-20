@@ -2,7 +2,9 @@
   content:
   - name: Media
     content:
-    - name: Courses
-      url: /media/courses/
+    - name: Team Blog
+      url: /media/team-blog/
     - name: Community Blogs
       url: /media/community/
+    - name: Courses
+      url: /media/courses/
