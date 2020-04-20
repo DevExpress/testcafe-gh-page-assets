@@ -14,6 +14,3 @@ plugins:
 
 # Blog
 excerpt_separator: "<!--more-->"
-
-# Exclude Team Blog for now
-exclude: ["media/team-blog/index.html"]
