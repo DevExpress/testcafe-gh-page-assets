@@ -223,8 +223,9 @@
     <script defer type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"></script>
 
     <script>
-        var MIN_BODY_WIDTH = 1230;
-        var FOOTER_HEIGHT  = 225;
+        var MIN_BODY_WIDTH            = 1230;
+        var FOOTER_HEIGHT             = 225;
+        var SCROLL_POSITION_ITEM_NAME = 'SCROLL_POSITION';
 
         var nav     = null;
         var article = null;
@@ -246,7 +247,7 @@
             if (document.body.clientWidth > MIN_BODY_WIDTH) {
                 if (nav.style.top !== headerHeight + 'px') {
                     nav.style.top = headerHeight + 'px';
-                    Ps.update(nav);
+                    updatePs(nav);
                 }
             }
             else {
@@ -254,7 +255,7 @@
 
                 if (nav.style.top !== top) {
                     nav.style.top = top;
-                    Ps.update(nav);
+                    updatePs(nav);
                 }
             }
         }
@@ -266,12 +267,12 @@
             if (footerVisibleHeight > 0) {
                 if (nav.style.bottom !== footerVisibleHeight + 'px') {
                     nav.style.bottom = footerVisibleHeight + 'px';
-                    Ps.update(nav);
+                    updatePs(nav);
                 }
             }
             else if (nav.style.bottom !== '0') {
                 nav.style.bottom = '0';
-                Ps.update(nav);
+                updatePs(nav);
             }
         }
 
@@ -291,8 +292,17 @@
             Ps.initialize(nav);
 
             window.addEventListener('resize', function () {
-                Ps.update(nav);
+                updatePs(nav);
             });
+        }
+
+        function saveScrollPosition (container) {
+            window.localStorage.setItem(SCROLL_POSITION_ITEM_NAME, container.scrollTop);
+        }
+
+        function updatePs(container) {
+            Ps.update(container);
+            saveScrollPosition(container);
         }
 
         function initNav() {
@@ -302,16 +312,9 @@
             window.addEventListener('resize', updateNavMenuPosition);
         }
 
-        function scrollToActiveItem() {
-            var activeItem = document.querySelector('.doc-nav .active');
-            var scrollContainer = document.querySelector('.ps-container');
-
-            if (scrollContainer && activeItem) {
-                scrollContainer.scrollTop = activeItem.offsetTop;
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', function (e) {
+            var scrollPosition = window.localStorage.getItem(SCROLL_POSITION_ITEM_NAME);
+
             if (isMobileDevice)
                 return;
 
@@ -321,7 +324,13 @@
             if (nav)
                 initNav(nav);
 
-            scrollToActiveItem();
+            var scrollContainer = document.querySelector('.ps-container');
+            
+            if(scrollContainer) {
+                scrollContainer.scrollTop = scrollPosition ?? 0;
+                scrollContainer.addEventListener('ps-scroll-x', () => saveScrollPosition(scrollContainer));
+                scrollContainer.addEventListener('ps-scroll-y', () => saveScrollPosition(scrollContainer));
+            }
         });
     </script>
     {% capture docsMobileCss %}{{ "/css/docs.mobile.css" | prepend: site.baseurl }}{% endcapture %}
