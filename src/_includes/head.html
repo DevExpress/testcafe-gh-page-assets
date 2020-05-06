@@ -302,6 +302,15 @@
             window.addEventListener('resize', updateNavMenuPosition);
         }
 
+        function scrollToActiveItem() {
+            var activeItem = document.querySelector('.doc-nav .active');
+            var scrollContainer = document.querySelector('.ps-container');
+
+            if (scrollContainer && activeItem) {
+                scrollContainer.scrollTop = activeItem.offsetTop;
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function (e) {
             if (isMobileDevice)
                 return;
@@ -311,6 +320,8 @@
 
             if (nav)
                 initNav(nav);
+
+            scrollToActiveItem();
         });
     </script>
     {% capture docsMobileCss %}{{ "/css/docs.mobile.css" | prepend: site.baseurl }}{% endcapture %}
