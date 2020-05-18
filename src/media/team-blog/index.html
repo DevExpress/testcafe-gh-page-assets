@@ -3,6 +3,21 @@ layout: docs
 title: TestCafe Team Blog
 nav: blog-nav
 ---
+<script>
+    var POST_CLASS     = 'post-title';
+    var POST_DATE_ATTR = 'data-creation-date';
+
+    window.addEventListener('DOMContentLoaded', function (e) {
+        document.querySelectorAll(`.${POST_CLASS}[${POST_DATE_ATTR}]`).forEach(element => {
+            var postDate = new Date(element.getAttribute(POST_DATE_ATTR) * 1000);
+
+            if(postDate > teamBlogLastVisited)
+                element.className += ` ${TEAM_BLOG_LINK_NEW_CLASS}`;
+        });
+
+        window.localStorage.setItem(TEAM_BLOG_LAST_VISITED_FLAG, Date.now());
+    });    
+</script>
 <div class="blog-title">
     TestCafe Team Blog
 </div>
@@ -13,9 +28,10 @@ nav: blog-nav
 {% for post in site.posts %}
     {% if post.isTeamBlog %}
         {% assign dateStr = post.date | date: "%b %e, %Y" %}
+        {% assign dateAttr = post.date | date: "%s" %}
         {% assign url = post.url | prepend: site.baseurl %}
         {% capture subtitle %}Published by {{ post.author }} – {{ dateStr }}{% endcapture %}
-        {% include pub-preview.html url=url title=post.title excerpt=post.excerpt date=dateStr subtitle=subtitle %}
+        {% include pub-preview.html url=url title=post.title excerpt=post.excerpt date=dateStr dateAttr=dateAttr subtitle=subtitle notificationsEnabled=true %}
     {% endif %}
 {% endfor %}
 </div>

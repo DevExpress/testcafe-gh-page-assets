@@ -44,6 +44,13 @@
             color: #0086B7;
         }
     }
+
+    &.new-post a {
+        background-image: url("/testcafe/images/newblog-icon.svg");
+        background-position: bottom 5px right;
+        background-repeat: no-repeat;
+        padding-right: 42px;
+    }
 }
 
 .post-subtitle, .read-more {

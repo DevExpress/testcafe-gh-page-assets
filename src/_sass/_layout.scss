@@ -163,6 +163,12 @@
                 text-decoration: none;
             }
         }
+
+        &.new-post {
+            background-image: url($baseUrl + "/images/newblog-menu-indicator-icon.svg");
+            background-position: top 4px right 7px;
+            background-repeat: no-repeat;
+        }
     }
 }
 

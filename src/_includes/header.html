@@ -44,6 +44,34 @@
   }
 </script>
 {% endif %}
+{% assign lastPost = "January 1, 1985" | date: "%s" %}
+{% for post in site.posts %}
+    {% if post.isTeamBlog %}
+        {% assign thisPost = post.date | date: "%s" %}
+        {% if lastPost < thisPost %}
+            {% assign lastPost = thisPost %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+<script>
+    var TEAM_BLOG_LAST_VISITED_FLAG = 'team-blog-last-visited';
+    var TEAM_BLOG_LINK_ID           = 'blog-link';
+    var TEAM_BLOG_LINK_NEW_CLASS    = 'new-post';
+    var NOTIFICATIONS_ACTIVE_SINCE  = new Date(2020, 4, 21)
+
+    var teamBlogLastVisited = window.localStorage.getItem(TEAM_BLOG_LAST_VISITED_FLAG) || NOTIFICATIONS_ACTIVE_SINCE;
+
+    window.addEventListener('DOMContentLoaded', function (e) {
+        var lastPostDate = new Date({{ lastPost }} * 1000);
+        
+        if(lastPostDate > teamBlogLastVisited) {
+            var blogLink = document.getElementById(TEAM_BLOG_LINK_ID).parentElement;
+            
+            if(blogLink)
+                blogLink.className += ` ${TEAM_BLOG_LINK_NEW_CLASS}`;
+        }
+    });
+</script>
 <header class="site-header{% if isLandingPage == false and isSupportPage == false and isSurveyPage == false %} fixed{% endif %}">
   <div class="site-header-content">
     <a class="site-logo" href="{{ site.baseurl }}/"></a>
