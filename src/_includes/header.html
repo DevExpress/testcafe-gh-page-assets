@@ -44,10 +44,10 @@
   }
 </script>
 {% endif %}
-{% assign lastPost = "January 1, 1985" | date: "%s" %}
+{% assign lastPost = "January 1, 1985" | date: "%s" | plus: 0 %}
 {% for post in site.posts %}
     {% if post.isTeamBlog %}
-        {% assign thisPost = post.date | date: "%s" %}
+        {% assign thisPost = post.date | date: "%s" | plus: 0 %}
         {% if lastPost < thisPost %}
             {% assign lastPost = thisPost %}
         {% endif %}
