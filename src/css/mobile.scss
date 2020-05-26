@@ -93,6 +93,10 @@ html {
                                 border-radius: 0;
                             }
 
+                            &.new-post {
+                                background-position: top 11px right;
+                            }
+
                             &:nth-child(2) {
                                 padding: 10px 0 10px;
 
