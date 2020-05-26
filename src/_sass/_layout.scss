@@ -168,7 +168,7 @@
             background-image: url($baseUrl + "/images/newblog-menu-indicator-icon.svg");
             background-position: top 4px right 7px;
             @media (max-width: 1310px) {
-                background-position: top 4px right;
+                background-position: top 4px right 1px;
             }
             background-repeat: no-repeat;
         }
