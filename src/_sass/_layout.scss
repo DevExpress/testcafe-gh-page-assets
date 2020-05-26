@@ -144,8 +144,8 @@
         margin-right: 20px;
 
         @media (max-width: 1310px) {
-            padding-left: 7px;
-            padding-right: 7px;
+            padding-left: 8px;
+            padding-right: 8px;
         }
 
         &.active {
@@ -167,6 +167,9 @@
         &.new-post {
             background-image: url($baseUrl + "/images/newblog-menu-indicator-icon.svg");
             background-position: top 4px right 7px;
+            @media (max-width: 1310px) {
+                background-position: top 4px right 1px;
+            }
             background-repeat: no-repeat;
         }
     }
