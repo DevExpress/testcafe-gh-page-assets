@@ -56,6 +56,10 @@
     margin-top: 32px;
 }
 
+.survey-banner[style*="static"]:not(.hidden) ~ .site-header {
+    margin-top: 0;
+}
+
 .survey-banner:not(.hidden) ~ .doc-top-nav {
     top: 107px;
 }
