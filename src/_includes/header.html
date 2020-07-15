@@ -16,7 +16,9 @@
       function hideSurveyBanner() {
           surveyBanner.className = surveyBanner.className += ' hidden';
 
-          if (!isMobileDevice)
+          var navExists = !!document.querySelector('.doc-nav');
+
+          if (!isMobileDevice && typeof updateNavMenuPosition !== 'undefined' && navExists)
               updateNavMenuPosition();
       }
 
