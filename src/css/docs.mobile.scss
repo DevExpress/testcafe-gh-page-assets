@@ -3,6 +3,32 @@
 html {
     body {
         .page-content-wrapper {
+            .survey-banner {
+                position: fixed;
+                height: auto;
+
+                .survey-banner-message {
+                    line-height: 20px;
+                    padding: 10px 30px;
+
+                    span {
+                        display: block;
+                        text-align: left;
+                        margin: 4px 0;
+
+                        &.desktop-text {
+                            display: none;
+                        }
+                        &.mobile-text {
+                            display: block;
+                        }
+                    }
+                }
+
+                .survey-banner-close-button {
+                    background-position: top 15px right 15px;
+                }
+            }
             .container {
                 .doc-nav-panel {
                     background-color: #2e688a;
@@ -139,6 +165,26 @@ html {
                                 border-radius: 2px;
                             }
                         }
+                    }
+                }
+            }
+            .survey-banner:not(.hidden) ~ .container {
+                padding-top: 0;
+
+                .doc-nav-panel {
+                    margin-top: 132px;
+                }
+
+                .doc-nav {
+                    top: 192px;
+                }
+            }
+            .survey-banner:not(.hidden) ~ .site-header {
+                top: 72px;
+
+                .site-header-content {
+                    .site-nav {
+                        top: 132px;
                     }
                 }
             }
