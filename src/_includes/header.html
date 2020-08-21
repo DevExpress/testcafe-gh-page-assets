@@ -1,25 +1,14 @@
-{% if isDocumentation == true and isGettingStarted == false and isCommunitySection == false %}
 <div class="survey-banner hidden">
-  <div class="survey-banner-message">
-      <span>How do you like TestCafe? </span><span class="desktop-text">Please take 3 minutes to fill out our survey. </span><a href="https://dxpr.es/2WYA3X4" target="_blank"><span class="desktop-text">Take the survey</span><span class="mobile-text">Take a 3-minute survey.</span></a>
-  </div>
+    <div class="survey-banner-message">
+        <span class="desktop-text">Join us on Tuesday, September 8th at 10am PDT / 1pm EDT for a live webinar on how to write and record tests more quickly. </span><span class="mobile-text">Join us on September 8th for a live webinar.</span> <a href="https://dxpr.es/2CN5god" target="_blank"><span>Register</span></a>
+    </div>
   <div class="survey-banner-close-button"></div>
 </div>
 <script>
-  var SURVEY_BANNER_DISPLAY_SETBACK_DAYS = 7;
+  var wasWebinarBannerDismissed = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG);
+  var webinarOpenDate           = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG);
 
-  function getDaysBetween(fromTime, toTime) {
-      var dayDurationMs = 24*60*60*1000;
-
-      return Math.round(Math.abs((fromTime - toTime)/(dayDurationMs)));
-  }
-
-  var wasSurveyBannerDismissed = window.localStorage.getItem(SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG);
-  var wasSurveyCompleted       = window.localStorage.getItem(SUMMER_2019_SURVEY_COMPLETED_FLAG);
-  var surveyOpenDate           = window.localStorage.getItem(SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG);
-  var surveySetbackExpired     = !surveyOpenDate || (getDaysBetween(surveyOpenDate, Date.now()) > SURVEY_BANNER_DISPLAY_SETBACK_DAYS);
-
-  if(!wasSurveyBannerDismissed && !wasSurveyCompleted && surveySetbackExpired) {
+  if(!wasWebinarBannerDismissed && !webinarOpenDate) {
       var surveyBanner      = document.querySelector('.survey-banner');
       var surveyLink        = document.querySelector('.survey-banner a');
       var surveyBannerClose = document.querySelector('.survey-banner-close-button');
@@ -27,7 +16,9 @@
       function hideSurveyBanner() {
           surveyBanner.className = surveyBanner.className += ' hidden';
 
-          if (!isMobileDevice)
+          var navExists = !!document.querySelector('.doc-nav');
+
+          if (!isMobileDevice && typeof updateNavMenuPosition !== 'undefined' && navExists)
               updateNavMenuPosition();
       }
 
@@ -35,7 +26,7 @@
 
       surveyBannerClose.addEventListener('click', function () {
           hideSurveyBanner();
-          window.localStorage.setItem(SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG, true);
+          window.localStorage.setItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG, true);
       });
 
       surveyLink.addEventListener('click', function () {
@@ -43,7 +34,6 @@
       });
   }
 </script>
-{% endif %}
 {% assign lastPost = "January 1, 1985" | date: "%s" | plus: 0 %}
 {% for post in site.posts %}
     {% if post.isTeamBlog %}
@@ -195,7 +185,7 @@
     <div class="doc-top-nav-wrapper">
       {% for menuItem in site.data.docs-top-menu %}
         <div class="doc-top-nav-tab {% if page.url contains menuItem.url %}active{% endif %}" >
-          <a href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>      
+          <a href="{{ menuItem.url | prepend: site.baseurl }}">{{ menuItem.text }}</a>
         </div>
       {% endfor %}
     </div>

@@ -5,6 +5,7 @@
   {% if page.url contains '/survey/' %}{% assign isSurveyPage = true %}{% else %}{% assign isSurveyPage = false %}{% endif %}
   {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
   {% if page.url contains '/media/' %}{% assign isCommunitySection = true %}{% else %}{% assign isCommunitySection = false %}{% endif %}
+  {% if page.url contains '/the-fastest-way-to-your-next-test' %}{% assign isWebinarPage = true %}{% endif %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,6 +35,7 @@
   
   <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/banner.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{% include canonical-link.html %}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
@@ -56,9 +58,11 @@
      var isMobileDevice = !!md.mobile();
   </script>
   <script>
-      var SUMMER_2019_SURVEY_COMPLETED_FLAG        = 'summer-2019-survey-completed';
-      var SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG   = 'summer-2019-survey-page-open-date';
-      var SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG = 'summer-2019-survey-banner-dismissed';
+      var SUMMER_2019_SURVEY_COMPLETED_FLAG            = 'summer-2019-survey-completed';
+      var SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG       = 'summer-2019-survey-page-open-date';
+      var SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG     = 'summer-2019-survey-banner-dismissed';
+      var SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG = 'september-2020-webinar-banner-dismissed';
+      var SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG        = 'september-2020-webinar-page-open-date';
   </script>
   <script>
       document.addEventListener('DOMContentLoaded', function (e) {
@@ -109,7 +113,13 @@
   <script defer src="https://surveyjs.azureedge.net/1.0.90/survey.jquery.min.js" type="text/javascript"></script>
   <script defer src="{{ "/scripts/tc-survey.js" | prepend: site.baseurl }}" type="text/javascript"></script>
   <link rel="stylesheet" href="{{ "/css/tc-survey.css" | prepend: site.baseurl }}">
-  {% endif %}  
+  {% endif %}
+
+  {% if isWebinarPage %}
+  <script>
+    window.localStorage.setItem(SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG, Date.now());
+  </script>
+  {% endif %}
 
   <script>
     function linkCss (href) {
@@ -132,8 +142,12 @@
     }
   </script>
     {% capture mobileCss %}{{ "/css/mobile.css" | prepend: site.baseurl }}{% endcapture %}
+    {% capture bannerMobileCss %}{{ "/css/banner.mobile.css" | prepend: site.baseurl }}{% endcapture %}
+
     <script>
         if (isMobileDevice) {
+            linkCss('{{ bannerMobileCss }}');
+
             document.addEventListener('DOMContentLoaded', function (e) {
                 var siteNav         = document.querySelector('.site-nav');
                 var hamburgerButton = document.querySelector('.hamburger-button');
@@ -325,8 +339,10 @@
         });
     </script>
     {% capture docsMobileCss %}{{ "/css/docs.mobile.css" | prepend: site.baseurl }}{% endcapture %}
+    {% capture bannerMobileCss %}{{ "/css/banner.mobile.css" | prepend: site.baseurl }}{% endcapture %}
     <script>
         if (isMobileDevice) {
+            linkCss('{{ bannerMobileCss }}');
             linkCss('{{ docsMobileCss }}');           
             
             if ({{ isGettingStarted }} == false) {
