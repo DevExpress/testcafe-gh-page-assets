@@ -1,14 +1,14 @@
 <div class="survey-banner hidden">
     <div class="survey-banner-message">
-        <span class="desktop-text">Join us on Wednesday, July 29th at 10am PDT / 1pm EDT for a live webinar on how to easily incorporate UI testing in your development workflow. </span><span class="mobile-text">Join us on July 29th for a live webinar.</span> <a href="/testcafe/media/team-blog/10-ways-to-simplify-your-ui-testing.html" target="_blank"><span>Register</span></a>
+        <span class="desktop-text">Join us on Tuesday, September 8th at 10am PDT / 1pm EDT for a live webinar on how to write and record tests more quickly. </span><span class="mobile-text">Join us on September 8th for a live webinar.</span> <a href="https://dxpr.es/2CN5god" target="_blank"><span>Register</span></a>
     </div>
   <div class="survey-banner-close-button"></div>
 </div>
 <script>
-  var wasSurveyBannerDismissed = window.localStorage.getItem(SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG);
-  var surveyOpenDate           = window.localStorage.getItem(SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG);
+  var wasWebinarBannerDismissed = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG);
+  var webinarOpenDate           = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG);
 
-  if(!wasSurveyBannerDismissed && !surveyOpenDate) {
+  if(!wasWebinarBannerDismissed && !webinarOpenDate) {
       var surveyBanner      = document.querySelector('.survey-banner');
       var surveyLink        = document.querySelector('.survey-banner a');
       var surveyBannerClose = document.querySelector('.survey-banner-close-button');
@@ -26,7 +26,7 @@
 
       surveyBannerClose.addEventListener('click', function () {
           hideSurveyBanner();
-          window.localStorage.setItem(SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG, true);
+          window.localStorage.setItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG, true);
       });
 
       surveyLink.addEventListener('click', function () {

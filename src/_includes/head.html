@@ -5,7 +5,7 @@
   {% if page.url contains '/survey/' %}{% assign isSurveyPage = true %}{% else %}{% assign isSurveyPage = false %}{% endif %}
   {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
   {% if page.url contains '/media/' %}{% assign isCommunitySection = true %}{% else %}{% assign isCommunitySection = false %}{% endif %}
-  {% if page.url contains '/10-ways-to-simplify-your-ui-testing' %}{% assign isWebinarPage = true %}{% endif %}
+  {% if page.url contains '/the-fastest-way-to-your-next-test' %}{% assign isWebinarPage = true %}{% endif %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,8 +58,10 @@
      var isMobileDevice = !!md.mobile();
   </script>
   <script>
-      var SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG   = 'summer-2019-survey-page-open-date';
-      var SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG = 'summer-2019-survey-banner-dismissed';
+      var SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG       = 'summer-2019-survey-page-open-date';
+      var SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG     = 'summer-2019-survey-banner-dismissed';
+      var SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG = 'september-2020-webinar-banner-dismissed';
+      var SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG        = 'september-2020-webinar-page-open-date';
   </script>
   <script>
       document.addEventListener('DOMContentLoaded', function (e) {
@@ -114,7 +116,7 @@
 
   {% if isWebinarPage %}
   <script>
-    window.localStorage.setItem(SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG, Date.now());
+    window.localStorage.setItem(SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG, Date.now());
   </script>
   {% endif %}
 
