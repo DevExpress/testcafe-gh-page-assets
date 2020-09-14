@@ -58,13 +58,6 @@
      var isMobileDevice = !!md.mobile();
   </script>
   <script>
-      var SUMMER_2019_SURVEY_COMPLETED_FLAG            = 'summer-2019-survey-completed';
-      var SUMMER_2019_SURVEY_PAGE_OPEN_DATE_FLAG       = 'summer-2019-survey-page-open-date';
-      var SUMMER_2019_SURVEY_BANNER_DISMISSED_FLAG     = 'summer-2019-survey-banner-dismissed';
-      var SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG = 'september-2020-webinar-banner-dismissed';
-      var SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG        = 'september-2020-webinar-page-open-date';
-  </script>
-  <script>
       document.addEventListener('DOMContentLoaded', function (e) {
           hljs.initHighlightingOnLoad();
       });
@@ -244,13 +237,7 @@
         var article = null;
 
         function getHeaderHeight () {
-            var DOCS_HEADER_HEIGHT   = {% if isCommunitySection %}76{% else %}126{% endif %};
-            var SURVEY_HEADER_HEIGHT = 32;
-
-            var surveyBanner          = document.querySelector('.survey-banner');
-            var isSurveyBannerVisible = surveyBanner && surveyBanner.className.indexOf('hidden') === -1;
-
-            return isSurveyBannerVisible ? DOCS_HEADER_HEIGHT + SURVEY_HEADER_HEIGHT : DOCS_HEADER_HEIGHT;
+            return {% if isCommunitySection %}76{% else %}126{% endif %};
         }
 
         function setNavTopPosition () {
@@ -376,7 +363,7 @@
     </script>
   {% endif %}
     <script>
-        function initHeader(siteHeader, contentWrapper, docTopMenu, article, gs, surveyBanner) {
+        function initHeader(siteHeader, contentWrapper, docTopMenu, article, gs) {
             var MIN_BODY_WIDTH = 1230;
 
             function updateHeader() {
@@ -405,9 +392,6 @@
                 if(docTopMenu)
                     docTopMenu.style.position = bodyMinimized ? 'static' : '';
 
-                if(surveyBanner)
-                    surveyBanner.style.position = bodyMinimized ? 'static' : '';
-
                 if(contentWrapper)
                     contentWrapper.style.paddingTop = bodyMinimized ? '0' : '';
 
@@ -427,10 +411,9 @@
             var docTopMenu     = document.querySelector('.doc-top-nav');
             var article        = document.querySelector('.doc');
             var gs             = document.querySelector('.gs');
-            var surveyBanner   = document.querySelector('.survey-banner');
 
             if(siteHeader)
-                initHeader(siteHeader, contentWrapper, docTopMenu, article, gs, surveyBanner);
+                initHeader(siteHeader, contentWrapper, docTopMenu, article, gs);
         });
     </script>
 </head>
