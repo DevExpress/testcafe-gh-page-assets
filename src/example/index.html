@@ -29,20 +29,22 @@
             }
 
             function setupShadowDom() {
-                const supportsShadowDOMV1   = !!HTMLElement.prototype.attachShadow;
-                const host                  = document.getElementById("shadow-host");
+                const supportsShadowDOMV1 = !!HTMLElement.prototype.attachShadow;
+                const host                = document.getElementById("shadow-host");
 
                 if (supportsShadowDOMV1) {
-                    const p         = document.createElement("p");
+                    const p = document.createElement("p");
+
                     p.innerText     = "This paragraph is in the shadow tree";
                     p.style.display = "none";
-                    p.setAttribute("id", "shadow-paragraph");
+                    p.id            = "shadow-paragraph";
 
-                    const root      = host.attachShadow({mode: "open"});
+                    const root = host.attachShadow({ mode: "open" });
+
                     root.appendChild(p);
-                } else {
-                    console.log('Shadow DOM V1 not supported by the browser. Skipping...');
                 }
+                else
+                    console.log("Shadow DOM V1 not supported by the browser. Skipping...");
             }
 
             $("#slider").slider({ min: 1, max: 10, disabled: true, value: $("#testcafe-rank").val() });
@@ -75,7 +77,7 @@
                 event.preventDefault();
             });
 
-            $(document).ready(setupShadowDom)
+            $(document).ready(setupShadowDom);
         });
     </script>
 </head>
