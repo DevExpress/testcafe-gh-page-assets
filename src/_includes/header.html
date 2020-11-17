@@ -5,8 +5,8 @@
   <div class="survey-banner-close-button"></div>
 </div>
 <script>
-  var wasWebinarBannerDismissed = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG);
-  var webinarOpenDate           = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG);
+  var wasWebinarBannerDismissed = window.localStorage.getItem(DECEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG);
+  var webinarOpenDate           = window.localStorage.getItem(DECEMBER_2020_WEBINAR_OPEN_DATE_FLAG);
 
   if(!wasWebinarBannerDismissed && !webinarOpenDate) {
       var surveyBanner      = document.querySelector('.survey-banner');
@@ -26,7 +26,7 @@
 
       surveyBannerClose.addEventListener('click', function () {
           hideSurveyBanner();
-          window.localStorage.setItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG, true);
+          window.localStorage.setItem(DECEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG, true);
       });
 
       surveyLink.addEventListener('click', function () {
