@@ -1,3 +1,39 @@
+<div class="survey-banner hidden">
+    <div class="survey-banner-message">
+        <span class="desktop-text">Join us on Tuesday, September 8th at 10am PDT / 1pm EDT for a live webinar on how to write and record tests more quickly. </span><span class="mobile-text">Join us on September 8th for a live webinar.</span> <a href="https://dxpr.es/2CN5god" target="_blank"><span>Register</span></a>
+    </div>
+  <div class="survey-banner-close-button"></div>
+</div>
+<script>
+  var wasWebinarBannerDismissed = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG);
+  var webinarOpenDate           = window.localStorage.getItem(SEPTEMBER_2020_WEBINAR_OPEN_DATE_FLAG);
+
+  if(!wasWebinarBannerDismissed && !webinarOpenDate) {
+      var surveyBanner      = document.querySelector('.survey-banner');
+      var surveyLink        = document.querySelector('.survey-banner a');
+      var surveyBannerClose = document.querySelector('.survey-banner-close-button');
+
+      function hideSurveyBanner() {
+          surveyBanner.className = surveyBanner.className += ' hidden';
+
+          var navExists = !!document.querySelector('.doc-nav');
+
+          if (!isMobileDevice && typeof updateNavMenuPosition !== 'undefined' && navExists)
+              updateNavMenuPosition();
+      }
+
+      surveyBanner.className = surveyBanner.className.replace(/hidden/,'');
+
+      surveyBannerClose.addEventListener('click', function () {
+          hideSurveyBanner();
+          window.localStorage.setItem(SEPTEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG, true);
+      });
+
+      surveyLink.addEventListener('click', function () {
+          hideSurveyBanner();
+      });
+  }
+</script>
 {% assign lastPost = "January 1, 1985" | date: "%s" | plus: 0 %}
 {% for post in site.posts %}
     {% if post.isTeamBlog %}
