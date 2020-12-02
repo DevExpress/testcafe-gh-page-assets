@@ -1,39 +1,3 @@
-<div class="survey-banner hidden">
-    <div class="survey-banner-message">
-        <span class="desktop-text">Join us on Wednesday, December 2nd at 10 AM PST for a live webinar on how to get true cross-browser test coverage with TestCafe and LambdaTest. </span><span class="mobile-text">Join us on December 2nd for a live webinar.</span> <a href="https://www.lambdatest.com/webinar/how-to-get-true-cross-browser-test-coverage-with-testCafe-and-lambdatest-webinar" target="_blank"><span>Register</span></a>
-    </div>
-  <div class="survey-banner-close-button"></div>
-</div>
-<script>
-  var wasWebinarBannerDismissed = window.localStorage.getItem(DECEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG);
-  var webinarOpenDate           = window.localStorage.getItem(DECEMBER_2020_WEBINAR_OPEN_DATE_FLAG);
-
-  if(!wasWebinarBannerDismissed && !webinarOpenDate) {
-      var surveyBanner      = document.querySelector('.survey-banner');
-      var surveyLink        = document.querySelector('.survey-banner a');
-      var surveyBannerClose = document.querySelector('.survey-banner-close-button');
-
-      function hideSurveyBanner() {
-          surveyBanner.className = surveyBanner.className += ' hidden';
-
-          var navExists = !!document.querySelector('.doc-nav');
-
-          if (!isMobileDevice && typeof updateNavMenuPosition !== 'undefined' && navExists)
-              updateNavMenuPosition();
-      }
-
-      surveyBanner.className = surveyBanner.className.replace(/hidden/,'');
-
-      surveyBannerClose.addEventListener('click', function () {
-          hideSurveyBanner();
-          window.localStorage.setItem(DECEMBER_2020_WEBINAR_BANNER_DISMISSED_FLAG, true);
-      });
-
-      surveyLink.addEventListener('click', function () {
-          hideSurveyBanner();
-      });
-  }
-</script>
 {% assign lastPost = "January 1, 1985" | date: "%s" | plus: 0 %}
 {% for post in site.posts %}
     {% if post.isTeamBlog %}
