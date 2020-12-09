@@ -1,0 +1,16 @@
+---
+layout: docs
+title: Books
+nav: blog-nav
+---
+<div class="blog-title">
+    Books
+</div>
+<div class="blog-subtitle">
+    This section lists books written by expert developers and TestCafe users. Check these books for some exclusive hints and insights.
+</div>
+<div class="post-list">
+{% for contentItem in site.data.books %}
+    {% include community-content-item.html item=contentItem showReadMore=false isBook=true %}
+{% endfor %}
+</div>
