@@ -1,6 +1,6 @@
 <head>
   {% if page.permalink == '/' %}{% assign isLandingPage = true %}{% else %}{% assign isLandingPage = false %}{% endif %}
-  {% if page.url contains '/getting-started/' or page.url contains '/how-it-works/' or page.url contains '/examples/' %}{% assign isGettingStarted = true %}{% else %}{% assign isGettingStarted = false %}{% endif %}
+  {% if page.url contains '/getting-started/' or page.url contains '/why-testcafe/' or page.url contains '/examples/' %}{% assign isGettingStarted = true %}{% else %}{% assign isGettingStarted = false %}{% endif %}
   {% if page.url contains '/support/' %}{% assign isSupportPage = true %}{% else %}{% assign isSupportPage = false %}{% endif %}
   {% if page.url contains '/survey/' %}{% assign isSurveyPage = true %}{% else %}{% assign isSurveyPage = false %}{% endif %}
   {% if page.url contains '/documentation/' %}{% assign isDocumentation = true %}{% else %}{% assign isDocumentation = false %}{% endif %}
