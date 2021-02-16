@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<main>
+    <div class="post">
+        <div class="post-date">
+            Last modified: {{ page.date | date: "%b %e, %Y" | upcase }}
+        </div>
+        <article class="post-content">
+            {{ content }}
+        </article>
+    </div>
+</main>
